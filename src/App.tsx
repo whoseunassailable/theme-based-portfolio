@@ -11,7 +11,7 @@ import { AboutMe } from "./pages/AboutMe";
 function App() {
   return (
     <ThemeProviderWrapper>
-      <Router basename="/theme-based-portfolio">
+      <Router basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work_experience" element={<WorkExperience />} />
