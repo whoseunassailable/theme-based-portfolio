@@ -3,17 +3,16 @@ import LogoName from "../assets/logo_name.png";
 import { Grid, Box, IconButton } from "@mui/material";
 import { MuiSelectTheme } from "./MuiSelectTheme";
 import { NavBarButton } from "./NavBarButton";
+import { pageOptions } from "../constants/pageOptions";
 
 export const MuiNavBar = () => {
   return (
     <Grid container direction="row" width="100%">
       <Grid size={{ xs: 6 }}>
         <Box display="flex" ml={16} mt={4} gap={3}>
-          <NavBarButton>Home</NavBarButton>
-          <NavBarButton>Work</NavBarButton>
-          <NavBarButton>Projects</NavBarButton>
-          <NavBarButton>Contact</NavBarButton>
-          <NavBarButton>About me</NavBarButton>
+          {pageOptions.map((nameOfPage) => (
+            <NavBarButton>{nameOfPage}</NavBarButton>
+          ))}
         </Box>
       </Grid>
       <Grid size={{ xs: 3 }}></Grid>
