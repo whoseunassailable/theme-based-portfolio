@@ -11,14 +11,14 @@ import { AboutMe } from "./pages/AboutMe";
 function App() {
   return (
     <ThemeProviderWrapper>
-      <Router>
+      <Router basename="/theme-based-portfolio">
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/work_experience" element={<WorkExperience />}></Route>
-          <Route path="/projects" element={<Projects />}></Route>
-          <Route path="/projects_detail" element={<ProjectsDetail />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/about_me" element={<AboutMe />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/work_experience" element={<WorkExperience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects_detail" element={<ProjectsDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about_me" element={<AboutMe />} />
         </Routes>
       </Router>
     </ThemeProviderWrapper>

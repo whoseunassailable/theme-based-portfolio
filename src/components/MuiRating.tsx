@@ -1,4 +1,3 @@
-import { Favorite } from "@mui/icons-material";
 import { Stack, Rating } from "@mui/material";
 import { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
