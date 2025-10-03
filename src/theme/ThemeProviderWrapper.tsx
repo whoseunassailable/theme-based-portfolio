@@ -23,6 +23,19 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Arial, sans-serif",
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+        },
+      },
+    },
+  },
 });
 
 const ThemeProviderWrapper: React.FC<ThemeProviderWrapperProps> = ({
