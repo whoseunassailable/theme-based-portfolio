@@ -8,14 +8,14 @@ import { pageOptions } from "../constants/pageOptions";
 export const MuiNavBar = () => {
   return (
     <Grid container direction="row" width="100%">
-      <Grid size={{ xs: 6 }}>
-        <Box display="flex" ml={16} mt={4} gap={3}>
+      <Grid size={{ xs: 7 }}>
+        <Box display="flex" ml={16} mt={4} gap={2}>
           {pageOptions.map((nameOfPage) => (
             <NavBarButton>{nameOfPage}</NavBarButton>
           ))}
         </Box>
       </Grid>
-      <Grid size={{ xs: 3 }}></Grid>
+      <Grid size={{ xs: 2 }}></Grid>
       <Grid size={{ xs: 2 }}>
         <MuiSelectTheme></MuiSelectTheme>
       </Grid>
@@ -32,4 +32,3 @@ export const MuiNavBar = () => {
     </Grid>
   );
 };
-// cool
