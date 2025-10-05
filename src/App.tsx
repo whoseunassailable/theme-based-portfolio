@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home/Home";
 import { WorkExperience } from "./pages/WorkExperience";
 import { Projects } from "./pages/Projects";
 import { ProjectsDetail } from "./pages/ProjectsDetail";
