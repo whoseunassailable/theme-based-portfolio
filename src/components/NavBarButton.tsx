@@ -1,6 +1,6 @@
 import { Button, type ButtonProps } from "@mui/material";
 import { type ReactNode } from "react";
-import { COLORS_NEO_EXTENDED } from "../theme/Colors";
+import { COLORS_NEO_EXTENDED } from "../theme/colors";
 
 interface NavBarButtonProps extends ButtonProps {
   children: ReactNode;

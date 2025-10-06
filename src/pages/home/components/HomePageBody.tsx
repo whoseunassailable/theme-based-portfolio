@@ -1,5 +1,6 @@
 import { Grid, Button, Box, Typography } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { CardGrid } from "./CardGrid";
 
 export const HomePageBody = () => {
   const neoOutlineSx = {
@@ -30,8 +31,16 @@ export const HomePageBody = () => {
       boxShadow: `0 0 18px 3px ${COLORS_NEO_EXTENDED.glowSoft}`,
     },
   };
+
+  const sxValueForButton = {
+    ...neoOutlineSx,
+    fontSize: { xs: "0.75rem", sm: "0.9rem", md: "1rem" },
+    px: { xs: 1.5, sm: 2, md: 2.5 },
+    py: { xs: 0.75, sm: 1, md: 1.25 },
+  };
   return (
-    <Grid container pl={30} pr={30}>
+    <Grid container pl={20} pr={20}>
+      {/* Body-title */}
       <Grid>
         <Typography fontSize={"400%"} mt={5}>
           I Build Experience As A
@@ -40,39 +49,27 @@ export const HomePageBody = () => {
           Frontend Developer{" "}
         </Typography>
       </Grid>
+      {/* Body sub-title */}
       <Grid>
         <Typography fontSize={"150%"} mb={5}>
           Blending design thinking with engineering precision <br /> to deliver
           world-class software.
         </Typography>
       </Grid>
+      {/* Buttons */}
       <Grid direction="row">
         <Box display="flex" gap={2}>
-          <Button
-            variant="outlined"
-            sx={{
-              ...neoOutlineSx,
-              fontSize: { xs: "0.75rem", sm: "0.9rem", md: "1rem" },
-              px: { xs: 1.5, sm: 2, md: 2.5 },
-              py: { xs: 0.75, sm: 1, md: 1.25 },
-            }}
-          >
+          <Button variant="outlined" sx={sxValueForButton}>
             View My Work
           </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              ...neoOutlineSx,
-              fontSize: { xs: "0.75rem", sm: "0.9rem", md: "1rem" },
-              px: { xs: 1.5, sm: 2, md: 2.5 },
-              py: { xs: 0.75, sm: 1, md: 1.25 },
-            }}
-          >
+          <Button variant="outlined" sx={sxValueForButton}>
             Explore Projects
           </Button>
         </Box>
       </Grid>
-      <Grid></Grid>
+      <Grid>
+        <CardGrid></CardGrid>
+      </Grid>
     </Grid>
   );
 };
