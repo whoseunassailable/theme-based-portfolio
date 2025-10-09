@@ -1,11 +1,16 @@
-import { HomePageBody } from "./components/HomePageBody";
-import { HomePageNavBar } from "./components/HomePageNavBar";
 import { Container } from "@mui/material";
+import { HomePageNavBar } from "./components/HomePageNavBar";
+
 export const Home = () => {
   return (
-    <Container maxWidth={false} sx={{ width: "100%" }} disableGutters>
+    <Container
+      component="main"
+      id="main"
+      maxWidth={false}
+      disableGutters
+      sx={{ px: { sm: 2, md: 3, lg: 4, xl: 5 } }}
+    >
       <HomePageNavBar></HomePageNavBar>
-      <HomePageBody></HomePageBody>
     </Container>
   );
 };

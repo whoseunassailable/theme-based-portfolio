@@ -11,29 +11,27 @@ export const MuiSelectTheme = () => {
   };
 
   return (
-    <Box mt={4}>
-      <TextField
-        label="Themes"
-        select
-        value={theme}
-        onChange={handleChange}
-        fullWidth
-        size="small"
-        color="primary"
-        helperText="Change Theme"
-        sx={textFieldSx}
-        SelectProps={{
-          MenuProps: {
-            PaperProps: { menuPaperSx },
-          },
-        }}
-      >
-        {themeOptions.map((themeName) => (
-          <MenuItem key={themeName} value={themeName}>
-            {themeName}
-          </MenuItem>
-        ))}
-      </TextField>
-    </Box>
+    <TextField
+      label="Themes"
+      select
+      value={theme}
+      onChange={handleChange}
+      fullWidth
+      size="small"
+      color="primary"
+      helperText="Change Theme"
+      sx={textFieldSx}
+      SelectProps={{
+        MenuProps: {
+          PaperProps: { menuPaperSx },
+        },
+      }}
+    >
+      {themeOptions.map((themeName) => (
+        <MenuItem key={themeName} value={themeName}>
+          {themeName}
+        </MenuItem>
+      ))}
+    </TextField>
   );
 };

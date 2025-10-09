@@ -1,75 +1,114 @@
-import { Grid, Button, Box, Typography } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import { CardGrid } from "./CardGrid";
+import { Container } from "@mui/material";
 
 export const HomePageBody = () => {
-  const neoOutlineSx = {
-    textTransform: "uppercase",
-    fontWeight: 700,
-    letterSpacing: ".06em",
-    borderWidth: 1.5,
-    px: 2.5,
-    py: 1.25,
-    borderRadius: "10px",
-    // base colors
-    color: COLORS_NEO_EXTENDED.accent, // cyan text
-    borderColor: COLORS_NEO_EXTENDED.accent, // cyan outline
-    backgroundColor: "transparent",
-    // subtle glow + smooth transitions
-    boxShadow: `0 0 0 0 ${COLORS_NEO_EXTENDED.glowSoft}`,
-    minWidth: "240px",
-    transition:
-      "box-shadow .2s ease, border-color .2s ease, color .2s ease, transform .12s ease",
-    "&:hover": {
-      borderColor: COLORS_NEO_EXTENDED.glow2,
-      color: COLORS_NEO_EXTENDED.glow2,
-      backgroundColor: "rgba(0, 0, 0, 0.15)",
-      boxShadow: `0 0 14px 2px ${COLORS_NEO_EXTENDED.glowSoft}, inset 0 0 8px ${COLORS_NEO_EXTENDED.glowSoft}`,
-    },
-    "&:active": {
-      transform: "translateY(1px)",
-      boxShadow: `0 0 18px 3px ${COLORS_NEO_EXTENDED.glowSoft}`,
-    },
-  };
-
-  const sxValueForButton = {
-    ...neoOutlineSx,
-    fontSize: { xs: "0.75rem", sm: "0.9rem", md: "1rem" },
-    px: { xs: 1.5, sm: 2, md: 2.5 },
-    py: { xs: 0.75, sm: 1, md: 1.25 },
-  };
   return (
-    <Grid container pl={20} pr={20}>
-      {/* Body-title */}
-      <Grid>
-        <Typography fontSize={"400%"} mt={5}>
-          I Build Experience As A
-        </Typography>
-        <Typography m={0} fontSize={"400%"} color={COLORS_NEO_EXTENDED.heading}>
-          Frontend Developer{" "}
-        </Typography>
-      </Grid>
-      {/* Body sub-title */}
-      <Grid>
-        <Typography fontSize={"150%"} mb={5}>
-          Blending design thinking with engineering precision <br /> to deliver
-          world-class software.
-        </Typography>
-      </Grid>
-      {/* Buttons */}
-      <Grid direction="row">
-        <Box display="flex" gap={2}>
-          <Button variant="outlined" sx={sxValueForButton}>
-            View My Work
-          </Button>
-          <Button variant="outlined" sx={sxValueForButton}>
-            Explore Projects
-          </Button>
-        </Box>
-      </Grid>
-      <Grid>
-        <CardGrid></CardGrid>
-      </Grid>
-    </Grid>
+    // <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
+    //   <Grid container spacing={{ xs: 4, md: 6 }}>
+    //     {/* Title + Subtitle */}
+    //     <Grid item xs={12}>
+    //       <Typography
+    //         component="h1"
+    //         variant="h2"
+    //         sx={{
+    //           lineHeight: 1.1,
+    //           fontWeight: 700,
+    //           // Mobile -> Desktop scale
+    //           fontSize: {
+    //             xs: "2.25rem",
+    //             sm: "2.75rem",
+    //             md: "3.5rem",
+    //             lg: "4rem",
+    //           },
+    //           mt: { xs: 1, md: 3 },
+    //         }}
+    //       >
+    //         I Build Experience As A
+    //       </Typography>
+
+    //       <Typography
+    //         component="h2"
+    //         variant="h2"
+    //         sx={{
+    //           lineHeight: 1.1,
+    //           fontWeight: 800,
+    //           color: COLORS_NEO_EXTENDED.heading,
+    //           fontSize: {
+    //             xs: "2.25rem",
+    //             sm: "2.75rem",
+    //             md: "3.5rem",
+    //             lg: "4rem",
+    //           },
+    //           mt: { xs: 1, md: 0.5 },
+    //         }}
+    //       >
+    //         Frontend Developer
+    //       </Typography>
+    //     </Grid>
+
+    //     {/* Sub-title */}
+    //     <Grid item xs={12} md={10} lg={8}>
+    //       <Typography
+    //         variant="body1"
+    //         sx={{
+    //           fontSize: { xs: "1rem", md: "1.125rem" },
+    //           opacity: 0.9,
+    //           mb: { xs: 2, md: 3 },
+    //         }}
+    //       >
+    //         Blending design thinking with engineering precision
+    //         <br />
+    //         to deliver world-class software.
+    //       </Typography>
+    //     </Grid>
+
+    //     {/* Buttons */}
+    //     <Grid item xs={12}>
+    //       <Stack
+    //         direction={{ xs: "column", sm: "row" }}
+    //         spacing={{ xs: 1.5, sm: 2 }}
+    //         sx={{ width: "100%", maxWidth: 520 }}
+    //       >
+    //         <Button
+    //           variant="outlined"
+    //           size="large"
+    //           fullWidth={{ xs: true, sm: false } as any}
+    //           sx={{
+    //             ...sxValueForButton,
+    //             py: { xs: 1.25, sm: 1.5 },
+    //             fontSize: { xs: "0.95rem", md: "1rem" },
+    //           }}
+    //         >
+    //           View My Work
+    //         </Button>
+    //         <Button
+    //           variant="outlined"
+    //           size="large"
+    //           fullWidth={{ xs: true, sm: false } as any}
+    //           sx={{
+    //             ...sxValueForButton,
+    //             py: { xs: 1.25, sm: 1.5 },
+    //             fontSize: { xs: "0.95rem", md: "1rem" },
+    //           }}
+    //         >
+    //           Explore Projects
+    //         </Button>
+    //       </Stack>
+    //     </Grid>
+
+    //     {/* Card grid */}
+    //     <Grid item xs={12}>
+    //       <Box
+    //         sx={{
+    //           mt: { xs: 1, md: 2 },
+    //           // Keep cards snug on small screens
+    //           px: { xs: 0.5, sm: 0 },
+    //         }}
+    //       >
+    //         <CardGrid />
+    //       </Box>
+    //     </Grid>
+    //   </Grid>
+    // </Container>
+    
   );
 };

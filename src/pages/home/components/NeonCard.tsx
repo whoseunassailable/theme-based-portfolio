@@ -21,7 +21,6 @@ export const NeonCard = ({ title, subtitle, stat }: Props) => {
         borderRadius: 1,
         display: "flex",
         flexDirection: "column",
-        p: "10%",
         pl: "20%",
         width: "125%",
         height: "125%",
