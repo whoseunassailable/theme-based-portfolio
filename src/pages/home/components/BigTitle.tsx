@@ -56,8 +56,8 @@ export const BigTitle: React.FC<BigTitleProps> = ({
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { md: "1fr 5fr 2fr" },
-        gridTemplateAreas: `"space-left big-title space-right"`,
+        gridTemplateColumns: { md: "1fr 5fr " },
+        gridTemplateAreas: `"space-left big-title "`,
       }}
     >
       <Box
@@ -74,11 +74,11 @@ export const BigTitle: React.FC<BigTitleProps> = ({
       >
         {typographyAorB === true ? typographyA : typographyB}
       </Box>
-      <Box
+      {/* <Box
         sx={{
           gridArea: "space-right",
         }}
-      ></Box>
+      /> */}
     </Box>
   );
 };

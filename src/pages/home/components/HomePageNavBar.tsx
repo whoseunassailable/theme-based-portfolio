@@ -12,10 +12,15 @@ export const HomePageNavBar = () => {
       alignItems="start"
       sx={{
         display: "grid",
-        gridTemplateColumns: { md: "7fr 1.5fr 1fr" },
-        gridTemplateAreas: `"navbar theme logo"`,
+        gridTemplateColumns: { md: "0.4fr 7fr 1.5fr 1fr" },
+        gridTemplateAreas: `"space-left navbar theme logo"`,
       }}
     >
+      <Box
+        sx={{
+          gridArea: "space-left",
+        }}
+      />
       <Box
         sx={{
           gridArea: "navbar",
