@@ -1,5 +1,7 @@
 import { Container } from "@mui/material";
 import { SectionHeading } from "./components/SectionHeading";
+import { SectionSubHeading } from "./components/SectionSubHeading";
+import { WorkExperienceTimeline } from "./components/WorkExperienceTimeline";
 
 export const WorkExperience = () => {
   return (
@@ -10,8 +12,13 @@ export const WorkExperience = () => {
       disableGutters
       sx={{ px: { sm: 2, md: 3, lg: 4, xl: 5 } }}
     >
-      <SectionHeading></SectionHeading>
-      <SectionSubHeading></SectionSubHeading>
+      <SectionHeading title={"Work Experience"} />
+      <SectionSubHeading
+        sub_title={
+          "Crafting reliable, data-driven, and scalable solutions across software, mobile and data domains."
+        }
+      />
+      <WorkExperienceTimeline></WorkExperienceTimeline>
     </Container>
   );
 };

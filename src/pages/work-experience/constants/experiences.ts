@@ -1,0 +1,63 @@
+export const experiences = [
+  {
+    heading: "Excelerate",
+    role: "Associate Data Analyst Intern",
+    summary:
+      "Performed ETL operations, data cleansing, and visualization using Python and SQL to support business insights and improve data-driven decision-making accuracy by 30%.",
+    labelList: [
+      "Python",
+      "SQL",
+      "ETL",
+      "Data Visualization",
+      "Excel",
+      "Machine Learning",
+      "Big Data Infrastructure",
+      "Project Management",
+    ],
+    metricNumber: 30,
+    metricInfo: "Improved data-driven accuracy",
+    upOrDownIcon: true,
+  },
+  {
+    heading: "Launch Ventures",
+    role: "Software Craftsperson - Flutter Developer",
+    summary:
+      "Engineered 5+ cross-platform Flutter apps used by 10k+ users, integrated Firebase backend, automated CI/CD pipelines, and collaborated internationally to enhance performance and client satisfaction.",
+    labelList: [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Codemagic",
+      "CI/CD",
+      "Node.js",
+      "OOP",
+      "SOLID Principles",
+      "BLoC Architecture",
+      "Git",
+      "API Integration",
+    ],
+    metricNumber: 25,
+    metricInfo: "Improved UI performance",
+    upOrDownIcon: true,
+  },
+  {
+    heading: "MIT-FOSS",
+    role: "Full Stack Developer Intern",
+    summary:
+      "Developed responsive web applications and UML diagrams, designed prototypes in Figma, and implemented front-end solutions ensuring accessibility and usability across web platforms.",
+    labelList: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Figma",
+      "UML Diagrams",
+      "UI/UX Design",
+      "OOP",
+      "Git",
+    ],
+    metricNumber: 5,
+    metricInfo: "Wireframes and prototype designs created",
+    upOrDownIcon: true,
+  },
+];

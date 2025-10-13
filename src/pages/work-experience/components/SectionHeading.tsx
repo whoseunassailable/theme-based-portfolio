@@ -1,11 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
-export const SectionHeading = () => {
+interface SectionHeadingProps {
+  title: string;
+}
+
+export const SectionHeading: React.FC<SectionHeadingProps> = ({ title }) => {
   return (
     <Box
       sx={{
         mt: { xs: 2, md: 12 },
-        mb: { xs: 2, md: 3 },
         display: "grid",
         gridTemplateColumns: { md: "0.25fr 5fr " },
         gridTemplateAreas: `"space-left heading-title "`,
@@ -28,7 +31,7 @@ export const SectionHeading = () => {
             mt: { xs: 1, md: 3 },
           }}
         >
-          Work Experience
+          {title}
         </Typography>
       </Box>
     </Box>
