@@ -29,7 +29,7 @@ export const CardGrid = () => {
       />
       <NeonCard
         title="Uniquest"
-        subtitle="ML-powered admission"
+        subtitle="ML-powered predictor"
         stat="Insights ↑"
         gridArea="card-2"
         sx={{ minHeight: 140 }}

@@ -48,7 +48,7 @@ export const BigTitle: React.FC<BigTitleProps> = ({
         mt: { xs: 1, md: 0.5 },
       }}
     >
-      Frontend Developer
+      {title}
     </Typography>
   );
 

@@ -1,9 +1,10 @@
-import { Container, Box } from "@mui/material";
+import { Container } from "@mui/material";
 import { HomePageNavBar } from "./components/HomePageNavBar";
 import { BigTitle } from "./components/BigTitle";
 import { SmallTitle } from "./components/SmallTitle";
 import { ButtonSection } from "./components/ButtonSection";
 import { CardGrid } from "./components/CardGrid";
+import { WorkExperience } from "../work-experience/WorkExperience";
 
 export const Home = () => {
   return (
@@ -20,6 +21,7 @@ export const Home = () => {
       <SmallTitle></SmallTitle>
       <ButtonSection></ButtonSection>
       <CardGrid></CardGrid>
+      <WorkExperience></WorkExperience>
     </Container>
   );
 };
