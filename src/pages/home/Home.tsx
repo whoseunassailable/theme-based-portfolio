@@ -1,8 +1,9 @@
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import { HomePageNavBar } from "./components/HomePageNavBar";
 import { BigTitle } from "./components/BigTitle";
 import { SmallTitle } from "./components/SmallTitle";
 import { ButtonSection } from "./components/ButtonSection";
+import { CardGrid } from "./components/CardGrid";
 
 export const Home = () => {
   return (
@@ -18,6 +19,7 @@ export const Home = () => {
       <BigTitle title="Frontend Developer" typographyAorB={false}></BigTitle>
       <SmallTitle></SmallTitle>
       <ButtonSection></ButtonSection>
+      <CardGrid></CardGrid>
     </Container>
   );
 };

@@ -100,7 +100,6 @@ export const HomePageBody = () => {
           <Box
             sx={{
               mt: { xs: 1, md: 2 },
-              // Keep cards snug on small screens
               px: { xs: 0.5, sm: 0 },
             }}
           >

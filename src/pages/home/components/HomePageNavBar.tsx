@@ -10,6 +10,7 @@ export const HomePageNavBar = () => {
     <Box
       gap={5}
       alignItems="start"
+      mt={{ md: "5" }}
       sx={{
         display: "grid",
         gridTemplateColumns: { md: "0.4fr 7fr 1.5fr 1fr" },

@@ -1,14 +1,24 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, type SxProps, type Theme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-
+import { type ReactNode } from "react";
 type Props = {
   title: string;
   subtitle: string;
   stat: string;
+  gridArea?: string;
+  icon?: ReactNode;
+  sx?: SxProps<Theme>;
 };
 
-export const NeonCard = ({ title, subtitle, stat }: Props) => {
+export const NeonCard = ({
+  title,
+  subtitle,
+  stat,
+  gridArea,
+  sx,
+  icon,
+}: Props) => {
   const accent = COLORS_NEO_EXTENDED.accent;
   const softGlow = COLORS_NEO_EXTENDED.glowSoft;
   const glow2 = COLORS_NEO_EXTENDED.glow2;
@@ -16,17 +26,21 @@ export const NeonCard = ({ title, subtitle, stat }: Props) => {
   return (
     <Box
       sx={{
+        gridArea, // apply if provided
         position: "relative",
+        width: { xs: "20vw" },
+        height: { xs: "20vw" },
+        mt: { md: 5 },
         border: `1px solid ${accent}`,
-        borderRadius: 1,
+        borderRadius: 2,
         display: "flex",
         flexDirection: "column",
-        pl: "20%",
-        width: "125%",
-        height: "125%",
+        boxSizing: "border-box",
+        overflow: "hidden",
+        p: 2,
         color: "white",
         justifyContent: "center",
-        alignItems: "start",
+        alignItems: "center",
         background: "transparent",
         boxShadow: `0 0 0 0 ${softGlow}`,
         transition:
@@ -42,17 +56,27 @@ export const NeonCard = ({ title, subtitle, stat }: Props) => {
           inset: 8,
           borderRadius: 2,
           border: `1px solid ${alpha(accent, 0.3)}`,
+          pointerEvents: "none",
         },
+        ...sx,
       }}
     >
-      {" "}
-      <Typography variant="h5" fontWeight={700} mb={1}>
+      {icon}
+      <Typography variant="h5" fontWeight={700} mb={1} noWrap>
         {title}
       </Typography>
-      <Typography>{subtitle}</Typography>
-      <Typography color={accent} mt={1}>
-        {stat}
+      <Typography
+        sx={{
+          display: "-webkit-box",
+          WebkitLineClamp: 2, // keep consistent heights
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {subtitle}
       </Typography>
+      <Typography sx={{ color: accent, mt: 1 }}>{stat}</Typography>
     </Box>
   );
 };

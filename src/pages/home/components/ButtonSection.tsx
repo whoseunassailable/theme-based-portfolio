@@ -6,17 +6,12 @@ export const ButtonSection = () => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { md: "0.17fr 0.21fr 0.21fr" },
-        gridTemplateAreas: `"left-space button-1 button-2"`,
+        gridTemplateColumns: { md: "1fr 5fr" },
+        gridTemplateAreas: `"left-space button-section"`,
       }}
     >
-      <Box sx={{ display: "flex", gridArea: "left-space" }}></Box>
-      <Box
-        sx={{
-          display: "flex",
-          gridArea: "button-1",
-        }}
-      >
+      <Box sx={{ display: "flex", gridArea: "left-space" }} />
+      <Box sx={{ display: "flex", gap: "2.5%", gridArea: "button-section" }}>
         <Button
           variant="outlined"
           size="large"
@@ -29,8 +24,6 @@ export const ButtonSection = () => {
         >
           View My Work
         </Button>
-      </Box>
-      <Box sx={{ display: "flex", gridArea: "button-2" }}>
         <Button
           variant="outlined"
           size="large"
