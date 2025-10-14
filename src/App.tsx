@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
 import { Home } from "./pages/home/Home";
 import { WorkExperience } from "./pages/work-experience/WorkExperience";
-import { Projects } from "./pages/Projects";
+import { Projects } from "./pages/projects/Projects";
 import { ProjectsDetail } from "./pages/ProjectsDetail";
 import { Contact } from "./pages/Contact";
 import { AboutMe } from "./pages/AboutMe";

@@ -21,13 +21,19 @@ export const SectionSubHeading: React.FC<SectionSubHeadingProps> = ({
       <Box gridArea={"space-left"}></Box>
       <Box gridArea={"sub-heading-title "}>
         <Typography
+          component="p"
           variant="h5"
           sx={{
-            lineHeight: 1.1,
-            fontWeight: 800,
             color: COLORS_NEO_EXTENDED.heading,
-
             mt: { xs: 1, md: 0.5 },
+            maxWidth: 920,
+            fontFamily:
+              "'Inter', 'SF Pro Text', system-ui, -apple-system, Arial",
+            fontWeight: 500,
+            letterSpacing: { xs: "0.04em", md: "0.06em" },
+            lineHeight: 1.5,
+            fontSize: { xs: 13.5, sm: 15, md: 17 },
+            textShadow: "0 0 6px rgba(0,160,255,.15)",
           }}
         >
           {sub_title}

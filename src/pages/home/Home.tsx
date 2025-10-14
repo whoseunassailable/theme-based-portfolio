@@ -5,6 +5,7 @@ import { SmallTitle } from "./components/SmallTitle";
 import { ButtonSection } from "./components/ButtonSection";
 import { CardGrid } from "./components/CardGrid";
 import { WorkExperience } from "../work-experience/WorkExperience";
+import { Projects } from "../projects/Projects";
 
 export const Home = () => {
   return (
@@ -22,6 +23,7 @@ export const Home = () => {
       <ButtonSection></ButtonSection>
       <CardGrid></CardGrid>
       <WorkExperience></WorkExperience>
+      <Projects></Projects>
     </Container>
   );
 };
