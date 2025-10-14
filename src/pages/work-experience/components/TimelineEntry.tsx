@@ -7,50 +7,37 @@ import {
   TimelineConnector,
   TimelineContent,
 } from "@mui/lab";
-import type { SxProps, Theme } from "@mui/material";
+import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 
 export interface TimelineEntryProps {
   badge: React.ReactNode;
   children: React.ReactNode;
-  oppositeContentSx?: SxProps<Theme>;
-  separatorSx?: SxProps<Theme>;
-  dotSx?: SxProps<Theme>;
-  connectorSx?: SxProps<Theme>;
-  contentSx?: SxProps<Theme>;
 }
 
 export const TimelineEntry: React.FC<TimelineEntryProps> = ({
   badge,
   children,
-  oppositeContentSx,
-  separatorSx,
-  dotSx,
-  connectorSx,
-  contentSx,
 }) => {
   return (
     <TimelineItem>
-      <TimelineOppositeContent
-        sx={{ m: 0, px: 10, textAlign: "right", ...oppositeContentSx }}
-      >
+      <TimelineOppositeContent sx={{ textAlign: "right" }}>
         {badge}
       </TimelineOppositeContent>
 
-      <TimelineSeparator sx={{ zIndex: 2, ...separatorSx }}>
+      <TimelineSeparator>
         <TimelineDot
           variant="outlined"
           sx={{
-            borderColor: "rgba(0, 200, 255, .5)",
+            borderColor: COLORS_NEO_EXTENDED.accent,
             boxShadow: "0 0 10px rgba(0, 200, 255, .35)",
             background:
               "radial-gradient(circle at 50% 50%, rgba(0,200,255,.2), transparent 60%)",
-            ...dotSx,
           }}
         />
-        <TimelineConnector sx={{ bgcolor: "divider", ...connectorSx }} />
+        <TimelineConnector sx={{ bgcolor: COLORS_NEO_EXTENDED.accent }} />
       </TimelineSeparator>
 
-      <TimelineContent sx={{ p: 0, ...contentSx }}>{children}</TimelineContent>
+      <TimelineContent sx={{ p: 0 }}>{children}</TimelineContent>
     </TimelineItem>
   );
 };

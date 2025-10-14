@@ -37,8 +37,8 @@ export const ExperienceCard: React.FC<ExperiencedCardProps> = ({
         backdropFilter: "blur(2px)",
         gap: 2,
         alignItems: "center",
-        maxWidth: "100%", // 👈 don’t exceed its column
-        ...sx, // 👈 accept overrides from parent
+        maxWidth: "100%",
+        ...sx,
       }}
     >
       {/* LEFT COLUMN */}
@@ -68,7 +68,7 @@ export const ExperienceCard: React.FC<ExperiencedCardProps> = ({
             sx={{
               display: "flex",
               gap: 1,
-              flexWrap: "wrap", // 👈 allow wrapping so width doesn’t explode
+              flexWrap: "wrap",
               rowGap: 1,
             }}
           >

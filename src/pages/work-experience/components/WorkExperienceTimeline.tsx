@@ -33,8 +33,6 @@ export const WorkExperienceTimeline: React.FC = () => {
                 heading={exp.heading}
                 role={exp.role}
                 summary={exp.summary}
-                labelLength={exp.labelList.length}
-                labelList={exp.labelList}
                 metricNumber={exp.metricNumber}
                 metricInfo={exp.metricInfo}
                 upOrDownIcon={exp.upOrDownIcon}
