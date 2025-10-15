@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+// import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import { ProjectContainer } from "./ProjectContainer";
 
 export const DynamicProjectRowContainers = () => {
-  const accent = COLORS_NEO_EXTENDED.accent;
-  const softGlow = COLORS_NEO_EXTENDED.glowSoft;
-  const glow2 = COLORS_NEO_EXTENDED.glow2;
+  //   const accent = COLORS_NEO_EXTENDED.accent;
+  //   const softGlow = COLORS_NEO_EXTENDED.glowSoft;
+  //   const glow2 = COLORS_NEO_EXTENDED.glow2;
   return (
     <Box
       sx={{

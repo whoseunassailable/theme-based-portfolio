@@ -1,4 +1,4 @@
-import { TextField, Box, MenuItem } from "@mui/material";
+import { TextField, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { themeOptions } from "../constants/themeOptions";
 import { textFieldSx, menuPaperSx } from "../styles/textFieldNeoThemeStyle";
