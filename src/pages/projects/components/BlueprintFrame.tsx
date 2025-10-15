@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED as COLORS } from "../../theme/colors";
+import { COLORS_NEO_EXTENDED as COLORS } from "../../../theme/colors";
 
 interface BlueprintFrameProps {
   children: React.ReactNode | React.ReactNode[];

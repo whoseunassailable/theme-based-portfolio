@@ -1,8 +1,8 @@
 import { Box, ToggleButtonGroup, ToggleButton } from "@mui/material";
 import { useState } from "react";
-import { COLORS_NEO_EXTENDED } from "../../theme/colors";
-import { stackNames } from "./constants/stackNames";
-import { STACK_TYPOGRAPHY } from "./stackTypography";
+import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { stackNames } from "../constants/stackNames";
+import { STACK_TYPOGRAPHY } from "../styles/stackTypography";
 
 export const SearchStack = () => {
   const [activeStack, setActiveStack] = useState<string | null>(null);

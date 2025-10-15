@@ -1,4 +1,4 @@
-import { COLORS_NEO_EXTENDED as C } from "../../theme/colors";
+import { COLORS_NEO_EXTENDED as C } from "../../../theme/colors";
 
 export const STACK_TYPOGRAPHY = {
   base: {
