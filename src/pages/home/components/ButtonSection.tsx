@@ -1,5 +1,7 @@
 import { Box, Button } from "@mui/material";
 import { sxValueForButton } from "../styles/homePageStyles";
+import ShinyText from "../../../components/ShinyText";
+import Magnet from "../../../components/Magnet";
 
 export const ButtonSection = () => {
   return (
@@ -22,7 +24,14 @@ export const ButtonSection = () => {
             fontSize: { xs: "0.95rem", md: "1rem" },
           }}
         >
-          View My Work
+          <Magnet padding={50} disabled={false} magnetStrength={2}>
+            <ShinyText
+              text="View My Work"
+              disabled={false}
+              speed={3}
+              className="custom-class"
+            />
+          </Magnet>
         </Button>
         <Button
           variant="outlined"
@@ -34,7 +43,14 @@ export const ButtonSection = () => {
             fontSize: { xs: "0.95rem", md: "1rem" },
           }}
         >
-          Explore Projects
+          <Magnet padding={50} disabled={false} magnetStrength={2}>
+            <ShinyText
+              text="Explore Projects"
+              disabled={false}
+              speed={3}
+              className="custom-class"
+            />
+          </Magnet>
         </Button>
       </Box>
     </Box>

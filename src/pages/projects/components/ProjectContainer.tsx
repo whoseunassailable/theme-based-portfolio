@@ -17,6 +17,10 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
   shortSummary,
   icon,
 }) => {
+  const accent = COLORS_NEO_EXTENDED.accent;
+  const softGlow = COLORS_NEO_EXTENDED.glowSoft;
+  const glow2 = COLORS_NEO_EXTENDED.glow2;
+
   return (
     <Box
       sx={{
@@ -27,6 +31,18 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
         height: "80vh",
         border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
         borderRadius: "0.5vh",
+
+        boxShadow: `0 0 10px ${softGlow}`,
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          boxShadow: `
+            0 0 15px ${softGlow},
+            0 0 25px ${glow2},
+            0 0 40px ${accent}
+          `,
+          transform: "translateY(-3px)",
+          borderColor: glow2,
+        },
       }}
     >
       <Box
@@ -93,7 +109,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
           }}
         >
           View Project
-        </Button>{" "}
+        </Button>
       </Box>
     </Box>
   );

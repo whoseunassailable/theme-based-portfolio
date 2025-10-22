@@ -1,11 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import BlurText from "../../home/components/BlurText";
 
 interface BigTitleProps {
   title: string;
   typographyAorB: boolean;
 }
+
+const handleAnimationComplete = () => {
+  console.log("Animation completed!");
+};
 
 export const BigTitle: React.FC<BigTitleProps> = ({
   title,
@@ -27,7 +32,13 @@ export const BigTitle: React.FC<BigTitleProps> = ({
         mt: { xs: 1, md: 3 },
       }}
     >
-      {title}
+      <BlurText
+        text={title}
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+      />
     </Typography>
   );
 
@@ -48,7 +59,13 @@ export const BigTitle: React.FC<BigTitleProps> = ({
         mt: { xs: 1, md: 0.5 },
       }}
     >
-      {title}
+      <BlurText
+        text={title}
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+      />
     </Typography>
   );
 
@@ -74,11 +91,6 @@ export const BigTitle: React.FC<BigTitleProps> = ({
       >
         {typographyAorB === true ? typographyA : typographyB}
       </Box>
-      {/* <Box
-        sx={{
-          gridArea: "space-right",
-        }}
-      /> */}
     </Box>
   );
 };

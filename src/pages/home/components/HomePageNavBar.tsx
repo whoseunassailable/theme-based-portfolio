@@ -1,10 +1,17 @@
 import { NavBarButton } from "../../../components/NavBarButton";
 import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import LogoName from "../../../assets/image.jpeg";
+import LogoName from "../../../assets/logo_name.png";
 import { Box, IconButton } from "@mui/material";
 import { pageOptions } from "../../../constants/pageOptions";
+import CircularText from "./CircularText";
 
+<CircularText
+  text="REACT*BITS*COMPONENTS*"
+  onHover="speedUp"
+  spinDuration={20}
+  className="custom-class"
+/>;
 export const HomePageNavBar = () => {
   return (
     <Box
@@ -36,8 +43,23 @@ export const HomePageNavBar = () => {
       <Box sx={{ gridArea: "theme", display: "flex" }}>
         <MuiSelectTheme></MuiSelectTheme>
       </Box>
-
-      <IconButton
+      <Box
+        sx={{
+          gridArea: "logo",
+          display: "flex",
+          gap: 1,
+          height: "80%",
+          width: "80%",
+        }}
+      >
+        <CircularText
+          text="*ROHAN* *BHANDE*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="custom-class"
+        />
+      </Box>
+      {/* <IconButton
         disabled
         sx={{
           p: 0,
@@ -58,7 +80,7 @@ export const HomePageNavBar = () => {
             filter: `drop-shadow(0 0 4px ${COLORS_NEO_EXTENDED.glowSoft})`,
           }}
         />
-      </IconButton>
+      </IconButton> */}
     </Box>
   );
 };
