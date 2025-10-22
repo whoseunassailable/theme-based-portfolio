@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import type { ReactNode } from "react";
+import ElectricBorder from "../../../components/ElectricBorder";
 
 interface ProjectContainerProps {
   gridArea: string;
@@ -22,27 +23,19 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
   const glow2 = COLORS_NEO_EXTENDED.glow2;
 
   return (
-    <Box
-      sx={{
+    <ElectricBorder
+      gridArea={gridArea}
+      height="80vh"
+      radius="0.5vh"
+      accent={accent}
+      glow2={glow2}
+      softGlow={softGlow}
+      thickness={2}
+      style={{
+        width: "100%",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        display: "flex",
-        gridArea: gridArea,
-        height: "80vh",
-        border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
-        borderRadius: "0.5vh",
-
-        boxShadow: `0 0 10px ${softGlow}`,
-        transition: "all 0.3s ease-in-out",
-        "&:hover": {
-          boxShadow: `
-            0 0 15px ${softGlow},
-            0 0 25px ${glow2},
-            0 0 40px ${accent}
-          `,
-          transform: "translateY(-3px)",
-          borderColor: glow2,
-        },
       }}
     >
       <Box
@@ -56,7 +49,6 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
           gridArea: "container-1",
           height: "90%",
           width: "90%",
-          border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
           borderRadius: "0.5vh",
         }}
       >
@@ -73,6 +65,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
         >
           {projectStack}
         </Typography>
+
         <Box>
           <Typography
             display="flex"
@@ -87,7 +80,9 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
             {nameOfProject}
           </Typography>
         </Box>
+
         {icon}
+
         <Typography
           display="flex"
           sx={{
@@ -101,6 +96,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
         >
           {shortSummary}
         </Typography>
+
         <Button
           variant="outlined"
           sx={{
@@ -111,6 +107,6 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
           View Project
         </Button>
       </Box>
-    </Box>
+    </ElectricBorder>
   );
 };
