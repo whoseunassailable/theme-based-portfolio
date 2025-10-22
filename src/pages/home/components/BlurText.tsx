@@ -1,7 +1,15 @@
 import { motion, type Transition, type Easing } from "motion/react";
-import { useEffect, useRef, useState, useMemo } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  forwardRef,
+  type ElementType,
+  type ComponentPropsWithoutRef,
+} from "react";
 
-type BlurTextProps = {
+type BlurTextOwnProps = {
   text?: string;
   delay?: number;
   className?: string;
@@ -14,7 +22,13 @@ type BlurTextProps = {
   easing?: Easing | Easing[];
   onAnimationComplete?: () => void;
   stepDuration?: number;
+  /** Polymorphic prop: what to render as */
+  as?: ElementType;
 };
+
+// Polymorphic helper type: props of E + our own props (own props take precedence)
+type PolymorphicProps<E extends ElementType> = BlurTextOwnProps &
+  Omit<ComponentPropsWithoutRef<E>, keyof BlurTextOwnProps>;
 
 const buildKeyframes = (
   from: Record<string, string | number>,
@@ -24,7 +38,6 @@ const buildKeyframes = (
     ...Object.keys(from),
     ...steps.flatMap((s) => Object.keys(s)),
   ]);
-
   const keyframes: Record<string, Array<string | number>> = {};
   keys.forEach((k) => {
     keyframes[k] = [from[k], ...steps.map((s) => s[k])];
@@ -32,36 +45,50 @@ const buildKeyframes = (
   return keyframes;
 };
 
-const BlurText: React.FC<BlurTextProps> = ({
-  text = "",
-  delay = 200,
-  className = "",
-  animateBy = "words",
-  direction = "top",
-  threshold = 0.1,
-  rootMargin = "0px",
-  animationFrom,
-  animationTo,
-  easing = (t: number) => t,
-  onAnimationComplete,
-  stepDuration = 0.35,
-}) => {
+const BlurText = forwardRef(function BlurText<E extends ElementType = "span">(
+  props: PolymorphicProps<E>,
+  forwardedRef: React.Ref<Element>
+) {
+  const {
+    text = "",
+    delay = 200,
+    className = "",
+    animateBy = "words",
+    direction = "top",
+    threshold = 0.1,
+    rootMargin = "0px",
+    animationFrom,
+    animationTo,
+    easing = (t: number) => t,
+    onAnimationComplete,
+    stepDuration = 0.35,
+    as,
+    // collect any other props (style, id, onClick, MUI's sx, variant, etc.)
+    ...rest
+  } = props;
+
+  const Component = (as ?? "span") as ElementType;
+
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLParagraphElement>(null);
 
+  // We observe the container node; its tag can vary, so use Element.
+  const localRef = useRef<Element | null>(null);
+
+  // use the forwarded ref if provided, but still keep a local ref for IntersectionObserver
   useEffect(() => {
-    if (!ref.current) return;
+    const node = localRef.current;
+    if (!node) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(ref.current as Element);
+          observer.unobserve(node);
         }
       },
       { threshold, rootMargin }
     );
-    observer.observe(ref.current);
+    observer.observe(node);
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
@@ -75,11 +102,7 @@ const BlurText: React.FC<BlurTextProps> = ({
 
   const defaultTo = useMemo(
     () => [
-      {
-        filter: "blur(5px)",
-        opacity: 0.5,
-        y: direction === "top" ? 5 : -5,
-      },
+      { filter: "blur(5px)", opacity: 0.5, y: direction === "top" ? 5 : -5 },
       { filter: "blur(0px)", opacity: 1, y: 0 },
     ],
     [direction]
@@ -94,18 +117,28 @@ const BlurText: React.FC<BlurTextProps> = ({
     stepCount === 1 ? 0 : i / (stepCount - 1)
   );
 
+  // handle both forwarded ref and local ref
+  const setRefs = (el: Element | null) => {
+    localRef.current = el;
+    if (typeof forwardedRef === "function") forwardedRef(el);
+    else if (forwardedRef && typeof forwardedRef === "object")
+      (forwardedRef as React.MutableRefObject<Element | null>).current = el;
+  };
+
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
+    <Component
+      ref={setRefs}
+      className={`blur-text ${className} ${animateBy === "words" ? "flex flex-wrap" : "inline-flex"}`}
+      {...rest}
+    >
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
-
         const spanTransition: Transition = {
           duration: totalDuration,
           times,
           delay: (index * delay) / 1000,
           ease: easing,
         };
-
         return (
           <motion.span
             key={index}
@@ -125,8 +158,8 @@ const BlurText: React.FC<BlurTextProps> = ({
           </motion.span>
         );
       })}
-    </p>
+    </Component>
   );
-};
+});
 
 export default BlurText;
