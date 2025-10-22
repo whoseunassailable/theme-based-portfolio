@@ -14,7 +14,6 @@ type ElectricBorderProps = PropsWithChildren<{
   className?: string;
   style?: React.CSSProperties;
 
-  // new
   gridArea?: string;
   height?: React.CSSProperties["height"]; // default 80vh
   radius?: React.CSSProperties["borderRadius"]; // default 0.5vh
@@ -174,7 +173,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     boxShadow: `0 0 10px ${SOFT}`,
     transition: "all 0.3s ease-in-out",
     color: ACCENT, // drives the electric stroke color
-    gridArea, // <- responsive grid placement
+    gridArea,
   };
 
   return (

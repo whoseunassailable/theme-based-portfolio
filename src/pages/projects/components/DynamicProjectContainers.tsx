@@ -3,11 +3,57 @@
 import { Box } from "@mui/material";
 import { ProjectContainer } from "./ProjectContainer";
 import { projects } from "../constants/projectCard";
-import { motion } from "motion/react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+
+function useInfiniteAutoScroll(
+  ref: React.RefObject<HTMLDivElement | null>,
+  speed: number = 40 // smaller = slower
+) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Avoid cloning twice
+    if (!el.dataset.cloned) {
+      const kids = Array.from(el.children);
+      kids.forEach((c) => el.appendChild(c.cloneNode(true)));
+      el.dataset.cloned = "true";
+    }
+
+    const wrapWidth = el.scrollWidth / 2;
+    let scrollPos = 0;
+    let running = true;
+
+    const tick = (time: number, deltaTime: number, frame: number) => {
+      if (!running) return;
+
+      scrollPos += deltaTime * (speed / 1000); // move based on time delta
+      el.scrollLeft = scrollPos;
+
+      if (el.scrollLeft >= wrapWidth) scrollPos -= wrapWidth;
+      else if (el.scrollLeft < 0) scrollPos += wrapWidth;
+    };
+
+    gsap.ticker.add(tick);
+
+    const pause = () => (running = false);
+    const resume = () => (running = true);
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+
+    return () => {
+      gsap.ticker.remove(tick);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+    };
+  }, [ref, speed]);
+}
 
 export const DynamicProjectRowContainers = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  useInfiniteAutoScroll(scrollerRef, 30); // ↓ lower = slower, e.g. 20 or 10
 
   return (
     <Box
@@ -21,31 +67,25 @@ export const DynamicProjectRowContainers = () => {
     >
       <Box display="flex" gridArea="space-left" />
       <Box
-        component={motion.div}
+        id="container-1"
         ref={scrollerRef}
         gridArea="container-1 / container-1 / container-3 / container-3"
         sx={{
           display: "flex",
           gap: 2.5,
-          overflowX: "auto",
+          overflowX: "hidden",
           overflowY: "hidden",
           py: 2,
           minHeight: 260,
-          scrollSnapType: "x mandatory",
+          // scrollSnapType: "x mandatory", // keep off for auto-scroll
           px: { xs: 2, md: 0 },
           width: "100%",
         }}
       >
-        {projects.slice(0, 3).map((p) => (
-          <Box
-            key={p.id}
-            sx={{
-              flex: "0 0 320px",
-              scrollSnapAlign: "start",
-            }}
-          >
+        {projects.map((p) => (
+          <Box key={p.id} sx={{ flex: "0 0 320px" }}>
             <ProjectContainer
-              gridArea={"container-1"}
+              gridArea={`container-${p.id}`}
               projectStack={p.projectStack}
               nameOfProject={p.nameOfProject}
               shortSummary={p.shortSummary}
@@ -54,8 +94,6 @@ export const DynamicProjectRowContainers = () => {
           </Box>
         ))}
       </Box>
-
-      {/* keep your spacers if needed to preserve grid template */}
       <Box display="flex" gridArea="center-space" />
     </Box>
   );
