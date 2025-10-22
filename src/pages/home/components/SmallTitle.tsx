@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import BlurText from "./BlurText";
 
 export const SmallTitle = () => {
   return (
@@ -23,9 +24,15 @@ export const SmallTitle = () => {
             mb: { xs: 2, md: 3 },
           }}
         >
-          Blending design thinking with engineering precision
-          <br />
-          to deliver world-class software.
+          <BlurText
+            text="Blending design thinking with engineering precision"
+            // <br />
+            // to deliver world-class software
+            delay={150}
+            animateBy="words"
+            direction="top"
+          />
+          <BlurText></BlurText>
         </Typography>
       </Box>
     </Box>

@@ -8,10 +8,6 @@ interface BigTitleProps {
   typographyAorB: boolean;
 }
 
-const handleAnimationComplete = () => {
-  console.log("Animation completed!");
-};
-
 export const BigTitle: React.FC<BigTitleProps> = ({
   title,
   typographyAorB,
@@ -32,13 +28,7 @@ export const BigTitle: React.FC<BigTitleProps> = ({
         mt: { xs: 1, md: 3 },
       }}
     >
-      <BlurText
-        text={title}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        onAnimationComplete={handleAnimationComplete}
-      />
+      <BlurText text={title} delay={150} animateBy="words" direction="top" />
     </Typography>
   );
 
@@ -59,13 +49,7 @@ export const BigTitle: React.FC<BigTitleProps> = ({
         mt: { xs: 1, md: 0.5 },
       }}
     >
-      <BlurText
-        text={title}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        onAnimationComplete={handleAnimationComplete}
-      />
+      <BlurText text={title} delay={150} animateBy="words" direction="top" />
     </Typography>
   );
 
