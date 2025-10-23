@@ -52,11 +52,11 @@ export class NeoTypographyForProjectDetailsPage {
   // SUBHEADING (THE PROBLEM)
   static readonly subheading: SxProps<Theme> = {
     fontFamily: '"IBM Plex Mono","Roboto Mono",monospace',
-    fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+    fontSize: "clamp(0.9rem, 2.6vw, 1.5rem)",
     fontWeight: 600,
     letterSpacing: "0.08em",
     textTransform: "uppercase",
-    color: NeoTypographyForProjectDetailsPage.NEO_PRIMARY,
+    color: NeoTypographyForProjectDetailsPage.NEO_DIM,
   };
 
   // BODY TEXT (paragraphs)
@@ -65,7 +65,7 @@ export class NeoTypographyForProjectDetailsPage {
     fontSize: "clamp(0.88rem, 1.1vw, 0.98rem)",
     fontWeight: 400,
     lineHeight: 1.55,
-    color: NeoTypographyForProjectDetailsPage.NEO_DIM,
+    color: COLORS_NEO_EXTENDED.neutral,
   };
 
   // TAG TEXT (FULL STACK, DATA SCIENCE, etc.)

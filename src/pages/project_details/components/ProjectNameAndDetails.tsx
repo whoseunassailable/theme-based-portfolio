@@ -28,7 +28,9 @@ export const ProjectNameAndDetails = ({
       }}
     >
       <Typography sx={titleStyle}>{title}</Typography>
-      <Typography sx={subTitleStyle}>{subtitle}</Typography>
+      <Typography sx={subTitleStyle} pr={"5vw"} pb={"5vw"}>
+        {subtitle}
+      </Typography>
       {projectChipIcons && (
         <Box
           sx={{

@@ -1,7 +1,11 @@
 import Box from "@mui/material/Box";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import type { ReactNode } from "react";
 
-export const ProjectIcon = () => {
+interface ProjectIconProps {
+  icon: ReactNode;
+}
+
+export const ProjectIcon = ({ icon }: ProjectIconProps) => {
   return (
     <Box
       sx={{
@@ -10,7 +14,7 @@ export const ProjectIcon = () => {
         placeSelf: "center", // centers this box in its grid cell
       }}
     >
-      <AutoStoriesIcon sx={{ height: "15vw", width: "15vw" }} />
+      {icon}
     </Box>
   );
 };

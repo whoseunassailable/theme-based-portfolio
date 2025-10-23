@@ -11,5 +11,5 @@ export const projectDetailSpecific = [
   "APPROACH",
   "ARCHITECTURE",
   "OUTCOME",
-  "LESSON",
+  "Next Project --->",
 ];

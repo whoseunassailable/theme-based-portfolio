@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../theme/colors";
 import { HeadNavigator } from "../../components/HeadNavigator";
 import { projectDetailSpecific } from "../projects/constants/stackNames";
-import { VerticalLinesWithSpacing } from "./VerticalLinesWithSpacing";
+import { VerticalLinesWithSpacing } from "./components/VerticalLinesWithSpacing";
 import { RowOne } from "./components/RowOne";
 import { SectionTitles } from "./components/SectionTitles";
+import { RowTwo } from "./components/RowTwo";
+import { RowThree } from "./components/RowThree";
 
 export const ProjectsDetail = () => {
   return (
@@ -41,9 +42,9 @@ export const ProjectsDetail = () => {
         />
         <RowOne></RowOne>
         <SectionTitles title={"Problem"} />
-        <Box>Row 2 Content</Box>
-        <Box sx={{ height: 2, bgcolor: COLORS_NEO_EXTENDED.accent }} />
-        <Box>Row 3 Content</Box>
+        <RowTwo></RowTwo>
+        <SectionTitles title={"Approach"} />
+        <RowThree></RowThree>
       </Box>
       <VerticalLinesWithSpacing gridAreaNames={["v3", "space1", "v4"]} />
     </Box>
