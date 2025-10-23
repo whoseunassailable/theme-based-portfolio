@@ -6,6 +6,7 @@ import { RowOne } from "./components/RowOne";
 import { SectionTitles } from "./components/SectionTitles";
 import { RowTwo } from "./components/RowTwo";
 import { RowThree } from "./components/RowThree";
+import { RowFour } from "./components/RowFour";
 
 export const ProjectsDetail = () => {
   return (
@@ -45,6 +46,9 @@ export const ProjectsDetail = () => {
         <RowTwo></RowTwo>
         <SectionTitles title={"Approach"} />
         <RowThree></RowThree>
+        <SectionTitles title={"Architecture"} />
+        <RowFour></RowFour>
+        <SectionTitles title={"Outcome"} />
       </Box>
       <VerticalLinesWithSpacing gridAreaNames={["v3", "space1", "v4"]} />
     </Box>

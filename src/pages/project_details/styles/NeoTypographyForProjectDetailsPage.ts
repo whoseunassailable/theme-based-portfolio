@@ -64,6 +64,7 @@ export class NeoTypographyForProjectDetailsPage {
     fontFamily: '"IBM Plex Mono","Roboto Mono",monospace',
     fontSize: "clamp(0.88rem, 1.1vw, 0.98rem)",
     fontWeight: 400,
+    textAlign: "justify",
     lineHeight: 1.55,
     color: COLORS_NEO_EXTENDED.neutral,
   };
