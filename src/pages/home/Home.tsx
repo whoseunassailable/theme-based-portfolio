@@ -6,6 +6,7 @@ import { ButtonSection } from "./components/ButtonSection";
 import { CardGrid } from "./components/CardGrid";
 import { WorkExperience } from "../work-experience/WorkExperience";
 import { Projects } from "../projects/Projects";
+import { ProjectsDetail } from "../project_details/ProjectsDetail";
 
 export const Home = () => {
   return (
@@ -24,6 +25,7 @@ export const Home = () => {
       <CardGrid></CardGrid>
       <WorkExperience></WorkExperience>
       <Projects></Projects>
+      <ProjectsDetail></ProjectsDetail>
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
 import { Home } from "./pages/home/Home";
 import { WorkExperience } from "./pages/work-experience/WorkExperience";
 import { Projects } from "./pages/projects/Projects";
-import { ProjectsDetail } from "./pages/ProjectsDetail";
+import { ProjectsDetail } from "./pages/project_details/ProjectsDetail";
 import { Contact } from "./pages/Contact";
 import { AboutMe } from "./pages/AboutMe";
 

@@ -1,13 +1,14 @@
 import { BlueprintFrame } from "./components/BlueprintFrame";
 import { SectionHeading } from "../work-experience/components/SectionHeading";
-import { SearchStack } from "./components/SearchStack";
+import { HeadNavigator } from "../../components/HeadNavigator";
 import { DynamicProjectRowContainers } from "./components/DynamicProjectContainers";
+import { stackNames } from "./constants/stackNames";
 
 export const Projects = () => {
   return (
     <BlueprintFrame>
       <SectionHeading title={"Projects"}></SectionHeading>
-      <SearchStack />
+      <HeadNavigator navigatorValues={stackNames} useSpaceLeft={false} />
       <DynamicProjectRowContainers />
     </BlueprintFrame>
   );
