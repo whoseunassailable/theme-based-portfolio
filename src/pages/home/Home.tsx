@@ -6,7 +6,8 @@ import { ButtonSection } from "./components/ButtonSection";
 import { CardGrid } from "./components/CardGrid";
 import { WorkExperience } from "../work-experience/WorkExperience";
 import { Projects } from "../projects/Projects";
-import { ProjectsDetail } from "../project_details/ProjectsDetail";
+import { ProjectsDetail } from "../project-details/ProjectsDetail";
+import { AboutMeAndContactMe } from "../about-me-and-contact-me/AboutMeAndContactMe";
 
 export const Home = () => {
   return (
@@ -15,7 +16,7 @@ export const Home = () => {
       id="main"
       maxWidth={false}
       disableGutters
-      sx={{ px: { sm: 2, md: 3, lg: 4, xl: 5 } }}
+      sx={{ p: { sm: 2, md: 3, lg: 4, xl: 5 } }}
     >
       <HomePageNavBar></HomePageNavBar>
       <BigTitle title="I Build Experience As A" typographyAorB={true} />
@@ -26,6 +27,7 @@ export const Home = () => {
       <WorkExperience></WorkExperience>
       <Projects></Projects>
       <ProjectsDetail></ProjectsDetail>
+      <AboutMeAndContactMe></AboutMeAndContactMe>
     </Container>
   );
 };

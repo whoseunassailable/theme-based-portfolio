@@ -4,9 +4,9 @@ import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
 import { Home } from "./pages/home/Home";
 import { WorkExperience } from "./pages/work-experience/WorkExperience";
 import { Projects } from "./pages/projects/Projects";
-import { ProjectsDetail } from "./pages/project_details/ProjectsDetail";
-import { Contact } from "./pages/Contact";
-import { AboutMe } from "./pages/AboutMe";
+import { ProjectsDetail } from "./pages/project-details/ProjectsDetail";
+import { ContactMe } from "./pages/about-me-and-contact-me/ContactMe";
+import { AboutMe } from "./pages/about-me-and-contact-me/about-me/AboutMe";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/work_experience" element={<WorkExperience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects_detail" element={<ProjectsDetail />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<ContactMe />} />
           <Route path="/about_me" element={<AboutMe />} />
         </Routes>
       </Router>
