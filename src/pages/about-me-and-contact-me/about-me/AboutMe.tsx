@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import { BodyTextParagraph } from "./components/BodyTextParagraph";
 import { HeadingAndProfilePic } from "./components/HeadingAndProfilePic";
 import { ContainersAboutMe } from "./components/ContainersAboutMe";
@@ -13,9 +12,8 @@ export const AboutMe = () => {
       gridArea="about-me-section"
       sx={{
         height: "100vh",
+        width: "100%",
         rowGap: 4,
-        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-        gridTemplateRows: { md: "auto auto auto auto" }, // 4 content-sized rows
         gridTemplateAreas: {
           xs: `
             "header"
