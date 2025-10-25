@@ -24,8 +24,8 @@ export const AboutMe = () => {
           `,
           md: `
             "header"
-            "paragraph paragraph"
-            "attributes attributes"
+            "paragraph"
+            "attributes"
             "timeline funnotes"
           `,
         },
