@@ -7,10 +7,10 @@ export const HeadingAndProfilePic = () => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 0.10fr" },
         gridTemplateAreas: {
           xs: `"heading" "profile-pic"`,
-          md: `"heading profile-pic"`,
+          md: `"heading profile-pic space"`,
         },
       }}
     >
@@ -20,6 +20,7 @@ export const HeadingAndProfilePic = () => {
       <Box gridArea="profile-pic">
         <ProfilePic />
       </Box>
+      <Box gridArea="space" />
     </Box>
   );
 };
