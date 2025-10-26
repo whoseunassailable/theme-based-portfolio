@@ -5,11 +5,11 @@ import { AboutMeAndContactStyles } from "../../styles/AboutMeAndContactMeStyles"
 export const BodyTextParagraph = () => {
   return (
     <Box
-      mt={"-30vh"}
+      mt={"-20vh"}
       gridArea="paragraph"
       sx={{
         ml: "2.5vw",
-        height: "20vh",
+        height: "15vh",
         width: "25vw",
         border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
         px: "1.5vw",

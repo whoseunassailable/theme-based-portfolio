@@ -2,11 +2,21 @@
 export class AboutMeAndContactStyles {
   static monoText = {
     fontFamily: `"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace`,
-    fontSize: "1rem",
+    fontSize: "0.80rem",
     lineHeight: 1,
     letterSpacing: "0.05em",
     color: "#9BD2FF",
     textAlign: "justify",
+  };
+
+  static monoText2 = {
+    fontFamily: `"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace`,
+    fontSize: "0.95rem",
+    lineHeight: 1,
+    p: "2vh",
+    letterSpacing: "0.05em",
+    color: "#9BD2FF",
+    textAlign: "center",
   };
 
   static containerTextHeading = {

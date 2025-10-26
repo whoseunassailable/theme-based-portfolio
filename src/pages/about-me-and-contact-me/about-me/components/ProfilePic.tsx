@@ -2,5 +2,5 @@ import { Box } from "@mui/material";
 import profilePic from "../../../../assets/profile_pic.png";
 
 export const ProfilePic = () => (
-  <Box m={0} component="img" src={profilePic} height="50vh" width="17vw" />
+  <Box m={0} component="img" src={profilePic} height="40vh" width="13vw" />
 );

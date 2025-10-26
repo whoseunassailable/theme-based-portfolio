@@ -15,7 +15,8 @@ export const ContainersAboutMe = ({
     <Box display={"grid"}>
       {/* Heading */}
       <Box
-        width={"14vw"}
+        width={"10vw"}
+        margin={"0"}
         border={`1px solid ${COLORS_NEO_EXTENDED.accent}`}
         sx={AboutMeAndContactStyles.containerTextHeading}
       >
@@ -26,15 +27,8 @@ export const ContainersAboutMe = ({
       <Box
         border={`1px solid ${COLORS_NEO_EXTENDED.accent}`}
         height={"10vh"}
-        width={"14vw"}
-        sx={{
-          p: "2vh",
-          textAlign: "center",
-          letterSpacing: "0.015em",
-          lineHeight: 1.3,
-          fontSize: "0.95rem",
-          mx: "auto",
-        }}
+        width={"10vw"}
+        sx={AboutMeAndContactStyles.monoText2}
       >
         {bodyText}
       </Box>
