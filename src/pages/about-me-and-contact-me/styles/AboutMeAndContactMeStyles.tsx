@@ -19,6 +19,16 @@ export class AboutMeAndContactStyles {
     textAlign: "center",
   };
 
+  static monoText3 = {
+    fontFamily: `"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace`,
+    fontSize: "0.70rem",
+    lineHeight: 1,
+    p: "2vh",
+    letterSpacing: "0.05em",
+    color: "#9BD2FF",
+    textAlign: "start",
+  };
+
   static containerTextHeading = {
     fontFamily: `"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace`,
     textTransform: "uppercase",

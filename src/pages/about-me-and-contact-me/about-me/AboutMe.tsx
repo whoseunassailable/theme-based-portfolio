@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import { BodyTextParagraph } from "./components/BodyTextParagraph";
 import { HeadingAndProfilePic } from "./components/HeadingAndProfilePic";
 import { ContainersAboutMe } from "./components/ContainersAboutMe";
-import { TimelineAndFunNotes } from "./components/TimelineAndFunNotes";
 import { ABOUT_ME_ATTRIBUTES } from "./constants/AboutMeAttributes";
+import { TimelineAndFunNotes } from "./components/TimelineAndFunNotes";
 
 export const AboutMe = () => {
   const headingAndBodyText = ABOUT_ME_ATTRIBUTES;
@@ -29,7 +29,7 @@ export const AboutMe = () => {
             "header"
             "paragraph"
             "attributes"
-            "timeline funnotes"
+            "timelineAndFunNotes"
           `,
         },
       }}
@@ -51,7 +51,6 @@ export const AboutMe = () => {
           display: "flex",
           gap: "1vw",
           ml: "2.5vw",
-          mt: "-15vh",
         }}
       >
         {headingAndBodyText.map((data) => (
@@ -59,11 +58,7 @@ export const AboutMe = () => {
         ))}
       </Box>
 
-      {/* Row 4: Timeline + Fun Notes */}
-      <Box sx={{ gridArea: "timeline" }}>
-        <TimelineAndFunNotes />
-      </Box>
-      <Box sx={{ gridArea: "funnotes" }}>
+      <Box sx={{ display: "grid", gridArea: "timelineAndFunNotes" }}>
         <TimelineAndFunNotes />
       </Box>
     </Box>
