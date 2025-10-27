@@ -7,7 +7,8 @@ import { CardGrid } from "./components/CardGrid";
 import { WorkExperience } from "../work-experience/WorkExperience";
 import { Projects } from "../projects/Projects";
 import { ProjectsDetail } from "../project-details/ProjectsDetail";
-import { AboutMeAndContactMe } from "../about-me-and-contact-me/AboutMeAndContactMe";
+import { AboutMe } from "../about-me-and-contact-me/about-me/AboutMe";
+import { ContactMe } from "../about-me-and-contact-me/contact-me/ContactMe";
 
 export const Home = () => {
   return (
@@ -27,7 +28,8 @@ export const Home = () => {
       <WorkExperience></WorkExperience>
       <Projects></Projects>
       <ProjectsDetail></ProjectsDetail>
-      <AboutMeAndContactMe></AboutMeAndContactMe>
+      <AboutMe></AboutMe>
+      <ContactMe></ContactMe>
     </Container>
   );
 };

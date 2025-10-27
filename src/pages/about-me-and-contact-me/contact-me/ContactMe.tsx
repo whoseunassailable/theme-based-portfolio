@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { SectionHeading } from "../../work-experience/components/SectionHeading";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import { ContactMeTitle } from "./components/ContactMeTitle";
@@ -8,12 +8,15 @@ export const ContactMe = () => {
   return (
     <Box
       display="grid"
-      m={0}
-      gridArea="contact-me-section"
+      width={"90vw"}
+      height={"95vh"}
+      m={"10vh"}
       sx={{
         height: "100vh",
         width: "100%",
         rowGap: 4,
+        border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
+        placeSelf: "center",
         gridTemplateAreas: {
           xs: `
             "header"
@@ -33,10 +36,10 @@ export const ContactMe = () => {
       <SectionHeading title={"Let's Build something together"} />
       <Box gridArea={"title"}>
         <hr />
-        <ContactMeTitle></ContactMeTitle>
+        <ContactMeTitle />
         <hr />
       </Box>
-      <InputFormAndSocials></InputFormAndSocials>
+      <InputFormAndSocials />
     </Box>
   );
 };

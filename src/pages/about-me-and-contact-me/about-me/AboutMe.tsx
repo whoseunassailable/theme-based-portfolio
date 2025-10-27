@@ -4,18 +4,20 @@ import { HeadingAndProfilePic } from "./components/HeadingAndProfilePic";
 import { ContainersAboutMe } from "./components/ContainersAboutMe";
 import { ABOUT_ME_ATTRIBUTES } from "./constants/AboutMeAttributes";
 import { Timeline } from "./components/Timeline";
+import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 
 export const AboutMe = () => {
   const headingAndBodyText = ABOUT_ME_ATTRIBUTES;
 
   return (
     <Box
+      m={"10vh"}
       display="grid"
-      m={0}
-      gridArea="about-me-section"
       sx={{
         height: "100vh",
         width: "100%",
+        border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
+        placeSelf: "center",
         rowGap: 4,
         gridTemplateAreas: {
           xs: `
