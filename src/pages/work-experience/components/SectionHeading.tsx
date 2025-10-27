@@ -17,17 +17,19 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({ title }) => {
       <Box gridArea={"space-left"}></Box>
       <Box gridArea={"heading-title"}>
         <Typography
-          component="h1"
+          component="h5"
           data-text={title}
           variant="h2"
+          justifyContent={"center"}
+          alignItems={"center"}
           sx={{
             fontFamily:
               "'Inter', 'SF Pro Display', system-ui, -apple-system, Arial",
             fontWeight: 800,
             textTransform: "uppercase",
-            letterSpacing: { xs: "0.14em", md: "0.18em" },
+            letterSpacing: { xs: "0.14em", md: "0.14em" },
             lineHeight: 1.05,
-            fontSize: { xs: 28, sm: 36, md: 54 },
+            fontSize: { xs: 21, sm: 24, md: 35 },
             color: "rgba(180, 220, 255, 0.95)",
             textShadow:
               "0 0 12px rgba(0,180,255,.25), 0 0 2px rgba(0,180,255,.4)",

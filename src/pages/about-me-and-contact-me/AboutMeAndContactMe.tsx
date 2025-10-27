@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../theme/colors";
 import { AboutMe } from "./about-me/AboutMe";
-import { ContactMe } from "./ContactMe";
+import { ContactMe } from "./contact-me/ContactMe";
 
 export const AboutMeAndContactMe = () => {
   return (

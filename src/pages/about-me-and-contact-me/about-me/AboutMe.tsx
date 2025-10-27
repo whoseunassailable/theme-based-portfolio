@@ -3,7 +3,7 @@ import { BodyTextParagraph } from "./components/BodyTextParagraph";
 import { HeadingAndProfilePic } from "./components/HeadingAndProfilePic";
 import { ContainersAboutMe } from "./components/ContainersAboutMe";
 import { ABOUT_ME_ATTRIBUTES } from "./constants/AboutMeAttributes";
-import { TimelineAndFunNotes } from "./components/TimelineAndFunNotes";
+import { Timeline } from "./components/Timeline";
 
 export const AboutMe = () => {
   const headingAndBodyText = ABOUT_ME_ATTRIBUTES;
@@ -59,7 +59,7 @@ export const AboutMe = () => {
       </Box>
 
       <Box sx={{ display: "grid", gridArea: "timelineAndFunNotes" }}>
-        <TimelineAndFunNotes />
+        <Timeline />
       </Box>
     </Box>
   );

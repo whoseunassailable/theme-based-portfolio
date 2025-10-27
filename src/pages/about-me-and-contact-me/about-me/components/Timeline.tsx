@@ -2,7 +2,8 @@ import { Box } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 import { DisplayEducationAndWorkTimeline } from "./DisplayEducationAndWorkTimeline";
 import { TimelineAttributes } from "../constants/TimelineAttributes";
-export const TimelineAndFunNotes = () => {
+
+export const Timeline = () => {
   return (
     <Box height={"40vh"} width={"20vw"} ml={"2.5vw"}>
       <fieldset
