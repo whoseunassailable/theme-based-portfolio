@@ -16,9 +16,18 @@ export const ContainersAboutMe = ({
       {/* Heading */}
       <Box
         width={"10vw"}
-        margin={"0"}
         border={`1px solid ${COLORS_NEO_EXTENDED.accent}`}
-        sx={AboutMeAndContactStyles.containerTextHeading}
+        sx={{
+          fontFamily: `"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace`,
+          textTransform: "uppercase",
+          textAlign: "center",
+          justifyContent: "center",
+          alignItems: "center",
+          placeSelf: "center",
+          letterSpacing: "0.08em",
+          fontWeight: 400,
+          fontSize: "0.75rem",
+        }}
       >
         {heading}
       </Box>

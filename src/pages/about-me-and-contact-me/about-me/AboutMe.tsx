@@ -50,6 +50,8 @@ export const AboutMe = () => {
           gridArea: "attributes",
           display: "flex",
           gap: "1vw",
+          ml: "2.5vw",
+          mt: "-15vh",
         }}
       >
         {headingAndBodyText.map((data) => (
