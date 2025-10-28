@@ -3,8 +3,8 @@ import { Typography } from "@mui/material";
 export const AboutMeText = () => {
   return (
     <Typography
-      pl={"5vh"}
-      pt={"5vh"}
+      pl={"20vh"}
+      pt={"10vh"}
       component="h1"
       variant="h2"
       sx={{
@@ -12,7 +12,7 @@ export const AboutMeText = () => {
           "'Inter', 'SF Pro Display', system-ui, -apple-system, Arial",
         fontWeight: 800,
         textTransform: "uppercase",
-        letterSpacing: { xs: "0.14em", md: "0.18em" },
+        letterSpacing: { xs: "0.20em", md: "0.24em" },
         lineHeight: 1.05,
         fontSize: { xs: 28, sm: 36, md: 54 },
         color: "rgba(180, 220, 255, 0.95)",

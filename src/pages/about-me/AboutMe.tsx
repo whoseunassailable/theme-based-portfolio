@@ -14,9 +14,10 @@ export const AboutMe = () => {
       m={"10vh"}
       display="grid"
       sx={{
-        height: "100vh",
-        width: "100%",
+        height: "90vh",
+        width: "80vw",
         border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
+        borderRadius: "12vw",
         placeSelf: "center",
         rowGap: 4,
         gridTemplateAreas: {
@@ -52,7 +53,7 @@ export const AboutMe = () => {
           gridArea: "attributes",
           display: "flex",
           gap: "1vw",
-          ml: "2.5vw",
+          ml: "10vw",
         }}
       >
         {headingAndBodyText.map((data) => (
@@ -60,7 +61,7 @@ export const AboutMe = () => {
         ))}
       </Box>
 
-      <Box sx={{ display: "grid", gridArea: "timelineAndFunNotes" }}>
+      <Box sx={{ ml: "7vw", display: "grid", gridArea: "timelineAndFunNotes" }}>
         <Timeline />
       </Box>
     </Box>

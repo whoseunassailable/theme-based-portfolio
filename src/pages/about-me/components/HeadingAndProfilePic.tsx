@@ -7,7 +7,8 @@ export const HeadingAndProfilePic = () => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 0.5fr 1fr " },
+        justifyContent: "space-around",
+        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr " },
         gridTemplateAreas: {
           xs: `"heading" "profile-pic"`,
           md: `"heading space profile-pic "`,

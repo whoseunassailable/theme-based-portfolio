@@ -1,10 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 
-// interface ContactMeTitleProps {
-//   gridAreaNames: string[];
-// }
-
 export const ContactMeTitle = () => {
   return (
     <Box display={"flex "} sx={{ placeSelf: "center" }}>
