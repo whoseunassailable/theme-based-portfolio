@@ -10,10 +10,7 @@ export const ContactMe = () => {
       display="grid"
       width={"90vw"}
       height={"95vh"}
-      m={"10vh"}
       sx={{
-        height: "100vh",
-        width: "100%",
         rowGap: 4,
         border: `1px solid ${COLORS_NEO_EXTENDED.accent}`,
         placeSelf: "center",
@@ -33,7 +30,11 @@ export const ContactMe = () => {
         },
       }}
     >
-      <SectionHeading title={"Let's Build something together"} />
+      <SectionHeading
+        placeCenter="center"
+        mt="5vh"
+        title={"Let's Build something together"}
+      />
       <Box gridArea={"title"}>
         <hr />
         <ContactMeTitle />

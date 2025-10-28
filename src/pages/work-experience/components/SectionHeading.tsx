@@ -1,17 +1,25 @@
 import { Box, Typography } from "@mui/material";
+import type { ReactNode } from "react";
 
 interface SectionHeadingProps {
   title: string;
+  placeCenter?: string;
+  mt?: ReactNode;
 }
 
-export const SectionHeading: React.FC<SectionHeadingProps> = ({ title }) => {
+export const SectionHeading: React.FC<SectionHeadingProps> = ({
+  title,
+  placeCenter,
+  mt,
+}: SectionHeadingProps) => {
   return (
     <Box
       sx={{
-        mt: { xs: 2, md: 12 },
+        mt: mt ?? { xs: 2, md: 12 },
         display: "grid",
         gridTemplateColumns: { md: "0.25fr 5fr " },
         gridTemplateAreas: `"space-left heading-title "`,
+        placeSelf: placeCenter,
       }}
     >
       <Box gridArea={"space-left"}></Box>
@@ -27,7 +35,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({ title }) => {
               "'Inter', 'SF Pro Display', system-ui, -apple-system, Arial",
             fontWeight: 800,
             textTransform: "uppercase",
-            letterSpacing: { xs: "0.14em", md: "0.14em" },
+            letterSpacing: { xs: "0.14em", md: "0.18em" },
             lineHeight: 1.05,
             fontSize: { xs: 21, sm: 24, md: 35 },
             color: "rgba(180, 220, 255, 0.95)",
