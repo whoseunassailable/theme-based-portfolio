@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 import { InputTextFields } from "./InputTextFields";
+import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 
 export const InputFormAndSocials = () => {
   return (

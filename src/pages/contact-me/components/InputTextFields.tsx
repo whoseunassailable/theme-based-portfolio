@@ -1,5 +1,5 @@
 import { TextField, Typography } from "@mui/material";
-import { AboutMeAndContactStyles } from "../../styles/AboutMeAndContactMeStyles";
+import { AboutMeAndContactStyles } from "../../about-me-and-contact-me/styles/AboutMeAndContactMeStyles";
 
 interface InputTextFieldsProps {
   name: string;

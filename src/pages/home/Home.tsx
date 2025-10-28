@@ -7,8 +7,8 @@ import { CardGrid } from "./components/CardGrid";
 import { WorkExperience } from "../work-experience/WorkExperience";
 import { Projects } from "../projects/Projects";
 import { ProjectsDetail } from "../project-details/ProjectsDetail";
-import { AboutMe } from "../about-me-and-contact-me/about-me/AboutMe";
-import { ContactMe } from "../about-me-and-contact-me/contact-me/ContactMe";
+import { AboutMe } from "../about-me/AboutMe";
+import { ContactMe } from "../contact-me/ContactMe";
 
 export const Home = () => {
   return (

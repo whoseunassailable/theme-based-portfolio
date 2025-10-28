@@ -4,7 +4,7 @@ import { HeadingAndProfilePic } from "./components/HeadingAndProfilePic";
 import { ContainersAboutMe } from "./components/ContainersAboutMe";
 import { ABOUT_ME_ATTRIBUTES } from "./constants/AboutMeAttributes";
 import { Timeline } from "./components/Timeline";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../../theme/colors";
 
 export const AboutMe = () => {
   const headingAndBodyText = ABOUT_ME_ATTRIBUTES;

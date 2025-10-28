@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import { SectionHeading } from "../../work-experience/components/SectionHeading";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import { ContactMeTitle } from "./components/ContactMeTitle";
 import { InputFormAndSocials } from "./components/InputFormAndSocials";
+import { COLORS_NEO_EXTENDED } from "../../theme/colors";
+import { SectionHeading } from "../work-experience/components/SectionHeading";
 
 export const ContactMe = () => {
   return (

@@ -5,8 +5,8 @@ import { Home } from "./pages/home/Home";
 import { WorkExperience } from "./pages/work-experience/WorkExperience";
 import { Projects } from "./pages/projects/Projects";
 import { ProjectsDetail } from "./pages/project-details/ProjectsDetail";
-import { ContactMe } from "./pages/about-me-and-contact-me/contact-me/ContactMe";
-import { AboutMe } from "./pages/about-me-and-contact-me/about-me/AboutMe";
+import { ContactMe } from "./pages/contact-me/ContactMe";
+import { AboutMe } from "./pages/about-me/AboutMe";
 
 function App() {
   return (

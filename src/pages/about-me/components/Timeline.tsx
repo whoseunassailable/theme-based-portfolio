@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 import { DisplayEducationAndWorkTimeline } from "./DisplayEducationAndWorkTimeline";
 import { TimelineAttributes } from "../constants/TimelineAttributes";
+import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 
 export const Timeline = () => {
   return (
