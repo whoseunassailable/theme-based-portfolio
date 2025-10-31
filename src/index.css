@@ -184,3 +184,68 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* shared utilities for backgrounds */
+:root {
+  --bg-grid-size: 28px;
+}
+
+/* NEO (already done) … */
+
+/* Cowboy Bebop: smoky vignette + subtle halftone + red poster wash */
+:root[data-theme="cowboy-bebop"] {
+  --bg-color: #0a0b0e;
+  --bg-overlay-1: radial-gradient(
+    1200px 600px at 85% -5%,
+    rgba(215, 38, 61, 0.25),
+    transparent 60%
+  );
+  --bg-overlay-2: radial-gradient(
+    900px 400px at 10% 105%,
+    rgba(245, 230, 99, 0.18),
+    transparent 65%
+  );
+  --bg-noise: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>\
+      <filter id='n'><feTurbulence baseFrequency='0.8' numOctaves='2' seed='3'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 .03 .06 .08 .1'/></feComponentTransfer></filter>\
+      <rect width='220' height='220' filter='url(%23n)'/>\
+    </svg>");
+  --bg-halftone: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px
+  );
+  --bg-halftone-size: 3px 3px;
+}
+
+/* page wrapper utility */
+.theme-bg {
+  position: relative;
+  background: var(--bg-color);
+}
+.theme-bg::before,
+.theme-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.theme-bg::before {
+  background: var(--bg-overlay-1), var(--bg-overlay-2), var(--bg-halftone);
+  background-size: auto, auto, var(--bg-halftone-size);
+  background-blend-mode: screen, screen, normal;
+  opacity: 1;
+}
+.theme-bg::after {
+  background-image: var(--bg-noise);
+  background-size: 220px 220px;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+html,
+body {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}

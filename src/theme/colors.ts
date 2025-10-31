@@ -138,4 +138,57 @@ export const COLORS_NEO_EXTENDED = {
   scrollThumb: "#0C1F33",
 } as const;
 
+export const COLORS_BEBOP_EXTENDED = {
+  // --- Core Tokens
+  bg: "#0B0A09", // Deep matte black background (space tone)
+  fg: "#E6DCC5", // Cream-beige text (main foreground)
+  muted: "#A38E70", // Muted sepia for secondary text
+  card: "#141210", // Slightly lighter black panel background
+  border: "#2C2620", // Soft warm border tone
+  accent: "#C0392B", // Blood-red accent (title slash, buttons)
+  accentFg: "#0A0807", // Foreground text on accent
+
+  // --- Cinematic Shadows & Depth
+  shadow: "rgba(0, 0, 0, 0.6)", // Deep noir shadow for cards
+  vignette: "rgba(10, 8, 7, 0.9)", // Used for subtle screen edges
+
+  // --- Typography
+  heading: "#EDE3CB", // Headings / large serif titles
+  subheading: "#D6C5A6", // Subtitle / tagline text
+  link: "#D65A47", // Link text (subtle red highlight)
+  linkHover: "#FF7262", // Brighter red hover tone
+  textDisabled: "#736554", // Muted brown-gray for inactive labels
+
+  // --- Interactive Elements
+  buttonBorder: "#9E3B2E", // Outline around red buttons
+  buttonHoverBg: "#A93E32", // Darkened red hover tone
+  buttonActive: "#FF3C2E", // Neon-red “Play” button / active state
+  inputBorder: "#3A3129", // Border around form inputs
+  inputBg: "#0E0C0B", // Input background (console fields)
+
+  // --- Card & Section Variants
+  cardLight: "#1B1916", // Inner cards / slightly lifted panels
+  cardDark: "#0A0807", // Deepest panels / footer backgrounds
+  divider: "#3F372E", // Thin soft separators
+
+  // --- Feedback / Status
+  success: "#54E38E", // Subtle green (mission success)
+  warning: "#E3C46C", // Dusty yellow highlight
+  error: "#E05D4C", // Alert red (form validation)
+  errorLight: "#F2A39A", // Soft salmon tone
+  info: "#9DBBD4", // Muted cyan for informational text
+
+  // --- Highlights & Glows
+  glow1: "#D6402F", // Red glow pulse
+  glow2: "#FF6B5A", // Lighter red edge glow
+  glow3: "#E5C59E", // Warm beige highlight
+  glowSoft: "rgba(255, 88, 70, 0.25)", // Soft red ambient glow
+
+  // --- Misc aesthetic tones
+  neutral: "#C6B79D", // Faint UI lines / faint text
+  panelEdge: "#2A221C", // Subtle panel edge definition
+  scrollTrack: "#0A0807", // Scroll background
+  scrollThumb: "#3E352D", // Scroll thumb grip
+} as const;
+
 export const getColors = (t: ThemeName = "base") => COLORS[t] ?? COLORS.base;

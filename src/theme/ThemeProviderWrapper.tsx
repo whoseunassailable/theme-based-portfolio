@@ -1,51 +1,69 @@
-import React, { type ReactNode } from "react";
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { ThemeProvider, CssBaseline, type Theme } from "@mui/material";
+import { neoTheme } from "./neo";
+import { cowboyBebopTheme } from "./cowboyBebop";
+// import the others when you build them
 
-interface ThemeProviderWrapperProps {
-  children: ReactNode;
-}
+type ThemeName =
+  | "Neo"
+  | "Cowboy Bebop"
+  | "Cyberpunk"
+  | "Studio Ghibli"
+  | "Harry Potter"
+  | "Pokemon";
 
-export const theme = createTheme({
-  palette: {
-    mode: "dark",
-    background: {
-      default: "#0a1d2d", // page background
-      paper: "#112b45", // card/paper background
-    },
-    primary: {
-      main: "#00bfff", // accent blue
-    },
-    text: {
-      primary: "#ffffff",
-      secondary: "#aaaaaa",
-    },
-  },
-  typography: {
-    fontFamily: "Arial, sans-serif",
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        },
-      },
-    },
-  },
-});
+const themeMap: Record<ThemeName, Theme> = {
+  Neo: neoTheme,
+  "Cowboy Bebop": cowboyBebopTheme,
+  Cyberpunk: neoTheme, // temp placeholder until built
+  "Studio Ghibli": neoTheme,
+  "Harry Potter": neoTheme,
+  Pokemon: neoTheme,
+};
 
-const ThemeProviderWrapper: React.FC<ThemeProviderWrapperProps> = ({
+type ThemeContextType = {
+  themeName: ThemeName;
+  setThemeName: (name: ThemeName) => void;
+};
+
+const ThemeControllerContext = createContext<ThemeContextType | null>(null);
+
+export const useThemeController = () => {
+  const ctx = useContext(ThemeControllerContext);
+  if (!ctx)
+    throw new Error(
+      "useThemeController must be used inside ThemeProviderWrapper"
+    );
+  return ctx;
+};
+
+export const ThemeProviderWrapper: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
+  const [themeName, setThemeName] = useState<ThemeName>(
+    () => (localStorage.getItem("themeName") as ThemeName) || "Neo"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("themeName", themeName);
+    document.documentElement.setAttribute("data-theme", themeName);
+  }, [themeName]);
+
+  const theme = useMemo(() => themeMap[themeName] ?? neoTheme, [themeName]);
+
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <ThemeControllerContext.Provider value={{ themeName, setThemeName }}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </ThemeControllerContext.Provider>
   );
 };
 
