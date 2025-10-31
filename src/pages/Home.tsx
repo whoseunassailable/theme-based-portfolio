@@ -1,16 +1,16 @@
 import { useThemeController } from "../theme/ThemeProviderWrapper";
-import { HomeCowboyBebop } from "./home/variants/HomeCowboyBebop";
-import HomeNeo from "./home/variants/HomeNeo";
+import { CowboyBebopHome } from "./home/variants/CowboyBebopHome";
+import NeoHome from "./home/variants/NeoHome";
 
 export const Home = () => {
   const { themeName } = useThemeController();
 
-  if (themeName === "Cowboy Bebop") return <HomeCowboyBebop />;
+  if (themeName === "Cowboy Bebop") return <CowboyBebopHome />;
   if (themeName === "Studio Ghibli") return <HomeGhibli />;
   if (themeName === "Cyberpunk") {
   }
 
-  return <HomeNeo />;
+  return <NeoHome />;
 };
 
 export default Home;

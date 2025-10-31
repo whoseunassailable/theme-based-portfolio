@@ -3,7 +3,7 @@ import { SectionHeading } from "./components/SectionHeading";
 import { SectionSubHeading } from "./components/SectionSubHeading";
 import { WorkExperienceTimeline } from "./components/WorkExperienceTimeline";
 
-export const WorkExperience = () => {
+export const NeoWorkExperience = () => {
   return (
     <Container
       component="main"

@@ -8,7 +8,7 @@ import { RowTwo } from "./components/RowTwo";
 import { RowThree } from "./components/RowThree";
 import { RowFour } from "./components/RowFour";
 
-export const ProjectsDetail = () => {
+export const NeoProjectsDetail = () => {
   return (
     <Box
       sx={{

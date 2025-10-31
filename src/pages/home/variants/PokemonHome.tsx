@@ -1,3 +1,3 @@
-export const HomePokemon = () => {
+export const PokemonHome = () => {
   return <div>HomePokemon</div>;
 };

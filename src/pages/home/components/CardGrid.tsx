@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { NeonCard } from "./NeonCard";
 import { neonCards } from "../constants/neonCards";
 
-export const CardGrid = () => {
+export const NeoCardGrid = () => {
   return (
     <Box
       sx={{

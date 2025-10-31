@@ -4,7 +4,7 @@ import { InputFormAndSocials } from "./components/InputFormAndSocials";
 import { COLORS_NEO_EXTENDED } from "../../theme/colors";
 import { SectionHeading } from "../work-experience/components/SectionHeading";
 
-export const ContactMe = () => {
+export const NeoContactMe = () => {
   return (
     <Box
       display="grid"

@@ -1,3 +1,3 @@
-export const HomeCowboyBebop = () => {
+export const CowboyBebopHome = () => {
   return <div>HomeCowboyBebop</div>;
 };

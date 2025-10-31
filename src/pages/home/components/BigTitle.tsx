@@ -8,7 +8,7 @@ interface BigTitleProps {
   typographyAorB: boolean;
 }
 
-export const BigTitle: React.FC<BigTitleProps> = ({
+export const NeoBigTitle: React.FC<BigTitleProps> = ({
   title,
   typographyAorB,
 }) => {

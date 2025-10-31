@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import BlurText from "./BlurText";
 
-export const SmallTitle = () => {
+export const NeoSmallTitle = () => {
   return (
     <Box
       sx={{

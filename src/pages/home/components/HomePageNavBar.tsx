@@ -12,7 +12,7 @@ import CircularText from "./CircularText";
   spinDuration={20}
   className="custom-class"
 />;
-export const HomePageNavBar = () => {
+export const HomeNeoPageNavBar = () => {
   return (
     <Box
       gap={5}

@@ -3,7 +3,7 @@ import { sxValueForButton } from "../styles/homePageStyles";
 import ShinyText from "../../../components/ShinyText";
 import Magnet from "../../../components/Magnet";
 
-export const ButtonSection = () => {
+export const NeoButtonSection = () => {
   return (
     <Box
       sx={{

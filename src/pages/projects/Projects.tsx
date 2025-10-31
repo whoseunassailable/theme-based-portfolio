@@ -4,7 +4,7 @@ import { HeadNavigator } from "../../components/HeadNavigator";
 import { DynamicProjectRowContainers } from "./components/DynamicProjectContainers";
 import { stackNames } from "./constants/stackNames";
 
-export const Projects = () => {
+export const NeoProjects = () => {
   return (
     <BlueprintFrame>
       <SectionHeading title={"Projects"}></SectionHeading>
