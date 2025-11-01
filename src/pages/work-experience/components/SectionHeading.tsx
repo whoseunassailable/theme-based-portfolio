@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
-import type { ReactNode } from "react";
 
 interface SectionHeadingProps {
   title: string;
   placeCenter?: string;
-  mt?: ReactNode;
+  mt?:
+    | string
+    | number
+    | { xs?: number; sm?: number; md?: number; lg?: number; xl?: number };
 }
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({

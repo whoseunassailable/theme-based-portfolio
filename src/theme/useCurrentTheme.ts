@@ -10,6 +10,6 @@ export const useCurrentTheme = () => {
     isBebop: themeName === "Cowboy Bebop",
     isNeo: themeName === "Neo",
     isGhibli: themeName === "Studio Ghibli",
-    isRenaissance: themeName === "Cyberpunk",
+    isRenaissance: themeName === "Renaissance",
   };
 };

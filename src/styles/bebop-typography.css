@@ -1,0 +1,97 @@
+/* 1. Top nav: HOME | WORK | ABOUT | CONTACT */
+.bebop-nav {
+  font-family:
+    "DM Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  font-size: 1.2vw; /* ~0.8rem → scales with viewport width */
+  letter-spacing: 0.27vw; /* ~0.18em */
+  text-transform: uppercase;
+  color: var(--page-text, #e6dcc5);
+}
+
+/* 2. Hero big name: JOHN DOE */
+.bebop-hero-title {
+  font-family: "Cinzel", "DM Sans", serif;
+  font-weight: 700;
+  font-size: clamp(3vw, 5vw, 4.1vw); /* viewport-based */
+  letter-spacing: 0.2vw;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: #e6dcc5;
+}
+
+/* 3. Hero subtitle: SEE YOU, SPACE DEVELOPER… */
+.bebop-hero-subtitle {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1.6vw; /* ~1.15rem */
+  font-weight: 500;
+  letter-spacing: 0.3vw;
+  text-transform: uppercase;
+  color: #e6dcc5;
+}
+
+/* 4. Skill strip under hero (FRONTEND | BACKEND | ...) */
+.bebop-skill-strip {
+  font-family: "Share Tech Mono", ui-monospace;
+  font-size: 1vw; /* ~0.7rem */
+  letter-spacing: 0.4vw;
+  text-transform: uppercase;
+  color: #e6dcc5;
+}
+
+/* 5. Red section titles: BACKGROUND REPORT, KNOWN CAPABILITIES, INVESTIGATION NOTES */
+.bebop-section-title {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1.3vw; /* ~0.9rem */
+  font-weight: 700;
+  letter-spacing: 0.4vw;
+  text-transform: uppercase;
+  color: #c0392b;
+}
+
+/* 6. Metadata labels (Name:, Alias:, Role:, Location:) */
+.bebop-meta-label {
+  font-family: "Share Tech Mono", ui-monospace;
+  font-size: 1.1vw; /* ~0.78rem */
+  letter-spacing: 0.17vw;
+  text-transform: none;
+  color: #e6dcc5;
+}
+
+/* 7. Metadata value (Space Developer, Full-Stack Engineer) */
+.bebop-meta-value {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1.3vw; /* ~0.9rem */
+  color: #e6dcc5;
+}
+
+/* 8. Stamp: OPEN CASE / CLASSIFIED / SECURE LINE CLOSED */
+.bebop-stamp {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.6vw; /* ~1.1rem */
+  letter-spacing: 0.12vw;
+  text-transform: uppercase;
+  color: #c0392b;
+}
+
+/* 9. Console text (contact form, “SENDER ID”, “UPLINK ADDRESS”) */
+.bebop-console-label {
+  font-family: "Share Tech Mono", ui-monospace;
+  font-size: 1vw; /* ~0.7rem */
+  letter-spacing: 0.45vw;
+  text-transform: uppercase;
+  color: #5ac8d8; /* cyan from contact page */
+}
+
+/* 10. Footer text (“End Transmission // Bebop Frequency 2071”) */
+.bebop-footer {
+  font-family: "Share Tech Mono", ui-monospace;
+  font-size: 0.9vw; /* ~0.65rem */
+  letter-spacing: 0.32vw;
+  text-transform: uppercase;
+  color: #e6dcc5;
+}

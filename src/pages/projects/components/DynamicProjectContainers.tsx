@@ -25,7 +25,7 @@ function useInfiniteAutoScroll(
     let scrollPos = 0;
     let running = true;
 
-    const tick = (time: number, deltaTime: number, frame: number) => {
+    const tick = (_time: number, deltaTime: number, _frame: number) => {
       if (!running) return;
 
       scrollPos += deltaTime * (speed / 1000); // move based on time delta

@@ -6,7 +6,6 @@ import {
   MotionValue,
   type Transition,
 } from "motion/react";
-import ShinyText from "../../../components/ShinyText";
 
 interface CircularTextProps {
   text: string;

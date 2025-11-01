@@ -1,11 +1,11 @@
 import { createTheme } from "@mui/material/styles";
-import { COLORS_BEBOP_EXTENDED } from "../theme/colors"; // adjust path to where you saved the palette
+import { COLORS_BEBOP_EXTENDED } from "../theme/colors"; // keep your original path
 
 const c = COLORS_BEBOP_EXTENDED;
 
 export const cowboyBebopTheme = createTheme({
   palette: {
-    mode: "dark", // ensures text colors & elevation are tuned for dark mode
+    mode: "dark", // keeps dark tuning
     background: {
       default: c.bg,
       paper: c.card,
@@ -39,33 +39,97 @@ export const cowboyBebopTheme = createTheme({
   },
 
   typography: {
-    fontFamily: "'Orbitron', 'Roboto', sans-serif", // Bebop style fonts
+    // base document font
+    fontFamily: `'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
+
+    // HERO / dossier titles
     h1: {
-      color: c.heading,
+      fontFamily: `'Cinzel', 'DM Sans', serif`,
       fontWeight: 700,
+      fontSize: "3.25rem",
+      lineHeight: 1.1,
+      letterSpacing: "0.04em",
       textTransform: "uppercase",
-    },
-    h2: {
       color: c.heading,
+    },
+
+    // page titles
+    h2: {
+      fontFamily: `'Cinzel', 'DM Sans', serif`,
       fontWeight: 600,
+      fontSize: "2.4rem",
+      lineHeight: 1.15,
+      letterSpacing: "0.04em",
+      textTransform: "uppercase",
+      color: c.heading,
     },
+
+    // section titles
     h3: {
-      color: c.subheading,
+      fontFamily: `'DM Sans', system-ui, sans-serif`,
+      fontWeight: 700,
+      fontSize: "1.05rem",
+      letterSpacing: "0.28em",
+      textTransform: "uppercase",
+      color: c.accent,
     },
-    body1: {
+
+    // metadata / right-column info
+    subtitle1: {
+      fontFamily: `'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`,
+      fontSize: "0.9rem",
+      letterSpacing: "0.08em",
+      lineHeight: 1.5,
       color: c.fg,
     },
+
+    // “ISS PBR Database …”
+    subtitle2: {
+      fontFamily: `'Share Tech Mono', ui-monospace`,
+      fontSize: "0.75rem",
+      letterSpacing: "0.18em",
+      textTransform: "uppercase",
+      color: c.info,
+    },
+
+    // normal paragraph copy
+    body1: {
+      fontFamily: `'DM Sans', system-ui, sans-serif`,
+      fontSize: "0.9rem",
+      lineHeight: 1.6,
+      color: c.fg,
+    },
+
+    // small helper / footer
     body2: {
+      fontFamily: `'Share Tech Mono', ui-monospace`,
+      fontSize: "0.7rem",
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
       color: c.muted,
     },
+
+    // nav / buttons — we still let the component override handle colors
     button: {
-      textTransform: "uppercase",
+      fontFamily: `'DM Sans', system-ui, sans-serif`,
       fontWeight: 600,
-      color: c.accentFg,
+      letterSpacing: "0.16em",
+      textTransform: "uppercase",
+    },
+
+    overline: {
+      fontFamily: `'Share Tech Mono', ui-monospace`,
+      fontSize: "0.65rem",
+      letterSpacing: "0.4em",
+      textTransform: "uppercase",
+      color: c.muted,
     },
   },
 
   components: {
+    //
+    // keep your old component overrides
+    //
     MuiCssBaseline: {
       styleOverrides: {
         body: {
@@ -78,7 +142,8 @@ export const cowboyBebopTheme = createTheme({
           `,
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          fontFamily: "'Orbitron', 'Roboto', sans-serif",
+          // match typography base:
+          fontFamily: `'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
         },
         a: {
           color: c.link,
@@ -94,6 +159,7 @@ export const cowboyBebopTheme = createTheme({
         },
       },
     },
+
     MuiButton: {
       styleOverrides: {
         root: {
@@ -112,6 +178,7 @@ export const cowboyBebopTheme = createTheme({
         },
       },
     },
+
     MuiCard: {
       styleOverrides: {
         root: {

@@ -13,7 +13,7 @@ import { cowboyBebopTheme } from "./cowboyBebop";
 type ThemeName =
   | "Neo"
   | "Cowboy Bebop"
-  | "Cyberpunk"
+  | "Renaissance"
   | "Studio Ghibli"
   | "Harry Potter"
   | "Pokemon";
@@ -21,7 +21,7 @@ type ThemeName =
 const themeMap: Record<ThemeName, Theme> = {
   Neo: neoTheme,
   "Cowboy Bebop": cowboyBebopTheme,
-  Cyberpunk: neoTheme, // temp placeholder until built
+  Renaissance: neoTheme, // temp placeholder until built
   "Studio Ghibli": neoTheme,
   "Harry Potter": neoTheme,
   Pokemon: neoTheme,
