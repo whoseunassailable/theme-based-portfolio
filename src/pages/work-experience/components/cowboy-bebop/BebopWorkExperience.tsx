@@ -12,6 +12,7 @@ import {
 interface BebopWorkExperienceProps {
   caseAndId: string;
   missionAndRole: string;
+  organization: string;
   duration: string;
   status: string;
   operationNotes: string;
@@ -20,6 +21,7 @@ interface BebopWorkExperienceProps {
 export const BebopWorkExperience = ({
   caseAndId,
   missionAndRole,
+  organization,
   duration,
   status,
   operationNotes,
@@ -29,6 +31,7 @@ export const BebopWorkExperience = ({
       <Typography sx={bebopCase}>CASE : {caseAndId}</Typography>
       <Box sx={bebopDivider} />
       <Typography sx={bebopMission}>MISSION : {missionAndRole}</Typography>
+      <Typography sx={bebopMission}>ORGANIZATION : {organization}</Typography>
       <Typography sx={bebopDuration}>DURATION : {duration}</Typography>
       <Typography sx={bebopStatus}>STATUS : {status}</Typography>
       <Typography sx={bebopOperationNotes}>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
 import { Home } from "./pages/Home";
 import { NeoWorkExperience } from "./pages/work-experience/variants/NeoWorkExperience";
-import { NeoProjects } from "./pages/projects/Projects";
+import { NeoProjects } from "./pages/projects/variants/NeoProjects";
 import { NeoProjectsDetail } from "./pages/project-details/ProjectsDetail";
 import { NeoContactMe } from "./pages/contact-me/ContactMe";
 import { NeoAboutMe } from "./pages/about-me/AboutMe";

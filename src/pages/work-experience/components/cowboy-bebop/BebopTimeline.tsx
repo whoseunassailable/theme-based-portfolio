@@ -8,10 +8,10 @@ export const BebopTimeline = () => {
       {BebopConstants.MISSIONS.map((m, i) => (
         <Box
           height={"30vh"}
-          width={"40vw"}
+          width={"50vw"}
           border={`1px solid transparent`}
           borderRadius={"0.5vw"}
-          mt={"4vh"}
+          m={"8vh"}
           boxShadow={"0 10px 30px rgba(0,0,0,0.25)"}
           bgcolor="transparent"
         >
@@ -19,6 +19,7 @@ export const BebopTimeline = () => {
             key={i}
             caseAndId={m.caseId}
             missionAndRole={m.mission}
+            organization={m.organization}
             duration={m.duration}
             status={m.status}
             operationNotes={m.operationNotes.join(" ")}

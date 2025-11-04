@@ -5,7 +5,7 @@ import { NeoSmallTitle } from "../components/SmallTitle";
 import { NeoButtonSection } from "../components/ButtonSection";
 import { NeoCardGrid } from "../components/CardGrid";
 import { NeoWorkExperience } from "../../work-experience/variants/NeoWorkExperience";
-import { NeoProjects } from "../../projects/Projects";
+import { NeoProjects } from "../../projects/variants/NeoProjects";
 import { NeoProjectsDetail } from "../../project-details/ProjectsDetail";
 import { NeoAboutMe } from "../../about-me/AboutMe";
 import { NeoContactMe } from "../../contact-me/ContactMe";
