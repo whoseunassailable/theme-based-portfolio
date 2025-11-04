@@ -95,3 +95,65 @@
   text-transform: uppercase;
   color: #e6dcc5;
 }
+
+/* bebop-typography.css */
+
+.bebop-work-experience {
+  background-color: #e6dcc5;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+  border: 1px solid #bfae90;
+  font-family: "Courier Prime", monospace;
+  color: #1b1b1b;
+}
+
+.bebop-case {
+  color: #1b1b1b;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.bebop-divider {
+  border-bottom: 1.5px solid #1b1b1b;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.bebop-mission {
+  color: #1b1b1b;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.bebop-duration {
+  color: #1b1b1b;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.bebop-status {
+  color: #1b1b1b;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.bebop-operation-notes {
+  color: #1b1b1b;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-transform: none; /* keeping it readable */
+}

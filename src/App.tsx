@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThemeProviderWrapper from "./theme/ThemeProviderWrapper";
 import { Home } from "./pages/Home";
-import { NeoWorkExperience } from "./pages/work-experience/WorkExperience";
+import { NeoWorkExperience } from "./pages/work-experience/variants/NeoWorkExperience";
 import { NeoProjects } from "./pages/projects/Projects";
 import { NeoProjectsDetail } from "./pages/project-details/ProjectsDetail";
 import { NeoContactMe } from "./pages/contact-me/ContactMe";

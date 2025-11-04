@@ -4,7 +4,7 @@ import { NeoBigTitle } from "../components/BigTitle";
 import { NeoSmallTitle } from "../components/SmallTitle";
 import { NeoButtonSection } from "../components/ButtonSection";
 import { NeoCardGrid } from "../components/CardGrid";
-import { NeoWorkExperience } from "../../work-experience/WorkExperience";
+import { NeoWorkExperience } from "../../work-experience/variants/NeoWorkExperience";
 import { NeoProjects } from "../../projects/Projects";
 import { NeoProjectsDetail } from "../../project-details/ProjectsDetail";
 import { NeoAboutMe } from "../../about-me/AboutMe";
