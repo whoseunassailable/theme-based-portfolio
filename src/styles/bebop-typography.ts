@@ -208,3 +208,73 @@ export const bebopBountyStamp = {
   backgroundColor: "rgba(230, 220, 197, 0.85)",
   letterSpacing: "0.08em",
 };
+
+// Card base color so you can reuse it in styled-components / sx / tailwind plugin
+export const bebopProjectSectionCardBackground = "#99907C";
+
+// 1. Card title: "PORTFOLIO SITE", "EXPENSE TRACKER", etc.
+export const bebopProjectSectionHeader = {
+  fontFamily: "var(--font-bebop-heading, system-ui, sans-serif)",
+  fontSize: "3.5vh", // ~22–23px
+  lineHeight: 1.05,
+  letterSpacing: "0.03em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#1E1111",
+};
+
+// 2. Small label text like “Reward:”
+export const bebopProjectSectionMetaLabel = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2vh", // ~11px
+  lineHeight: 1.2,
+  letterSpacing: "0.04em",
+  textTransform: "uppercase",
+  fontWeight: 500,
+  color: "#1E1111",
+};
+
+// 3. The reward value itself e.g. “5000#”
+export const bebopProjectSectionMetaValue = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "0.85rem", // ~13–14px
+  lineHeight: 1.1,
+  letterSpacing: "0.05em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#1E1111",
+};
+
+// 4. Tech / role chips at the bottom (“FRONTEND”, “REACT NATIVE”, “API”)
+export const bebopProjectSectionTag = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2vh", //
+  lineHeight: 1.2,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "#1E1111",
+  backgroundColor: "#B39D88", // lighter beige chip color in the image
+};
+
+// 5. Status line at the bottom: “ACTIVE CASE”
+export const bebopProjectSectionStatus = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2.2vh",
+  lineHeight: 1.1,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#1E1111",
+};
+
+// 6. Red diagonal stamp: “OPEN CASE”
+export const bebopProjectSectionStamp = {
+  fontFamily: "var(--font-bebop-heading, system-ui, sans-serif)",
+  fontSize: "1.1rem", // slightly smaller than card title
+  lineHeight: 1,
+  letterSpacing: "0.12em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#B12022",
+};

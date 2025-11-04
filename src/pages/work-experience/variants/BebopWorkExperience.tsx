@@ -13,6 +13,7 @@ export const BebopWorkExperience = () => {
       flexDirection={"column"}
       justifyContent={"center"}
       alignItems={"center"}
+      sx={{ placeSelf: "center" }}
     >
       <Heading></Heading>
       <BebopSubHeading></BebopSubHeading>

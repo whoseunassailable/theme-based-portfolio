@@ -11,7 +11,13 @@ export const BebopProjectsStackNavBar = ({
   gridName,
 }: BebopProjectsStackNavBarProps) => {
   return (
-    <Box gridArea={gridName} justifyContent={"end"} alignItems={"end"}>
+    <Box
+      display="flex"
+      gridArea={gridName}
+      mt={"5vh"}
+      justifyContent="flex-end"
+      alignItems="flex-end"
+    >
       {stackNames.map((name) => (
         <NavBarButton key={name}>{name}</NavBarButton>
       ))}

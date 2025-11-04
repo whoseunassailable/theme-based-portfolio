@@ -1,0 +1,9 @@
+export const projectNames = [
+  "PORTFOLIO SITE",
+  "UNIQUEST",
+  "READICULOUS",
+  "KOKO FRESH AGENT",
+  "KOKO FRESH OPERATOR",
+  "INYANJE AGENT",
+  "INYANJE OPERATOR",
+];
