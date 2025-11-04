@@ -1,9 +1,9 @@
 export const stackNames = [
+  "All",
   "Frontend",
   "Backend",
   "Data Science",
   "Mobile Development",
-  "Full Stack Developer",
 ];
 
 export const projectDetailSpecific = [

@@ -163,20 +163,25 @@ export const cowboyBebopTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "8px",
-          border: `1px solid ${c.buttonBorder}`,
+          border: "none", // 👈 default: no border
           backgroundColor: "transparent",
           color: c.accent,
-          "&:hover": {
-            backgroundColor: c.buttonHoverBg,
-            color: c.accentFg,
-            boxShadow: `0 0 10px ${c.glowSoft}`,
-          },
-          "&:active": {
-            backgroundColor: c.buttonActive,
-          },
         },
       },
+      variants: [
+        {
+          props: { variant: "outlined" },
+          style: {
+            border: `1px solid ${c.buttonBorder}`,
+            backgroundColor: "transparent",
+            "&:hover": {
+              backgroundColor: c.buttonHoverBg,
+              color: c.accentFg,
+              boxShadow: `0 0 10px ${c.glowSoft}`,
+            },
+          },
+        },
+      ],
     },
 
     MuiCard: {

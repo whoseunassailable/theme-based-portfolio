@@ -1,7 +1,9 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { CowboyBebopNavbar } from "../components/cowboy-bebop/CowboyBebopNavbar";
 import { MainContainer } from "../components/cowboy-bebop/MainContainer";
 import { BebopWorkExperience } from "../../work-experience/variants/BebopWorkExperience";
+import { BebopProjects } from "../../projects/variants/BebopProjects";
+import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 // import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 
 export const CowboyBebopHome = () => {
@@ -15,10 +17,11 @@ export const CowboyBebopHome = () => {
     >
       <CowboyBebopNavbar></CowboyBebopNavbar>
       <MainContainer></MainContainer>
-      {/* <Box sx={{ gridArea: "theme", display: "flex" }}>
+      <Box sx={{ gridArea: "theme", display: "flex" }}>
         <MuiSelectTheme />
-      </Box> */}
+      </Box>
       <BebopWorkExperience></BebopWorkExperience>
+      <BebopProjects></BebopProjects>
     </Container>
   );
 };
