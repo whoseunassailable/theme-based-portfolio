@@ -1,3 +1,10 @@
+import { Typography } from "@mui/material";
+import { bebopProjectsDetailSectionCaseTitle } from "../../../../styles/bebop-typography";
+
 export const CowboyProjectsDetailHeading = () => {
-  return <div>CowboyProjectsDetailHeading</div>;
+  return (
+    <Typography sx={bebopProjectsDetailSectionCaseTitle}>
+      CASE FILE: REDUX SPACE APP
+    </Typography>
+  );
 };
