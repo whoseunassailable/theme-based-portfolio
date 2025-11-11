@@ -278,3 +278,107 @@ export const bebopProjectSectionStamp = {
   fontWeight: 700,
   color: "#B12022",
 };
+
+// 1. Top case file title: "CASE FILE: REDUX SPACE APP"
+export const bebopProjectsDetailSectionCaseTitle = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "5vh",
+  lineHeight: 0.95,
+  letterSpacing: "0.005em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#F5F1EA",
+  placeSelf: "center",
+};
+
+// 2. Small line under title: "ISS PBR Database // Entry 09.17.2071"
+export const bebopProjectsDetailSectionCaseSubhead = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2.6vh",
+  lineHeight: 1.2,
+  letterSpacing: "0.24em",
+  textTransform: "uppercase",
+  fontWeight: 500,
+  color: "#D6CFBE",
+  placeSelf: "center",
+};
+
+// 3. Right panel label stack: "CASE ID:", "TARGET:", "REWARD:", etc.
+export const bebopProjectsDetailSectionMetaLabel = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "1.4vh",
+  lineHeight: 1.2,
+  letterSpacing: "0.32em",
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "#F5F1EA",
+};
+
+// 4. Right panel values: "2071-09-001", "Redux Space App", etc.
+export const bebopProjectsDetailSectionMetaValue = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "1.6vh",
+  lineHeight: 1.35,
+  letterSpacing: "0.02em",
+  textTransform: "none",
+  fontWeight: 500,
+  color: "#F5F1EA",
+};
+
+// 5. Section headers in red: "INVESTIGATION NOTES", "EVIDENCE LOCKER"
+export const bebopProjectsDetailSectionHeader = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2.2vh",
+  lineHeight: 1.1,
+  letterSpacing: "0.26em",
+  textTransform: "uppercase",
+  fontWeight: 700,
+  color: "#C74435",
+};
+
+// 6. Body copy under investigation notes
+export const bebopProjectsDetailSectionBody = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "1.6vh",
+  lineHeight: 1.6,
+  letterSpacing: "0.04em",
+  textTransform: "none",
+  fontWeight: 400,
+  color: "#F5F1EA",
+};
+
+// 7. Evidence buttons: "SOURCE CODE", "LIVE DEPLOYMENT"
+export const bebopProjectsDetailSectionButton = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "1.6vh",
+  lineHeight: 1.1,
+  letterSpacing: "0.22em",
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "#F5F1EA",
+  backgroundColor: "transparent",
+  border: "1px solid #F5F1EA",
+};
+
+// 8. Footer line: "End of Case File // ISS PBR Database"
+export const bebopProjectsDetailSectionFooter = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "1.3vh",
+  lineHeight: 1.2,
+  letterSpacing: "0.26em",
+  textTransform: "uppercase",
+  fontWeight: 500,
+  color: "#B5B0A1",
+};
+
+// 9. Beige chip / inset card text (from your example)
+export const bebopProjectsDetailSectionChip = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "2vh",
+  lineHeight: 1.2,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "#1E1111",
+  backgroundColor: "#B39D88",
+};

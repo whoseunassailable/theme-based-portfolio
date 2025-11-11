@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 
 interface VerticalLinesWithSpacingProps {
   gridAreaNames: string[];

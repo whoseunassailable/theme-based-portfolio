@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
-import { HeadNavigator } from "../../components/HeadNavigator";
-import { projectDetailSpecific } from "../projects/constants/stackNames";
-import { VerticalLinesWithSpacing } from "./components/VerticalLinesWithSpacing";
-import { RowOne } from "./components/RowOne";
-import { SectionTitles } from "./components/SectionTitles";
-import { RowTwo } from "./components/RowTwo";
-import { RowThree } from "./components/RowThree";
-import { RowFour } from "./components/RowFour";
+import { HeadNavigator } from "../../../components/HeadNavigator";
+import { projectDetailSpecific } from "../../projects/constants/stackNames";
+import { VerticalLinesWithSpacing } from "../components/neo/VerticalLinesWithSpacing";
+import { RowFour } from "../components/neo/RowFour";
+import { RowOne } from "../components/neo/RowOne";
+import { RowThree } from "../components/neo/RowThree";
+import { RowTwo } from "../components/neo/RowTwo";
+import { SectionTitles } from "../components/neo/SectionTitles";
 
 export const NeoProjectsDetail = () => {
   return (

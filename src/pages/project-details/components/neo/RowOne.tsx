@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { ProjectIcon } from "./ProjectIcon";
 import { ProjectNameAndDetails } from "./ProjectNameAndDetails";
-import { NeoTypographyForProjectDetailsPage } from "../styles/NeoTypographyForProjectDetailsPage";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { NeoTypographyForProjectDetailsPage } from "../../styles/NeoTypographyForProjectDetailsPage";
 
 export const RowOne = () => {
   return (

@@ -6,7 +6,7 @@ import { NeoButtonSection } from "../components/ButtonSection";
 import { NeoCardGrid } from "../components/CardGrid";
 import { NeoWorkExperience } from "../../work-experience/variants/NeoWorkExperience";
 import { NeoProjects } from "../../projects/variants/NeoProjects";
-import { NeoProjectsDetail } from "../../project-details/ProjectsDetail";
+import { NeoProjectsDetail } from "../../project-details/variants/NeoProjectsDetail";
 import { NeoAboutMe } from "../../about-me/AboutMe";
 import { NeoContactMe } from "../../contact-me/ContactMe";
 

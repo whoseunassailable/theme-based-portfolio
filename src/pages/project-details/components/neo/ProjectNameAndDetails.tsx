@@ -1,7 +1,7 @@
 import { Chip, type SxProps, type Theme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import labelNames from "../../work-experience/constants/labelNames";
+import labelNames from "../../../work-experience/constants/labelNames";
 
 interface ProjectNameAndDetailsProps {
   title: string;

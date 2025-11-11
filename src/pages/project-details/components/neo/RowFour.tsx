@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import { NeoTypographyForProjectDetailsPage } from "../styles/NeoTypographyForProjectDetailsPage";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
+import { NeoTypographyForProjectDetailsPage } from "../../styles/NeoTypographyForProjectDetailsPage";
 
 export const RowFour = () => {
   return (

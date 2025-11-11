@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import readiculousApproach from "../../../assets/readiculous_approach.png";
-import readiculousApproachTwo from "../../../assets/readiculous_approach_two.png";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import readiculousApproach from "../../../../assets/readiculous_approach.png";
+import readiculousApproachTwo from "../../../../assets/readiculous_approach_two.png";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 
 export const RowThree = () => {
   return (
