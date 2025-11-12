@@ -317,9 +317,9 @@ export const bebopProjectsDetailSectionMetaLabel = {
 // 4. Right panel values: "2071-09-001", "Redux Space App", etc.
 export const bebopProjectsDetailSectionMetaValue = {
   fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
-  fontSize: "1.6vh",
+  fontSize: "2.4vh",
   lineHeight: 1.35,
-  letterSpacing: "0.02em",
+  letterSpacing: "0.09em",
   textTransform: "none",
   fontWeight: 500,
   color: "#F5F1EA",
@@ -328,20 +328,21 @@ export const bebopProjectsDetailSectionMetaValue = {
 // 5. Section headers in red: "INVESTIGATION NOTES", "EVIDENCE LOCKER"
 export const bebopProjectsDetailSectionHeader = {
   fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
-  fontSize: "2.2vh",
-  lineHeight: 1.1,
-  letterSpacing: "0.26em",
+  fontSize: "3.8vh",
+  lineHeight: 1.5,
+  letterSpacing: "0.06em",
   textTransform: "uppercase",
   fontWeight: 700,
   color: "#C74435",
+  mt: "2vh",
 };
 
 // 6. Body copy under investigation notes
 export const bebopProjectsDetailSectionBody = {
   fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
-  fontSize: "1.6vh",
+  fontSize: "3vh",
   lineHeight: 1.6,
-  letterSpacing: "0.04em",
+  wordSpacing: "0.5em",
   textTransform: "none",
   fontWeight: 400,
   color: "#F5F1EA",
@@ -363,11 +364,13 @@ export const bebopProjectsDetailSectionButton = {
 // 8. Footer line: "End of Case File // ISS PBR Database"
 export const bebopProjectsDetailSectionFooter = {
   fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
-  fontSize: "1.3vh",
+  fontSize: "2.6vh",
+  mt: "5vh",
   lineHeight: 1.2,
   letterSpacing: "0.26em",
   textTransform: "uppercase",
   fontWeight: 500,
+  placeSelf: "center",
   color: "#B5B0A1",
 };
 

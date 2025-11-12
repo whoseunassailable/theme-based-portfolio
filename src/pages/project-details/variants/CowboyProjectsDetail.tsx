@@ -6,17 +6,20 @@ import { CowboyProjectDetailsLink } from "../components/cowboy-bebop/CowboyProje
 import { CowboyProjectInfo } from "../components/cowboy-bebop/CowboyProjectInfo";
 import { CowboyProjectsDetailInvestigationSummary } from "../components/cowboy-bebop/CowboyProjectsDetailInvestigationSummary";
 import { CowboyProjectsDetailSubHeading } from "../components/cowboy-bebop/CowboyProjectsDetailSubHeading";
+import { bebopProjectsDetailSectionHeader } from "../../../styles/bebop-typography";
 
 export const CowboyProjectsDetail = () => {
   return (
-    <Box m={"10vh"} width={"80vw"} sx={{}}>
+    <Box m={"10vh"} width={"80vw"}>
       <CowboyProjectsDetailHeading />
       <CowboyProjectsDetailSubHeading />
       <CowboyProjectInfo />
       <CowboyProjectDetailsInvestigationNotes />
       <CowboyProjectsDetailInvestigationSummary />
       <hr />
-      <Typography></Typography>
+      <Typography sx={bebopProjectsDetailSectionHeader}>
+        EVIDENCE LOCKER
+      </Typography>
       <CowboyProjectDetailsLink />
       <CowboyProjectDetailsFooter />
     </Box>
