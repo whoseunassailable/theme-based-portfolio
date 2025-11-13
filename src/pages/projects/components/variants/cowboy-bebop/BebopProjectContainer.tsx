@@ -4,7 +4,7 @@ import {
   bebopProjectSectionMetaLabel,
   bebopProjectSectionStatus,
   bebopProjectSectionTag,
-} from "../../../styles/bebop-typography";
+} from "../../../../../styles/bebop-typography";
 
 interface BebopProjectContainerProps {
   name: string;

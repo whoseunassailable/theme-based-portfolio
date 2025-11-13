@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import { AboutMeAndContactStyles } from "../../about-me-and-contact-me/styles/AboutMeAndContactMeStyles";
+import { COLORS_NEO_EXTENDED } from "../../../../../theme/colors";
+import { AboutMeAndContactStyles } from "../../../../../styles/AboutMeAndContactMeStyles";
 
 interface ContainersAboutMeProps {
   heading: string;

@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import { BebopProjectsSubHeading } from "../components/BebopProjectsSubHeading";
-import { BebopProjectsStackNavBar } from "../components/BebopProjectsStackNavBar";
-import { BebopProjectsHeading } from "../components/BebopProjectsHeading";
-import { BebopProjectsContainer } from "../components/BebopProjectsContainer";
+import { BebopProjectsHeading } from "../components/variants/cowboy-bebop/BebopProjectsHeading";
+import { BebopProjectsSubHeading } from "../components/variants/cowboy-bebop/BebopProjectsSubHeading";
+import { BebopProjectsStackNavBar } from "../components/variants/cowboy-bebop/BebopProjectsStackNavBar";
+import { BebopProjectsContainer } from "../components/variants/cowboy-bebop/BebopProjectsContainer";
 
 export const BebopProjects = () => {
   return (

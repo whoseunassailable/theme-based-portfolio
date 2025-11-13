@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { stackNames } from "../constants/stackNames";
-import { NavBarButton } from "../../../components/NavBarButton";
+import { NavBarButton } from "../../../../../components/NavBarButton";
+import { stackNames } from "../../../constants/stackNames";
 // import { NavToggleButtonGroup } from "../../../components/NavToggleButtonGroup";
 
 interface BebopProjectsStackNavBarProps {

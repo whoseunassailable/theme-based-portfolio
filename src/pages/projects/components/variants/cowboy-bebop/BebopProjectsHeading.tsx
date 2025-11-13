@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { bebopBountyHeader } from "../../../styles/bebop-typography";
+import { bebopBountyHeader } from "../../../../../styles/bebop-typography";
 
 interface BebopProjectsHeadingProps {
   gridName: string;

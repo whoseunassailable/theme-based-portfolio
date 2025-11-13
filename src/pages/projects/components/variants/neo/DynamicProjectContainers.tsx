@@ -2,7 +2,7 @@
 
 import { Box } from "@mui/material";
 import { ProjectContainer } from "./ProjectContainer";
-import { projects } from "../constants/projectCard";
+import { projects } from "../../../constants/projectCard";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { BebopProjectContainer } from "./BebopProjectContainer";
-import { projects } from "../constants/projectCard";
+import { projects } from "../../../constants/projectCard";
 
 interface BebopProjectsContainerProps {
   gridName: string;

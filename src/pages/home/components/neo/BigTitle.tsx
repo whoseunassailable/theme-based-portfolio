@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import BlurText from "../../home/components/BlurText";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
+import BlurText from "./BlurText";
 
 interface BigTitleProps {
   title: string;

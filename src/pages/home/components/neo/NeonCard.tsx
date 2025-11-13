@@ -1,8 +1,8 @@
 import { Box, Typography, type SxProps, type Theme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 import { type ReactNode } from "react";
-import FadeContent from "../../../components/FadeContent";
+import FadeContent from "../../../../components/FadeContent";
 
 type Props = {
   title: string;

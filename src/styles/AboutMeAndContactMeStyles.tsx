@@ -1,4 +1,4 @@
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../theme/colors";
 
 // styles.ts
 export class AboutMeAndContactStyles {

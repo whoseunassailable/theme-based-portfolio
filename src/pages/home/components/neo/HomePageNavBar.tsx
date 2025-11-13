@@ -1,9 +1,9 @@
-import { NavBarButton } from "../../../components/NavBarButton";
-import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
+import { NavBarButton } from "../../../../components/NavBarButton";
+import { MuiSelectTheme } from "../../../../components/MuiSelectTheme";
 // import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 // import LogoName from "../../../assets/logo_name.png";
 import { Box } from "@mui/material";
-import { pageOptions } from "../../../constants/pageOptions";
+import { pageOptions } from "../../../../constants/pageOptions";
 import CircularText from "./CircularText";
 
 <CircularText

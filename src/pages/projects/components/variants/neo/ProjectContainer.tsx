@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../../../../../theme/colors";
 import type { ReactNode } from "react";
-import ElectricBorder from "../../../components/ElectricBorder";
+import ElectricBorder from "../../../../../components/ElectricBorder";
 
 interface ProjectContainerProps {
   gridArea: string;

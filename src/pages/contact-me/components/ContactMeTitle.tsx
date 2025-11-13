@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
-import { AboutMeAndContactStyles } from "../../about-me-and-contact-me/styles/AboutMeAndContactMeStyles";
+import { AboutMeAndContactStyles } from "../../../styles/AboutMeAndContactMeStyles";
 
 export const ContactMeTitle = () => {
   return (

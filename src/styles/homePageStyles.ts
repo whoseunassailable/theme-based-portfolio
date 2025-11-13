@@ -1,4 +1,4 @@
-import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
+import { COLORS_NEO_EXTENDED } from "../theme/colors";
 
 const neoOutlineSx = {
   textTransform: "uppercase",

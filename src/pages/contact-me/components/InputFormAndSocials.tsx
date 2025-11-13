@@ -2,7 +2,7 @@ import { Box, Button, Typography, Stack } from "@mui/material";
 import { InputTextFields } from "./InputTextFields";
 import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import { contactMeInputAttributes } from "../constants/ContactMeInputAttributes";
-import { AboutMeAndContactStyles } from "../../about-me-and-contact-me/styles/AboutMeAndContactMeStyles";
+import { AboutMeAndContactStyles } from "../../../styles/AboutMeAndContactMeStyles";
 import { GetInTouchAttributes } from "../constants/GetInTouchAttributes";
 
 export const InputFormAndSocials = () => {
