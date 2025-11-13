@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { ABOUT_ME_ATTRIBUTES } from "../../constants/AboutMeAttributes";
 import { COLORS_NEO_EXTENDED } from "../../theme/colors";
-import { HeadingAndProfilePic } from "./components/variants/neo/HeadingAndProfilePic";
-import { BodyTextParagraph } from "./components/variants/neo/BodyTextParagraph";
-import { ContainersAboutMe } from "./components/variants/neo/ContainersAboutMe";
+import { HeadingAndProfilePic } from "./components/neo/HeadingAndProfilePic";
+import { BodyTextParagraph } from "./components/neo/BodyTextParagraph";
+import { ContainersAboutMe } from "./components/neo/ContainersAboutMe";
 import { Timeline } from "@mui/icons-material";
 
 export const NeoAboutMe = () => {

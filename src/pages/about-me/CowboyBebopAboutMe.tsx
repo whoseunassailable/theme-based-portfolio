@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import { CowboyBebopAboutMeTitle } from "./components/variants/cowboy-bebop/CowboyBebopAboutMeTitle";
-import { CowboyBebopAboutMeSubTitle } from "./components/variants/cowboy-bebop/CowboyBebopAboutMeSubTitle";
-import { BebopStylePersonalDetailsContainer } from "./components/variants/cowboy-bebop/BebopStylePersonalDetailsContainer";
-import { BackgroundReportDetails } from "./components/variants/cowboy-bebop/BackgroundReportDetails";
-import { CommonTitleAboutMeSection } from "./components/variants/cowboy-bebop/CommonTitleAboutMeSection";
-import { CapabilitiesRow } from "./components/variants/cowboy-bebop/CapabilitiesRow";
-import { MissionLogDetails } from "./components/variants/cowboy-bebop/MissionLogDetails";
+import { BackgroundReportDetails } from "./components/cowboy-bebop/BackgroundReportDetails";
+import { BebopStylePersonalDetailsContainer } from "./components/cowboy-bebop/BebopStylePersonalDetailsContainer";
+import { CapabilitiesRow } from "./components/cowboy-bebop/CapabilitiesRow";
+import { CommonTitleAboutMeSection } from "./components/cowboy-bebop/CommonTitleAboutMeSection";
+import { CowboyBebopAboutMeSubTitle } from "./components/cowboy-bebop/CowboyBebopAboutMeSubTitle";
+import { CowboyBebopAboutMeTitle } from "./components/cowboy-bebop/CowboyBebopAboutMeTitle";
+import { MissionLogDetails } from "./components/cowboy-bebop/MissionLogDetails";
 
 export const CowboyBebopAboutMe = () => {
   return (

@@ -1,13 +1,13 @@
 import { Box, Typography } from "@mui/material";
-import { CowboyBebopContactMeTitle } from "./components/CowboyBebopContactMeTitle";
-import { CowboyBebopContactMeSubTitle } from "./components/CowboyBebopContactMeSubTitle";
-import { CowboyBebopContactMeInputForm } from "./components/CowboyBebopContactMeInputForm";
-import { RowsOfContactChannel } from "./components/RowsOfContactChannel";
+import { RowsOfContactChannel } from "./components/cowboy-bebop/RowsOfContactChannel";
 import {
   cowboyBebopContactMeAlternativeChannelsHeading,
   cowboyBebopContactMeFooter,
 } from "../../styles/bebop-typography";
 import SecureLineClosed from "../../assets/secure_line_closed.png";
+import { CowboyBebopContactMeInputForm } from "./components/cowboy-bebop/CowboyBebopContactMeInputForm";
+import { CowboyBebopContactMeSubTitle } from "./components/cowboy-bebop/CowboyBebopContactMeSubTitle";
+import { CowboyBebopContactMeTitle } from "./components/cowboy-bebop/CowboyBebopContactMeTitle";
 
 export const CowboyBebopContactMe = () => {
   return (

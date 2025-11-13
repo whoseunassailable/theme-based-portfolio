@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
-import { SectionHeading } from "../components/SectionHeading";
-import { SectionSubHeading } from "../components/SectionSubHeading";
-import { WorkExperienceTimeline } from "../components/WorkExperienceTimeline";
+import { SectionHeading } from "../components/neo/SectionHeading";
+import { SectionSubHeading } from "../components/neo/SectionSubHeading";
+import { WorkExperienceTimeline } from "../components/neo/WorkExperienceTimeline";
 
 export const NeoWorkExperience = () => {
   return (

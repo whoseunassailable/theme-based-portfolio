@@ -1,6 +1,7 @@
 import { Box, Button } from "@mui/material";
 import ShinyText from "../../../../components/ShinyText";
 import Magnet from "../../../../components/Magnet";
+import { sxValueForButton } from "../../../../styles/homePageStyles";
 
 export const NeoButtonSection = () => {
   return (

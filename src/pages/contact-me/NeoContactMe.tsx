@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import { ContactMeTitle } from "./components/ContactMeTitle";
-import { InputFormAndSocials } from "./components/InputFormAndSocials";
 import { COLORS_NEO_EXTENDED } from "../../theme/colors";
-import { SectionHeading } from "../work-experience/components/SectionHeading";
+import { SectionHeading } from "../work-experience/components/neo/SectionHeading";
+import { ContactMeTitle } from "./components/neo/ContactMeTitle";
+import { InputFormAndSocials } from "./components/neo/InputFormAndSocials";
 
 export const NeoContactMe = () => {
   return (
