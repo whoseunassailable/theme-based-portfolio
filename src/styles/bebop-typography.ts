@@ -632,3 +632,154 @@ export const cowboyBebopAboutMeProjectsDetailSectionChip: SxProps<Theme> = {
   backgroundColor: cowboyBebopAboutMeColors.sandDark,
   borderRadius: 0,
 };
+
+// TRANSMISSION CHANNEL — main container
+export const cowboyBebopContactMeContainer = {
+  backgroundColor: "#000000",
+  padding: "4vw 2vw",
+  fontFamily: "'Courier Prime', monospace",
+  color: "#E6F7F8",
+  textAlign: "center",
+};
+
+// Main heading ("TRANSMISSION CHANNEL")
+export const cowboyBebopContactMeMainHeading = {
+  fontSize: "4vw",
+  fontWeight: 700,
+  letterSpacing: "0.4vw",
+  color: "#F5F2EB",
+  textTransform: "uppercase",
+  textShadow: "0px 0px 4px rgba(255,255,255,0.4)",
+};
+
+// Red streak behind heading
+export const cowboyBebopContactMeRedBrushStroke = {
+  background: "linear-gradient(90deg, #CE2A21 0%, #A01612 100%)",
+  height: "1.4vw",
+  width: "100%",
+  marginBottom: "-1vw",
+  borderRadius: "0.2vw",
+};
+
+// Subheader: “SECURE UPLINK ESTABLISHED // BBOP FREQUENCY LOCKED”
+export const cowboyBebopContactMeSubheading = {
+  marginTop: "1vw",
+  fontSize: "1.5vw",
+  letterSpacing: "0.2vw",
+  color: "#6CF1F0",
+};
+
+// Form outer frame
+export const cowboyBebopContactMeFormWrapper = {
+  margin: "3vw auto",
+  border: "2px solid #6CF1F0",
+  borderRadius: "0.5vw",
+  padding: "2vw",
+  maxWidth: "40vw",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.6vw",
+};
+
+// Form section labels ("SENDER ID", "UPLINK ADDRESS", etc.)
+export const cowboyBebopContactMeLabel = {
+  fontSize: "1.2vw",
+  letterSpacing: "0.15vw",
+  color: "#6CF1F0",
+  marginBottom: "0.4vw",
+  textTransform: "uppercase",
+};
+
+// Input fields (like “Your Name”, “your.email@example.com”)
+export const cowboyBebopContactMeInput = {
+  padding: "0.8vw",
+  color: "#F5F2EB",
+  backgroundColor: "transparent",
+  fontFamily: "'Courier Prime', monospace",
+  borderRadius: "0.2vw",
+  fontSize: "1vw",
+};
+
+// Message packet textarea
+export const cowboyBebopContactMeTextarea = {
+  border: "1px solid #6CF1F0",
+  padding: "1vw",
+  height: "10vw",
+  color: "#F5F2EB",
+  backgroundColor: "transparent",
+  fontFamily: "'Courier Prime', monospace",
+  borderRadius: "0.2vw",
+  fontSize: "1vw",
+};
+
+// TRANSMIT button
+export const cowboyBebopContactMeButton = {
+  border: "1px solid #D4362A",
+  color: "#D4362A",
+  fontSize: "1.2vw",
+  letterSpacing: "0.2vw",
+  textTransform: "uppercase",
+  padding: "0.8vw 2vw",
+  marginTop: "1vw",
+  borderRadius: "0.3vw",
+  fontFamily: "'Courier Prime', monospace",
+  "&:hover": {
+    backgroundColor: "rgba(212, 54, 42, 0.1)",
+  },
+};
+
+// Alternative channels section heading
+export const cowboyBebopContactMeAlternativeChannelsHeading = {
+  marginTop: "4vw",
+  fontSize: "1.8vw",
+  letterSpacing: "0.15vw",
+  color: "#F5F2EB",
+  placeSelf: "center",
+};
+
+// Channels row (three icons)
+export const cowboyBebopContactMeChannelsRow = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "4vw",
+  marginTop: "2vw",
+};
+
+// Channel icon container
+export const cowboyBebopContactMeChannelItem = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  color: "#6CF1F0",
+  fontSize: "0.9vw",
+  letterSpacing: "0.1vw",
+};
+
+// Channel number (“01”, “02”)
+export const cowboyBebopContactMeChannelNumber = {
+  fontSize: "1.3vw",
+  fontWeight: 600,
+  marginTop: "0.5vw",
+};
+
+// Footer transmission text
+export const cowboyBebopContactMeFooter = {
+  marginTop: "4vw",
+  fontSize: "1.6vw",
+  letterSpacing: "0.15vw",
+  color: "#F5F2EB",
+  placeSelf: "center",
+};
+
+// Red “SECURE LINE CLOSED” stamp
+export const cowboyBebopContactMeSecureStamp = {
+  margin: "2vw auto",
+  padding: "0.5vw 1.5vw",
+  border: "2px solid #D4362A",
+  color: "#D4362A",
+  fontSize: "1.2vw",
+  letterSpacing: "0.1vw",
+  textTransform: "uppercase",
+  transform: "rotate(-5deg)",
+  width: "fit-content",
+};

@@ -6,6 +6,7 @@ import { BebopProjects } from "../../projects/variants/BebopProjects";
 import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 import { CowboyProjectsDetail } from "../../project-details/variants/CowboyProjectsDetail";
 import { CowboyBebopAboutMe } from "../../about-me/CowboyBebopAboutMe";
+import { CowboyBebopContactMe } from "../../contact-me/CowboyBebopContactMe";
 
 export const CowboyBebopHome = () => {
   return (
@@ -25,6 +26,7 @@ export const CowboyBebopHome = () => {
       <BebopProjects />
       <CowboyProjectsDetail />
       <CowboyBebopAboutMe />
+      <CowboyBebopContactMe />
     </Container>
   );
 };
