@@ -1,4 +1,7 @@
 // bebopTypography.ts
+
+import type { SxProps, Theme } from "@mui/material/styles";
+
 export const bebopWorkExperience = {
   backgroundColor: "#e6dcc5",
   borderRadius: "0.5vw",
@@ -384,4 +387,248 @@ export const bebopProjectsDetailSectionChip = {
   fontWeight: 600,
   color: "#1E1111",
   backgroundColor: "#B39D88",
+};
+
+/**
+ * Palette used across the dossier.
+ * Adjust if you want a slightly different vibe.
+ */
+export const cowboyBebopAboutMeColors = {
+  background: "#0D0B0A",
+  sand: "#E3D1B4",
+  sandMuted: "#C7AE8C",
+  sandDark: "#B39D88",
+  red: "#E0483B",
+  green: "#7BC7A3",
+  offWhite: "#F5E9D6",
+  bodyText: "#F0E2CF",
+  bodyDim: "#C2B096",
+  border: "#40332A",
+};
+
+/**
+ * CREW DOSSIER
+ */
+export const cowboyBebopAboutMeCrewTitle: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-heading, 'Cinzel', 'Times New Roman', serif)",
+  textTransform: "uppercase",
+  letterSpacing: "0.02em",
+  fontWeight: 700,
+  color: cowboyBebopAboutMeColors.sand,
+  lineHeight: 1.02,
+  fontSize: {
+    xs: "2.4vw",
+    sm: "3vw",
+    md: "3.6vw",
+    lg: "4.4vw",
+  },
+};
+
+/**
+ * PROFILE ENTRY // ISS PBR DATABASE SS / 2071
+ */
+export const cowboyBebopAboutMeCrewSubtitleMeta: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  textTransform: "uppercase",
+  letterSpacing: "0.18em",
+  fontWeight: 500,
+  color: cowboyBebopAboutMeColors.green,
+  fontSize: {
+    xs: "0.65vw",
+    sm: "0.7vw",
+    md: "1.15vw",
+  },
+};
+
+/**
+ * Section titles:
+ * BACKGROUND REPORT, KNOWN CAPABILITIES, MISSION LOG, CREW REFERENCES
+ */
+export const cowboyBebopAboutMeSectionTitle: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  textTransform: "uppercase",
+  letterSpacing: "0.06em",
+  fontWeight: 400,
+  color: cowboyBebopAboutMeColors.red,
+  fontSize: {
+    xs: "1.9vh",
+    sm: "3.5vh",
+    md: "3.5vh",
+  },
+};
+
+/**
+ * Side-card key labels:
+ * Name:, Alias:, Role:, Skills:, Location:
+ */
+export const cowboyBebopAboutMeFieldLabel: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-mono, 'IBM Plex Mono', monospace)",
+  textTransform: "none",
+  letterSpacing: "0.12em",
+  fontWeight: 500,
+  color: cowboyBebopAboutMeColors.green,
+  fontSize: {
+    xs: "0.7rem",
+    sm: "0.75rem",
+  },
+};
+
+/**
+ * Side-card values:
+ * YOUR NAME, Space Developer, Full-Stack Engineer…
+ */
+export const cowboyBebopAboutMeFieldValue: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  textTransform: "none",
+  letterSpacing: "0.04em",
+  fontWeight: 500,
+  color: cowboyBebopAboutMeColors.offWhite,
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.8rem",
+  },
+};
+
+/**
+ * Main paragraph copy (BACKGROUND REPORT body text)
+ */
+export const cowboyBebopAboutMeBodyParagraph: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontWeight: 400,
+  lineHeight: 1.6,
+  letterSpacing: "0.03em",
+  color: cowboyBebopAboutMeColors.bodyText,
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.8rem",
+    md: "0.85rem",
+  },
+};
+
+/**
+ * Small caption text:
+ * SUBJECT PHOTO #AD1, Reward: 500w, etc.
+ */
+export const cowboyBebopAboutMeCaptionSmall: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-mono, 'IBM Plex Mono', monospace)",
+  letterSpacing: "0.02em",
+  fontWeight: 400,
+  color: cowboyBebopAboutMeColors.bodyDim,
+  fontSize: {
+    xs: "2.55vh",
+    sm: "2.4vh",
+  },
+};
+
+/**
+ * Reward label inside capability cards:
+ * Reward: 500w
+ */
+export const cowboyBebopAboutMeRewardLabel: SxProps<Theme> = {
+  ...cowboyBebopAboutMeCaptionSmall,
+  color: cowboyBebopAboutMeColors.offWhite,
+  letterSpacing: "0.14em",
+};
+
+/**
+ * Capability card titles:
+ * FRONTEND, BACKEND, DATA SCIENCE, MOBILE
+ */
+export const cowboyBebopAboutMeCapabilityTitle: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  textTransform: "uppercase",
+  letterSpacing: "0.16em",
+  fontWeight: 700,
+  color: cowboyBebopAboutMeColors.background,
+  fontSize: {
+    xs: "0.8rem",
+    sm: "0.9rem",
+  },
+};
+
+/**
+ * Mission log year column:
+ * 2023, 2024, 2025…
+ */
+export const cowboyBebopAboutMeMissionYear: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-mono, 'IBM Plex Mono', monospace)",
+  fontWeight: 600,
+  letterSpacing: "0.12em",
+  color: cowboyBebopAboutMeColors.sandMuted,
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.8rem",
+  },
+};
+
+/**
+ * Mission log description lines
+ */
+export const cowboyBebopAboutMeMissionEntry: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  letterSpacing: "0.03em",
+  lineHeight: 1.5,
+  color: cowboyBebopAboutMeColors.bodyText,
+  fontSize: {
+    xs: "1.2vw",
+    sm: "1.4vw",
+  },
+};
+
+/**
+ * CREW REFERENCES heading (red in the card)
+ */
+export const cowboyBebopAboutMeCrewReferencesTitle: SxProps<Theme> = {
+  ...cowboyBebopAboutMeSectionTitle,
+  fontSize: {
+    xs: "0.7vw",
+    sm: "1.5vw",
+  },
+};
+
+/**
+ * The quote text inside CREW REFERENCES
+ */
+export const cowboyBebopAboutMeQuoteText: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontStyle: "italic",
+  letterSpacing: "0.03em",
+  lineHeight: 1.6,
+  color: cowboyBebopAboutMeColors.bodyText,
+  fontSize: {
+    xs: "1vw",
+    sm: "1.2vw",
+  },
+};
+
+/**
+ * Quote attribution:
+ * – JET BLACK
+ */
+export const cowboyBebopAboutMeQuoteAttribution: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-mono, 'IBM Plex Mono', monospace)",
+  textTransform: "uppercase",
+  letterSpacing: "0.18em",
+  fontWeight: 600,
+  color: cowboyBebopAboutMeColors.sandMuted,
+  fontSize: {
+    xs: "1vw",
+    sm: "1.2vw",
+  },
+  textAlign: "right",
+};
+
+/**
+ * Chip style (Projects detail section)
+ */
+export const cowboyBebopAboutMeProjectsDetailSectionChip: SxProps<Theme> = {
+  fontFamily: "var(--font-bebop-body, system-ui, sans-serif)",
+  fontSize: "0.75rem",
+  lineHeight: 1.2,
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  fontWeight: 600,
+  color: "#1E1111",
+  backgroundColor: cowboyBebopAboutMeColors.sandDark,
+  borderRadius: 0,
 };

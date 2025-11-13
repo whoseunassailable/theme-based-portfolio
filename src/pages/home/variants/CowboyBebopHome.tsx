@@ -5,7 +5,7 @@ import { BebopWorkExperience } from "../../work-experience/variants/BebopWorkExp
 import { BebopProjects } from "../../projects/variants/BebopProjects";
 import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 import { CowboyProjectsDetail } from "../../project-details/variants/CowboyProjectsDetail";
-// import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
+import { CowboyBebopAboutMe } from "../../about-me/CowboyBebopAboutMe";
 
 export const CowboyBebopHome = () => {
   return (
@@ -21,9 +21,10 @@ export const CowboyBebopHome = () => {
       <Box sx={{ gridArea: "theme", display: "flex" }}>
         <MuiSelectTheme />
       </Box>
-      <BebopWorkExperience></BebopWorkExperience>
-      <BebopProjects></BebopProjects>
-      <CowboyProjectsDetail></CowboyProjectsDetail>
+      <BebopWorkExperience />
+      <BebopProjects />
+      <CowboyProjectsDetail />
+      <CowboyBebopAboutMe />
     </Container>
   );
 };
