@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import CowboyBebopProfilePhoto from "../../../../../assets/cowboy_bebop_profile_photo.jpeg";
+import CowboyBebopProfilePhoto from "../../../../assets/cowboy_bebop_profile_photo.jpeg";
 import { cowboyBebopAboutMeCrewSubtitleMeta } from "../../../../styles/bebop-typography";
 
 export const BebopStylePersonalDetailsContainer = () => {

@@ -1,1 +1,8 @@
-export const pageOptions = ["Home", "Work", "Projects", "Contact", "About me"];
+export const pageOptions = [
+  "Home",
+  "Work",
+  "Projects",
+  "Project Details",
+  "Contact",
+  "About me",
+];

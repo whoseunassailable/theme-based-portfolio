@@ -293,3 +293,17 @@ body {
     background-color 0.4s ease,
     color 0.4s ease;
 }
+
+/* Harry Potter: wand cursor */
+[data-theme="Harry Potter"] body {
+  cursor:
+    url("./assets/wand.png") 6 6,
+    auto !important;
+}
+
+[data-theme="Harry Potter"] a,
+[data-theme="Harry Potter"] button {
+  cursor:
+    url("./assets/wand.png") 6 6,
+    pointer !important;
+}

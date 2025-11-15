@@ -1,3 +1,4 @@
+// ThemeProviderWrapper.tsx
 import React, {
   createContext,
   useContext,
@@ -8,7 +9,9 @@ import React, {
 import { ThemeProvider, CssBaseline, type Theme } from "@mui/material";
 import { neoTheme } from "./neo";
 import { cowboyBebopTheme } from "./cowboyBebop";
-// import the others when you build them
+import { harryPotterTheme } from "./harryPotter";
+import GhostCursor from "../components/GhostCursor"; // adjust path
+import { harryPotterCursorPreset } from "./ghostCursorPresets"; // if you created it
 
 type ThemeName =
   | "Neo"
@@ -21,9 +24,9 @@ type ThemeName =
 const themeMap: Record<ThemeName, Theme> = {
   Neo: neoTheme,
   "Cowboy Bebop": cowboyBebopTheme,
-  Renaissance: neoTheme, // temp placeholder until built
+  Renaissance: neoTheme,
   "Studio Ghibli": neoTheme,
-  "Harry Potter": neoTheme,
+  "Harry Potter": harryPotterTheme,
   Pokemon: neoTheme,
 };
 
@@ -46,9 +49,10 @@ export const useThemeController = () => {
 export const ThemeProviderWrapper: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const [themeName, setThemeName] = useState<ThemeName>(
-    () => (localStorage.getItem("themeName") as ThemeName) || "Neo"
-  );
+  const [themeName, setThemeName] = useState<ThemeName>(() => {
+    const stored = localStorage.getItem("themeName") as ThemeName | null;
+    return stored || "Neo";
+  });
 
   useEffect(() => {
     localStorage.setItem("themeName", themeName);
@@ -61,7 +65,17 @@ export const ThemeProviderWrapper: React.FC<React.PropsWithChildren> = ({
     <ThemeControllerContext.Provider value={{ themeName, setThemeName }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {children}
+        {/* This container gives GhostCursor a parent to fill */}
+        <div style={{ position: "relative", minHeight: "100vh" }}>
+          {children}
+
+          {
+            themeName === "Harry Potter"
+            // && (
+            //   <GhostCursor {...harryPotterCursorPreset} />
+            // )
+          }
+        </div>
       </ThemeProvider>
     </ThemeControllerContext.Provider>
   );

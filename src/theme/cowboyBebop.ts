@@ -163,7 +163,7 @@ export const cowboyBebopTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          border: "none", // 👈 default: no border
+          border: "none",
           backgroundColor: "transparent",
           color: c.accent,
         },
