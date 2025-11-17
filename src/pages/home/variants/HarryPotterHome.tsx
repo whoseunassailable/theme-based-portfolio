@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 // import { SpellsPage } from "../components/harry-potter/SpellsPage";
 import GhostCursor from "../../../components/GhostCursor";
 import { NavBarHarryPotter } from "../components/harry-potter/NavBarHarryPotter";
+import { HarryPotterWorkExperience } from "../../work-experience/variants/HarryPotterWorkExperience";
 
 export const HarryPotterHome = () => {
   return (
@@ -10,6 +11,7 @@ export const HarryPotterHome = () => {
       {/* <EntryPage></EntryPage> */}
       {/* <SpellsPage></SpellsPage> */}
       <NavBarHarryPotter></NavBarHarryPotter>
+      <HarryPotterWorkExperience></HarryPotterWorkExperience>
     </Box>
   );
 };

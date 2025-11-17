@@ -304,24 +304,92 @@ export const potterHomePageStylingButton = {
   },
 };
 
-// Optional: glowing floating candle wrappers if you use icons/elements for them
-export const potterHomePageStylingFloatingCandle = {
-  position: "absolute",
-  width: "0.4vw",
-  height: "2.2vw",
+// SECTION WRAPPER (whole work experience block)
+export const potterWorkExperienceWrapper = {
+  backgroundColor: "#2b1a0e",
+  backgroundImage:
+    "radial-gradient(circle at top, #5a3415 0%, #2b1a0e 55%, #120a05 100%)",
+  minHeight: "100vh",
+  px: { xs: "6vw", md: "10vw" },
+  py: { xs: "4vh", md: "6vh" },
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+};
+
+// TOP TITLE: "Work Experience"
+export const potterWorkExperienceTitle = {
+  fontFamily: "'Cinzel', 'Cormorant Garamond', serif",
+  fontWeight: 600,
+  fontSize: { xs: "2.3rem", md: "2.8rem" },
+  letterSpacing: "0.12em",
+  textTransform: "capitalize",
+  color: "#f6d58a",
+  textAlign: "center",
+  textShadow: "0 0 18px rgba(18, 16, 16, 0.7)",
+  mb: { xs: "2rem", md: "3rem" },
+};
+
+// COMPANY NAME: "Launch Ventures", "Excelerate", "MIT-FOSS"
+export const potterWorkExperienceCompanyTitle = {
+  fontFamily: "'Cinzel', serif",
+  fontWeight: 600,
+  fontSize: { xs: "2.3vw", md: "2vw" },
+  letterSpacing: "0.08em",
+  textAlign: "center",
+  color: "#3b1f0d",
+  mb: "0.6rem",
+};
+
+// ROLE / POSITION SUBTITLE: "Software Craftsces…", "Data Analyst Associate Intern"
+export const potterWorkExperienceRoleSubtitle = {
+  fontFamily: "'Cormorant Garamond', serif",
+  fontWeight: 500,
+  fontStyle: "italic",
+  fontSize: { xs: "1.4vw", md: "1.6vw" },
+  textAlign: "center",
+  color: "#3b1f0d",
+  mb: "0.4rem",
+};
+
+// DATE RANGE: "Jun 2022 – May 2024"
+export const potterWorkExperienceDateText = {
+  fontFamily: "'Cormorant Garamond', serif",
+  fontWeight: 500,
+  fontSize: { xs: "1.3vw", md: "1.5vw" },
+  textAlign: "center",
+  color: "#3b1f0d",
+  mb: "1rem",
+};
+
+// BULLET TEXT (li)
+export const potterWorkExperienceBulletItem = {
+  fontFamily: "'Cormorant Garamond', serif",
+  fontWeight: 400,
+  fontSize: { xs: "1.3vw", md: "1.5vw" },
+  lineHeight: 1.5,
+  color: "#3b1f0d",
+  mb: "0.35rem",
+};
+
+// OPTIONAL: CTA BUTTON STYLE IF YOU ADD ONE ON A SCROLL
+export const potterWorkExperienceButton = {
+  mt: "1.6rem",
+  alignSelf: "center",
+  px: "1.9rem",
+  py: "0.6rem",
   borderRadius: "999px",
-  background: "linear-gradient(#ffe9c2, #e1b985)",
-  boxShadow: "0px 0px 12px rgba(255, 233, 194, 0.9)",
-  "&:before": {
-    content: "''",
-    position: "absolute",
-    top: "-1vw",
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: "0.15vw",
-    height: "0.6vw",
-    borderRadius: "999px",
-    backgroundColor: "#ffd191",
-    boxShadow: "0px 0px 10px rgba(255, 209, 145, 0.9)",
+  background: "linear-gradient(180deg, #e4c27d 0%, #c2954b 50%, #a46f33 100%)",
+  color: "#3b1f0d",
+  fontFamily: "'Cinzel', serif",
+  fontWeight: 600,
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  boxShadow: "0 0 18px rgba(0,0,0,0.7)",
+  border: "1px solid rgba(0,0,0,0.35)",
+  "&:hover": {
+    background:
+      "linear-gradient(180deg, #f4d58e 0%, #cf9f54 50%, #b87936 100%)",
+    boxShadow: "0 0 24px rgba(0,0,0,0.9)",
   },
 };

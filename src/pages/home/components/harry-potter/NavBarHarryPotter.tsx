@@ -7,6 +7,8 @@ import {
   potterHomePageStylingTitle,
 } from "../../../../styles/potter-typography";
 import homeButton from "../../../../assets/home-button.png";
+import { ListOfElementsForNavBar } from "./ListOfElementsForNavbar";
+// import { RandomFireBackground } from "./RandomFIreBackground";
 
 export const NavBarHarryPotter = () => {
   return (
@@ -19,6 +21,9 @@ export const NavBarHarryPotter = () => {
         minHeight: "100vh",
       }}
     >
+      {/* Random GIFs in the background */}
+      {/* <RandomFireBackground count={7} /> */}
+
       <Box
         position="relative"
         component={"img"}
@@ -35,35 +40,12 @@ export const NavBarHarryPotter = () => {
         Full Stack Wizard
       </Typography>
       <Box
-        component={"img"}
-        height={"35vh"}
-        width={"40vh"}
+        component="img"
+        height="35vh"
+        width="40vh"
         src={homeButton}
         sx={{ placeSelf: "center" }}
       />
     </Box>
-  );
-};
-
-interface ListOfElementsForNavBarProps {
-  navbarElement: string;
-}
-
-export const ListOfElementsForNavBar = ({
-  navbarElement,
-}: ListOfElementsForNavBarProps) => {
-  return (
-    <Typography
-      sx={{
-        position: "absolute",
-        top: "13.5vh",
-        left: "50%",
-        transform: "translateX(-50%)",
-        color: "white",
-        fontWeight: 500,
-      }}
-    >
-      {navbarElement}
-    </Typography>
   );
 };
