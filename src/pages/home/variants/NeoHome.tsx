@@ -5,12 +5,12 @@ import { NeoSmallTitle } from "../components/neo/SmallTitle";
 import { NeoWorkExperience } from "../../work-experience/variants/NeoWorkExperience";
 import { NeoProjects } from "../../projects/variants/NeoProjects";
 import { NeoProjectsDetail } from "../../project-details/variants/NeoProjectsDetail";
-import { NeoAboutMe } from "../../about-me/AboutMe";
 import { NeoContactMe } from "../../contact-me/NeoContactMe";
 import { NeoBigTitle } from "../components/neo/BigTitle";
 import { NeoButtonSection } from "../components/neo/ButtonSection";
 import { NeoCardGrid } from "../components/neo/CardGrid";
 import { HomeNeoPageNavBar } from "../components/neo/HomePageNavBar";
+import { NeoAboutMe } from "../../about-me/variants/AboutMe";
 
 export const NeoHome = () => {
   return (

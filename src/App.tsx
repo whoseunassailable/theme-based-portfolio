@@ -6,7 +6,7 @@ import { NeoWorkExperience } from "./pages/work-experience/variants/NeoWorkExper
 import { NeoProjects } from "./pages/projects/variants/NeoProjects";
 import { NeoProjectsDetail } from "./pages/project-details/variants/NeoProjectsDetail";
 import { NeoContactMe } from "./pages/contact-me/NeoContactMe";
-import { NeoAboutMe } from "./pages/about-me/AboutMe";
+import { NeoAboutMe } from "./pages/about-me/variants/AboutMe";
 
 function App() {
   return (

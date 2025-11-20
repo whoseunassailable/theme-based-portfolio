@@ -5,8 +5,8 @@ import { BebopWorkExperience } from "../../work-experience/variants/BebopWorkExp
 import { BebopProjects } from "../../projects/variants/BebopProjects";
 import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 import { CowboyProjectsDetail } from "../../project-details/variants/CowboyProjectsDetail";
-import { CowboyBebopAboutMe } from "../../about-me/CowboyBebopAboutMe";
 import { CowboyBebopContactMe } from "../../contact-me/CowboyBebopContactMe";
+import { CowboyBebopAboutMe } from "../../about-me/variants/CowboyBebopAboutMe";
 
 export const CowboyBebopHome = () => {
   return (

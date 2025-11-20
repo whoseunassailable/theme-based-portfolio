@@ -1,8 +1,8 @@
 /* 1) external fonts must come first */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Share+Tech+Mono&display=swap");
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 /* existing imports */
 @import "tailwindcss";
