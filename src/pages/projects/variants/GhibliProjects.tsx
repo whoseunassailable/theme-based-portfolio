@@ -1,5 +1,6 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ghibliProjectsTheme from "../../../assets/ghibli-projects-theme.png";
+import ghibliWork from "../../../assets/ghibli-work-theme.png";
 
 export const GhibliProjects = () => {
   return (
@@ -22,7 +23,24 @@ export const GhibliProjects = () => {
           backgroundRepeat: "no-repeat",
           overflow: "hidden",
         }}
-      ></Box>
+      >
+        <Typography>My Work</Typography>
+        <Typography>Each project, a chapter in my journey.</Typography>
+
+        <Box
+          sx={{
+            height: "30vh",
+            width: "10vw",
+            position: "relative",
+            backgroundImage: `url(${ghibliWork})`,
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+            overflow: "hidden",
+          }}
+        >
+          cool
+        </Box>
+      </Box>
     </Box>
   );
 };

@@ -28,13 +28,7 @@ export const GhibliWorkExperience = () => {
       >
         <Typography>My Work</Typography>
         <Typography>Where I have worked over the years</Typography>
-        <GhibliCardContainer>
-          <Typography>Launch Ventures</Typography>
-          <Typography>Software Developer</Typography>
-          <Typography>Jun 2022 - May 2024</Typography>
-          <Typography>Company work duration</Typography>
-          <Typography>ChipStack</Typography>
-        </GhibliCardContainer>
+        <GhibliCardContainer />
       </Box>
     </Box>
   );

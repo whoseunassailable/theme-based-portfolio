@@ -1,5 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import ghibliHome from "../../../../assets/home_theme.png";
+import {
+  ghibliHomeHeroSubtitleTypography,
+  ghibliHomeHeroTitleTypography,
+  ghibliHomeScrollHintTypography,
+} from "../../../../styles/ghibli-typography";
 
 export const GhibliHomeBg = () => {
   return (
@@ -16,17 +21,20 @@ export const GhibliHomeBg = () => {
           width: "100%",
           maxWidth: 1440,
           aspectRatio: "12 / 9",
-          position: "relative",
           backgroundImage: `url(${ghibliHome})`,
           backgroundSize: "100% 100%",
-          backgroundRepeat: "no-repeat",
-          overflow: "hidden",
         }}
       >
-        <Typography>
-          Hi, I'm <br /> Rohan Bhande
+        <Typography sx={{ ...ghibliHomeHeroTitleTypography, mt: "10vh" }}>
+          Hi, I'm
         </Typography>
-        <Typography>Full Stack Engineer, Dreamer, Storyteller</Typography>
+        <Typography sx={ghibliHomeHeroTitleTypography}>Rohan Bhande</Typography>
+        <Typography sx={ghibliHomeHeroSubtitleTypography}>
+          Full Stack Engineer, Dreamer, Storyteller
+        </Typography>
+        <Typography sx={ghibliHomeScrollHintTypography}>
+          Scroll down to enter the story...
+        </Typography>
       </Box>
     </Box>
   );
