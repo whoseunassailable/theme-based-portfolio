@@ -10,8 +10,8 @@ import { ThemeProvider, CssBaseline, type Theme } from "@mui/material";
 import { neoTheme } from "./neo";
 import { cowboyBebopTheme } from "./cowboyBebop";
 import { harryPotterTheme } from "./harryPotter";
-import GhostCursor from "../components/GhostCursor"; // adjust path
-import { harryPotterCursorPreset } from "./ghostCursorPresets"; // if you created it
+// import GhostCursor from "../components/GhostCursor"; // adjust path
+// import { harryPotterCursorPreset } from "./ghostCursorPresets"; // if you created it
 
 type ThemeName =
   | "Neo"

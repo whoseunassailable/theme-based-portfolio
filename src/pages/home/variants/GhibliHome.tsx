@@ -10,7 +10,7 @@ import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
 export const GhibliHome = () => {
   return (
     <Box>
-      <GhibliHomeBg></GhibliHomeBg>{" "}
+      <GhibliHomeBg />
       <Box sx={{ gridArea: "theme", display: "flex" }}>
         <MuiSelectTheme />
       </Box>

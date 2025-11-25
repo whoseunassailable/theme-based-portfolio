@@ -58,18 +58,21 @@ export const ghibliHomeScrollHintTypography = {
 
 export const ghibliWorkSectionTitleTypography = {
   fontFamily: ghibliHeadingFontFamily,
-  fontSize: "clamp(2.4rem, 4.1vw, 3.4rem)",
+  fontSize: "8vw",
   fontWeight: 700,
   lineHeight: 1.1,
   color: ghibliPrimaryTextColor,
+  placeSelf: "center",
+  mt: "10vh",
 };
 
 export const ghibliWorkSectionSubtitleTypography = {
   fontFamily: ghibliBodyFontFamily,
-  fontSize: "clamp(1.05rem, 1.7vw, 1.3rem)",
+  fontSize: "2.8vw",
   fontWeight: 400,
   lineHeight: 1.4,
   color: ghibliMutedTextColor,
+  placeSelf: "center",
 };
 
 export const ghibliWorkYearLabelTypography = {
@@ -92,10 +95,11 @@ export const ghibliWorkFilterChipTypography = {
 
 export const ghibliWorkRoleTypography = {
   fontFamily: ghibliHeadingFontFamily,
-  fontSize: "clamp(1.3rem, 2.1vw, 1.7rem)",
+  fontSize: "1.4vw",
   fontWeight: 700,
   lineHeight: 1.2,
   color: ghibliPrimaryTextColor,
+  placeSelf: "center",
 };
 
 export const ghibliWorkCompanyTypography = {
@@ -104,6 +108,7 @@ export const ghibliWorkCompanyTypography = {
   fontWeight: 600,
   lineHeight: 1.3,
   color: ghibliPrimaryTextColor,
+  placeSelf: "center",
 };
 
 export const ghibliWorkDatesTypography = {
@@ -115,7 +120,7 @@ export const ghibliWorkDatesTypography = {
 
 export const ghibliWorkBulletTypography = {
   fontFamily: ghibliBodyFontFamily,
-  fontSize: "clamp(0.98rem, 1.5vw, 1.15rem)",
+  fontSize: "0.5vw)",
   fontWeight: 400,
   lineHeight: 1.5,
   color: ghibliMutedTextColor,
