@@ -1,14 +1,14 @@
 import { Container } from "@mui/material";
-import { HomeNeoPageNavBar } from "./components/HomePageNavBar";
-import { NeoBigTitle } from "./components/BigTitle";
-import { NeoSmallTitle } from "./components/SmallTitle";
-import { NeoButtonSection } from "./components/ButtonSection";
-import { NeoCardGrid } from "./components/CardGrid";
-import { NeoWorkExperience } from "../work-experience/WorkExperience";
-import { NeoProjects } from "../projects/Projects";
-import { NeoProjectsDetail } from "../project-details/ProjectsDetail";
-import { NeoAboutMe } from "../about-me/AboutMe";
-import { NeoContactMe } from "../contact-me/ContactMe";
+import { NeoAboutMe } from "../about-me/variants/AboutMe";
+import { NeoContactMe } from "../contact-me/NeoContactMe";
+import { NeoProjectsDetail } from "../project-details/variants/NeoProjectsDetail";
+import { NeoProjects } from "../projects/variants/NeoProjects";
+import { NeoWorkExperience } from "../work-experience/variants/NeoWorkExperience";
+import { NeoBigTitle } from "./components/neo/BigTitle";
+import { NeoButtonSection } from "./components/neo/ButtonSection";
+import { NeoCardGrid } from "./components/neo/CardGrid";
+import { HomeNeoPageNavBar } from "./components/neo/HomePageNavBar";
+import { NeoSmallTitle } from "./components/neo/SmallTitle";
 
 export const Home = () => {
   return (

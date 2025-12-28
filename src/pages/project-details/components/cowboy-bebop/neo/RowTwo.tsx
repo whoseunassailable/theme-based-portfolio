@@ -1,8 +1,8 @@
-import { NeoTypographyForProjectDetailsPage } from "../styles/NeoTypographyForProjectDetailsPage";
-import { ProjectIcon } from "../../ProjectIcon";
-import { ProjectNameAndDetails } from "../../ProjectNameAndDetails";
+import { ProjectNameAndDetails } from "../../neo/ProjectNameAndDetails";
+import { NeoTypographyForProjectDetailsPage } from "../../../styles/NeoTypographyForProjectDetailsPage";
 import { Box } from "@mui/material";
 import libraryShelfLogo from "../../../assets/library_shelf.png";
+import { ProjectIcon } from "../../neo/ProjectIcon";
 
 export const RowTwo = () => {
   return (
