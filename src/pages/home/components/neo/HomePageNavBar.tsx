@@ -13,6 +13,25 @@ import CircularText from "./CircularText";
   className="custom-class"
 />;
 export const HomeNeoPageNavBar = () => {
+  const sectionTargets: Record<string, { id: string; block?: ScrollLogicalPosition }> = {
+    Home: { id: "main", block: "start" },
+    Work: { id: "work-experience-section", block: "start" },
+    Projects: { id: "projects-section", block: "start" },
+    "Project Details": { id: "neo-project-details", block: "start" },
+    Contact: { id: "contact-section", block: "end" },
+    "About me": { id: "about-me-section", block: "start" },
+  };
+
+  const handleNavigation = (name: string) => {
+    const target = sectionTargets[name];
+    if (!target) return;
+
+    document.getElementById(target.id)?.scrollIntoView({
+      behavior: "smooth",
+      block: target.block ?? "start",
+    });
+  };
+
   return (
     <Box
       gap={5}
@@ -37,7 +56,9 @@ export const HomeNeoPageNavBar = () => {
         }}
       >
         {pageOptions.map((name) => (
-          <NavBarButton key={name}>{name}</NavBarButton>
+          <NavBarButton key={name} onClick={() => handleNavigation(name)}>
+            {name}
+          </NavBarButton>
         ))}
       </Box>
       <Box sx={{ gridArea: "theme", display: "flex" }}>

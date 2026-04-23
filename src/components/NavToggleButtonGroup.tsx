@@ -6,19 +6,27 @@ import { useState } from "react";
 interface NavToggleButtonGroupProps {
   height?: number | string;
   navigatorValues: string[];
+  onSelect?: (value: string) => void;
+  value?: string | null;
 }
 
 export const NavToggleButtonGroup = ({
   height,
   navigatorValues,
+  onSelect,
+  value,
 }: NavToggleButtonGroupProps) => {
   const [activeStack, setActiveStack] = useState<string | null>(null);
+  const selectedValue = value ?? activeStack;
 
   return (
     <ToggleButtonGroup
       exclusive
-      value={activeStack}
-      onChange={(_, v) => setActiveStack(v)}
+      value={selectedValue}
+      onChange={(_, v) => {
+        setActiveStack(v);
+        if (v) onSelect?.(v);
+      }}
       sx={{
         height: height,
         border: `2px solid ${COLORS_NEO_EXTENDED.accent}`,

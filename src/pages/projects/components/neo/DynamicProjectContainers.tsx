@@ -2,7 +2,7 @@
 
 import { Box } from "@mui/material";
 import { ProjectContainer } from "./ProjectContainer";
-import { useRef, useEffect } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { projects } from "../../constants/projectCard";
 
@@ -13,13 +13,6 @@ function useInfiniteAutoScroll(
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    // Avoid cloning twice
-    if (!el.dataset.cloned) {
-      const kids = Array.from(el.children);
-      kids.forEach((c) => el.appendChild(c.cloneNode(true)));
-      el.dataset.cloned = "true";
-    }
 
     const wrapWidth = el.scrollWidth / 2;
     let scrollPos = 0;
@@ -52,6 +45,7 @@ function useInfiniteAutoScroll(
 
 export const DynamicProjectRowContainers = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const repeatedProjects = useMemo(() => [...projects, ...projects], []);
 
   useInfiniteAutoScroll(scrollerRef, 30); // ↓ lower = slower, e.g. 20 or 10
 
@@ -82,14 +76,17 @@ export const DynamicProjectRowContainers = () => {
           width: "100%",
         }}
       >
-        {projects.map((p) => (
-          <Box key={p.id} sx={{ flex: "0 0 320px" }}>
+        {repeatedProjects.map((p, index) => (
+          <Box key={`${p.id}-${index}`} sx={{ flex: "0 0 320px" }}>
             <ProjectContainer
+              projectId={p.id}
               gridArea={`container-${p.id}`}
               projectStack={p.projectStack}
               nameOfProject={p.nameOfProject}
               shortSummary={p.shortSummary}
               icon={p.icon}
+              detailEnabled={p.detailEnabled}
+              externalUrl={p.externalUrl}
             />
           </Box>
         ))}

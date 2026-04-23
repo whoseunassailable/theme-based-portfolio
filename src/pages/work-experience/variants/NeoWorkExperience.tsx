@@ -8,10 +8,17 @@ export const NeoWorkExperience = () => {
     <Container
       component="main"
       id="main"
+      data-section="work-experience"
       maxWidth={false}
       disableGutters
       sx={{ px: { sm: 2, md: 3, lg: 4, xl: 5 } }}
     >
+      <Container
+        component="section"
+        id="work-experience-section"
+        maxWidth={false}
+        disableGutters
+      >
       <SectionHeading title={"Work Experience"} />
       <SectionSubHeading
         sub_title={
@@ -19,6 +26,7 @@ export const NeoWorkExperience = () => {
         }
       />
       <WorkExperienceTimeline></WorkExperienceTimeline>
+      </Container>
     </Container>
   );
 };

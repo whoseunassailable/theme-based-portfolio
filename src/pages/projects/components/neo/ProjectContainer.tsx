@@ -2,25 +2,67 @@ import { Box, Button, Typography } from "@mui/material";
 import type { ReactNode } from "react";
 import ElectricBorder from "../../../../components/ElectricBorder";
 import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
+import { useProjectDetails } from "../../../../context/ProjectDetailsContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface ProjectContainerProps {
   gridArea: string;
+  projectId: string;
   projectStack: string;
   nameOfProject: string;
   shortSummary: string;
   icon: ReactNode;
+  detailEnabled: boolean;
+  externalUrl?: string;
 }
 
 export const ProjectContainer: React.FC<ProjectContainerProps> = ({
   gridArea,
+  projectId,
   projectStack,
   nameOfProject,
   shortSummary,
   icon,
+  detailEnabled,
+  externalUrl,
 }) => {
   const accent = COLORS_NEO_EXTENDED.accent;
   const softGlow = COLORS_NEO_EXTENDED.glowSoft;
   const glow2 = COLORS_NEO_EXTENDED.glow2;
+  const { selectProject } = useProjectDetails();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToProjectDetails = () => {
+    requestAnimationFrame(() => {
+      document
+        .getElementById("neo-project-details")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
+  const handleViewProject = () => {
+    if (detailEnabled) {
+      selectProject(projectId);
+
+      if (location.pathname === "/") {
+        scrollToProjectDetails();
+        return;
+      }
+
+      if (location.pathname === "/projects_detail") {
+        scrollToProjectDetails();
+        return;
+      }
+
+      navigate("/projects_detail");
+      return;
+    }
+
+    if (externalUrl) {
+      window.open(externalUrl, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <ElectricBorder
@@ -99,6 +141,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
 
         <Button
           variant="outlined"
+          onClick={handleViewProject}
           sx={{
             borderColor: COLORS_NEO_EXTENDED.buttonBorder,
             letterSpacing: 0.3,

@@ -12,6 +12,7 @@ export const NavBarButton = ({ children, ...props }: NavBarButtonProps) => {
     <Button
       {...props}
       disableRipple
+      disableFocusRipple
       sx={{
         fontSize: "115%",
         fontWeight: 400,
@@ -39,6 +40,20 @@ export const NavBarButton = ({ children, ...props }: NavBarButtonProps) => {
           "&::after": {
             width: "100%",
           },
+        },
+
+        "&:focus": {
+          outline: "none",
+          boxShadow: "none",
+        },
+
+        "&.Mui-focusVisible": {
+          outline: "none",
+          boxShadow: "none",
+        },
+
+        "&:active": {
+          boxShadow: "none",
         },
       }}
     >

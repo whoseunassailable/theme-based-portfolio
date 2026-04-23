@@ -11,6 +11,7 @@ export const NeoAboutMe = () => {
 
   return (
     <Box
+      id="about-me-section"
       m={"10vh"}
       display="grid"
       sx={{

@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import HealingIcon from "@mui/icons-material/Healing";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 
 export type ProjectCard = {
   id: string;
@@ -8,6 +13,8 @@ export type ProjectCard = {
   nameOfProject: string;
   shortSummary: string;
   icon: ReactNode;
+  detailEnabled: boolean;
+  externalUrl?: string;
 };
 
 export const projects: ProjectCard[] = [
@@ -18,6 +25,7 @@ export const projects: ProjectCard[] = [
     shortSummary:
       "Full-stack book recommendation app; helps libraries stock relevant titles via location/genre analytics.",
     icon: <AutoStoriesIcon sx={{ width: "12vw", height: "12vw" }} />,
+    detailEnabled: true,
   },
   {
     id: "uniquest",
@@ -26,15 +34,16 @@ export const projects: ProjectCard[] = [
     shortSummary:
       "Admission-chance prediction using ML (e.g., XGBoost/RF) with real-time API for a Flutter frontend.",
     icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
   },
-  // (extra items ready for future rows)
   {
     id: "bots-on-hire",
     projectStack: "Automation",
     nameOfProject: "Bots on Hire",
     shortSummary:
       "Python/Selenium bot that automates job applications on JobRight; reduces manual application time.",
-    icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />, // swap to a better icon later if you want
+    icon: <SmartToyIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
   },
   {
     id: "koko-fresh-agent",
@@ -43,6 +52,8 @@ export const projects: ProjectCard[] = [
     shortSummary:
       "Financial transaction platform: wallet top-ups, PIN/OTP, tokens, and real-time tracking for milk ATM agents.",
     icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
+    externalUrl: "https://www.fresh-networks.com/",
   },
   {
     id: "koko-fresh-operator",
@@ -51,13 +62,47 @@ export const projects: ProjectCard[] = [
     shortSummary:
       "ATM operations app: inventory/batch creation, dispatch with barcode + real-time tray tracking; forecasting boost.",
     icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
+    externalUrl: "https://www.fresh-networks.com/",
   },
   {
-    id: "coventry-meditation",
+    id: "feetback",
+    projectStack: "HealthTech",
+    nameOfProject: "Feetback",
+    shortSummary:
+      "Real-time gait biofeedback app that converts smart-insole pressure signals into adaptive audio feedback.",
+    icon: <HealingIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
+  },
+  {
+    id: "pittsburgh-regional-transit",
+    projectStack: "Data Science",
+    nameOfProject: "Pittsburgh Regional Transit",
+    shortSummary:
+      "Transit analytics dashboard with route-level feedback analysis, ETL pipelines, and an optional AI assistant.",
+    icon: <DirectionsTransitIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: true,
+    externalUrl: "https://pittsburg-regional-transit-cfm3.vercel.app/",
+  },
+  {
+    id: "careculator",
+    projectStack: "HealthTech",
+    nameOfProject: "Careculator",
+    shortSummary:
+      "Healthcare cost-planning platform for comparing clinics and insurance options with recommendation support.",
+    icon: <HealthAndSafetyIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: false,
+    externalUrl: "https://coverfind.vercel.app/",
+  },
+  {
+    id: "fullheart-mindfulness",
     projectStack: "Mobile",
-    nameOfProject: "Coventry Meditation",
+    nameOfProject: "FullHeart Mindfulness",
     shortSummary:
       "Flutter + Firebase app shipped to Play/App Store; CI/CD with Codemagic to accelerate reliable releases.",
-    icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <PhoneIphoneIcon sx={{ width: "5vw", height: "5vw" }} />,
+    detailEnabled: false,
+    externalUrl:
+      "https://play.google.com/store/apps/details?id=com.lv.project_meditation",
   },
 ];

@@ -15,6 +15,10 @@ export const NeoButtonSection = () => {
       <Box sx={{ display: "flex", gridArea: "left-space" }} />
       <Box sx={{ display: "flex", gap: "2.5%", gridArea: "button-section" }}>
         <Button
+          component="a"
+          href={`${import.meta.env.BASE_URL}resume.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
           variant="outlined"
           size="large"
           fullWidth={{ xs: true, sm: false } as any}
@@ -26,7 +30,7 @@ export const NeoButtonSection = () => {
         >
           <Magnet padding={50} disabled={false} magnetStrength={2}>
             <ShinyText
-              text="View My Work"
+              text="Download Resume"
               disabled={false}
               speed={3}
               className="custom-class"
@@ -34,6 +38,10 @@ export const NeoButtonSection = () => {
           </Magnet>
         </Button>
         <Button
+          component="a"
+          href="https://github.com/whoseunassailable"
+          target="_blank"
+          rel="noopener noreferrer"
           variant="outlined"
           size="large"
           fullWidth={{ xs: true, sm: false } as any}
@@ -45,7 +53,7 @@ export const NeoButtonSection = () => {
         >
           <Magnet padding={50} disabled={false} magnetStrength={2}>
             <ShinyText
-              text="Explore Projects"
+              text="Open GitHub"
               disabled={false}
               speed={3}
               className="custom-class"

@@ -7,6 +7,7 @@ import { stackNames } from "../constants/stackNames";
 export const NeoProjects = () => {
   return (
     <BlueprintFrame>
+      <div id="projects-section" />
       <SectionHeading title={"Projects"}></SectionHeading>
       <HeadNavigator navigatorValues={stackNames} useSpaceLeft={false} />
       <DynamicProjectRowContainers />

@@ -6,6 +6,8 @@ interface HeadNavigatorProps {
   mt?: number;
   useSpaceLeft: boolean;
   height?: string | number;
+  onSelect?: (value: string) => void;
+  value?: string | null;
 }
 
 export const HeadNavigator = ({
@@ -13,6 +15,8 @@ export const HeadNavigator = ({
   mt,
   useSpaceLeft,
   height,
+  onSelect,
+  value,
 }: HeadNavigatorProps) => {
   return (
     <Box
@@ -48,6 +52,8 @@ export const HeadNavigator = ({
         <NavToggleButtonGroup
           height={height}
           navigatorValues={navigatorValues}
+          onSelect={onSelect}
+          value={value}
         />
       </Box>
     </Box>

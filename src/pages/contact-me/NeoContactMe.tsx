@@ -7,6 +7,7 @@ import { InputFormAndSocials } from "./components/neo/InputFormAndSocials";
 export const NeoContactMe = () => {
   return (
     <Box
+      id="contact-section"
       display="grid"
       width={"90vw"}
       height={"95vh"}

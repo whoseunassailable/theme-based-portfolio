@@ -47,8 +47,9 @@ export const NeonCard = ({
           overflow: "hidden",
           p: 2,
           color: "white",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
+          gap: 0,
           background: "transparent",
           boxShadow: `0 0 0 0 ${softGlow}`,
           transition:
@@ -69,22 +70,84 @@ export const NeonCard = ({
           ...sx,
         }}
       >
-        {icon}
-        <Typography variant="h5" fontWeight={700} mb={1} noWrap>
-          {title}
-        </Typography>
-        <Typography
+        <Box
           sx={{
-            display: "-webkit-box",
-            WebkitLineClamp: 2, // keep consistent heights
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            whiteSpace: "pre-line",
+            height: "5vw",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: accent,
+            flexShrink: 0,
+            mt: { xs: 0.5, md: 0.75 },
+            mb: 0,
           }}
         >
-          {subtitle}
+          {icon}
+        </Box>
+
+        <Box
+          sx={{
+            width: "100%",
+            display: "grid",
+            gridTemplateRows: "auto auto",
+            alignItems: "start",
+            justifyItems: "center",
+            rowGap: 0.05,
+            mt: 0,
+            flexGrow: 0,
+          }}
+        >
+          <Typography
+            variant="h5"
+            fontWeight={700}
+            textAlign="center"
+            sx={{
+              width: "100%",
+              minHeight: "2.6em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              mb: 0,
+              lineHeight: 1,
+            }}
+          >
+            {title}
+          </Typography>
+
+          <Typography
+            textAlign="center"
+            sx={{
+              width: "100%",
+              minHeight: "3.2em",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              whiteSpace: "pre-line",
+              alignSelf: "start",
+              lineHeight: 1.05,
+            }}
+          >
+            {subtitle}
+          </Typography>
+        </Box>
+
+        <Typography
+          textAlign="center"
+          sx={{
+            color: accent,
+            mt: 0.15,
+            minHeight: "1.8em",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pt: 0,
+            pb: { xs: 0.25, md: 0.5 },
+            lineHeight: 1,
+          }}
+        >
+          {stat}
         </Typography>
-        <Typography sx={{ color: accent, mt: 1 }}>{stat}</Typography>
       </Box>
     </FadeContent>
   );

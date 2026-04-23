@@ -1,6 +1,7 @@
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import PaidIcon from "@mui/icons-material/Paid";
+import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
 
 export const neonCards = [
   {
@@ -11,11 +12,11 @@ export const neonCards = [
     icon: <AutoStoriesIcon sx={{ height: "5vw", width: "5vw" }} />,
   },
   {
-    title: "Uniquest",
-    subtitle: "ML-powered predictor",
-    stat: "Insights ↑",
+    title: "Pittsburgh Transit",
+    subtitle: "Route analytics dashboard",
+    stat: "98 routes analyzed",
     gridArea: "card-2",
-    icon: <AccountBalanceIcon sx={{ height: "5vw", width: "5vw" }} />,
+    icon: <DirectionsTransitIcon sx={{ height: "5vw", width: "5vw" }} />,
   },
   {
     title: "Koko Fresh Agent",
