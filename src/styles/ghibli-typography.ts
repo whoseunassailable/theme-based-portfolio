@@ -11,6 +11,7 @@ export const ghibliBodyFontFamily =
 export const ghibliPrimaryTextColor = "#3c2b23"; // warm, storybook brown
 export const ghibliMutedTextColor = "#5a4335";
 export const ghibliAccentTextColor = "#8a5a24";
+export const ghibliSecondaryTextColor = "#6B5B4A";
 
 // HOME ----------------------------------------------------------------------
 // Hero text from the landing "Hi, I'm Your Name" page
@@ -120,7 +121,7 @@ export const ghibliWorkDatesTypography = {
 
 export const ghibliWorkBulletTypography = {
   fontFamily: ghibliBodyFontFamily,
-  fontSize: "0.5vw)",
+  fontSize: "0.9vw",
   fontWeight: 400,
   lineHeight: 1.5,
   color: ghibliMutedTextColor,
@@ -354,5 +355,46 @@ export const ghibliContactButtonTypography = {
   fontWeight: 700,
   letterSpacing: "0.12em",
   textTransform: "none" as const,
+  color: ghibliPrimaryTextColor,
+};
+
+export const ghibliProjectSectionTitleTypography = {
+  fontFamily: ghibliHeadingFontFamily,
+  fontSize: "6.5vw", // large but not overpowering
+  fontWeight: 700,
+  lineHeight: 1.15,
+  letterSpacing: "0.02em",
+  color: ghibliPrimaryTextColor,
+  textAlign: "center",
+  placeSelf: "center",
+  mt: "6vh",
+};
+
+export const ghibliProjectSectionSubtitleTypography = {
+  fontFamily: ghibliBodyFontFamily,
+  fontSize: "2.2vw",
+  fontWeight: 400,
+  lineHeight: 1.4,
+  letterSpacing: "0.03em",
+  color: ghibliSecondaryTextColor,
+  textAlign: "center",
+  mt: "1.5vh",
+};
+
+export const ghibliFilterTabTypography = {
+  fontFamily: ghibliBodyFontFamily,
+  m: "3vh",
+  fontSize: "1.4vw",
+  fontWeight: 500,
+  lineHeight: 1.2,
+  color: ghibliPrimaryTextColor,
+};
+
+export const ghibliProjectCardTitleTypography = {
+  fontFamily: ghibliHeadingFontFamily,
+  fontSize: "2.1vw",
+  fontWeight: 700,
+  lineHeight: 1.25,
+  letterSpacing: "0.02em",
   color: ghibliPrimaryTextColor,
 };

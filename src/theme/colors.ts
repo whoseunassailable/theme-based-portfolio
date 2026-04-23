@@ -1,9 +1,7 @@
 export type ThemeName =
   | "base"
-  | "cyberpunk"
   | "ghibli"
   | "harryPotter"
-  | "pokemon"
   | "cowboyBebop"
   | "neo";
 
@@ -27,15 +25,6 @@ export const COLORS: Record<ThemeName, Readonly<ColorTokens>> = {
     accent: "#1fb6ff",
     accentFg: "#03121a",
   },
-  cyberpunk: {
-    bg: "#0a0e12",
-    fg: "#e6f8ff",
-    muted: "#8fb6cf",
-    card: "#0d1622",
-    border: "#1a2a3a",
-    accent: "#00e5ff",
-    accentFg: "#00171c",
-  },
   ghibli: {
     bg: "#0f1412",
     fg: "#e8f4ec",
@@ -53,15 +42,6 @@ export const COLORS: Record<ThemeName, Readonly<ColorTokens>> = {
     border: "#2a2332",
     accent: "#e0b34c",
     accentFg: "#241a09",
-  },
-  pokemon: {
-    bg: "#0b0e17",
-    fg: "#e8f0ff",
-    muted: "#91a3c6",
-    card: "#111827",
-    border: "#23314a",
-    accent: "#3b82f6",
-    accentFg: "#071021",
   },
   cowboyBebop: {
     bg: "#0b1013",

@@ -1,6 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import ghibliProjectsTheme from "../../../assets/ghibli-projects-theme.png";
-import ghibliWork from "../../../assets/ghibli-work-theme.png";
+import { SelectStack } from "../components/studio-ghibli/SelectStack";
+import {
+  ghibliProjectSectionSubtitleTypography,
+  ghibliProjectSectionTitleTypography,
+} from "../../../styles/ghibli-typography";
+import ProjectsDialogBox from "../components/studio-ghibli/ProjectsDialogBox";
 
 export const GhibliProjects = () => {
   return (
@@ -24,22 +29,14 @@ export const GhibliProjects = () => {
           overflow: "hidden",
         }}
       >
-        <Typography>My Work</Typography>
-        <Typography>Each project, a chapter in my journey.</Typography>
-
-        <Box
-          sx={{
-            height: "30vh",
-            width: "10vw",
-            position: "relative",
-            backgroundImage: `url(${ghibliWork})`,
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat",
-            overflow: "hidden",
-          }}
-        >
-          cool
-        </Box>
+        <Typography sx={ghibliProjectSectionTitleTypography}>
+          My Projects
+        </Typography>
+        <Typography sx={ghibliProjectSectionSubtitleTypography}>
+          Each project, a chapter in my journey.
+        </Typography>
+        <SelectStack />
+        <ProjectsDialogBox />
       </Box>
     </Box>
   );

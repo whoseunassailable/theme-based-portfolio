@@ -1,4 +1,3 @@
-// GhibliCardContainer.tsx
 import { Box, Typography } from "@mui/material";
 import ghibliCardContainerTheme from "../../../../assets/ghibli-card-container.png";
 import {
@@ -30,27 +29,34 @@ export const GhibliCardContainer = ({ experience }: Props) => {
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
         overflow: "hidden",
-        height: "55vh",
-        width: "25vw",
-        px: "3vw",
-        py: "5vh",
+        height: "auto",
+        minHeight: "45vh",
+        width: "22vw",
+        minWidth: 260,
+        px: "2.5vw",
+        py: "4vh",
+        display: "flex",
+        flexDirection: "column",
+        gap: 0.5,
       }}
     >
-      <Typography
-        sx={ghibliWorkCompanyTypography}
-      >{`${experience.company} `}</Typography>
+      <Typography sx={ghibliWorkCompanyTypography}>
+        {experience.company}
+      </Typography>
       <Typography sx={ghibliWorkRoleTypography}>
         {experience.position}
       </Typography>
-      <Typography sx={ghibliWorkDatesTypography}>
+      <Typography sx={{ ...ghibliWorkDatesTypography, mb: 1 }}>
         {experience.duration}
       </Typography>
       {experience.summary.map((line) => (
         <Typography sx={ghibliWorkBulletTypography} key={line}>
-          {line}
+          • {line}
         </Typography>
       ))}
-      <Typography sx={ghibliWorkTagTypography}>{experience.stack}</Typography>
+      <Typography sx={{ ...ghibliWorkTagTypography, mt: "auto", pt: 1 }}>
+        {experience.stack}
+      </Typography>
     </Box>
   );
 };

@@ -22,14 +22,17 @@ export const GhibliWorkExperience = () => {
       <Box
         sx={{
           width: "100%",
-          height: "150vh",
           maxWidth: 1440,
-          aspectRatio: "12 / 9",
+          minHeight: "100vh",
           position: "relative",
           backgroundImage: `url(${ghibliWork})`,
-          backgroundSize: "100% 100%",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          pb: "8vh",
         }}
       >
         <Typography sx={ghibliWorkSectionTitleTypography}>My Work</Typography>
@@ -38,27 +41,25 @@ export const GhibliWorkExperience = () => {
         </Typography>
 
         <Box
-          component={"img"}
+          component="img"
           src={ghibliWorkLeaflet}
-          sx={{ placeSelf: "center", height: "10vh" }}
+          sx={{ height: "8vh", mt: "3vh" }}
         />
 
         <Box
-          height={"30vh"}
-          width="100%"
-          mt={"10vh"}
-          component={"img"}
+          component="img"
           src={ghibliWorkLeafBranch}
+          sx={{ height: "20vh", width: "80%", objectFit: "contain", mt: "4vh" }}
         />
 
-        {/* 3 containers next to each other */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
-            gap: 4, // space between cards
-            mt: "-2vh",
-            ml: "50vh",
+            flexWrap: "wrap",
+            gap: 4,
+            mt: 4,
+            px: 4,
           }}
         >
           {workExperiences.map((exp) => (

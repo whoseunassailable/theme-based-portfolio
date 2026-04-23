@@ -10,24 +10,18 @@ import { ThemeProvider, CssBaseline, type Theme } from "@mui/material";
 import { neoTheme } from "./neo";
 import { cowboyBebopTheme } from "./cowboyBebop";
 import { harryPotterTheme } from "./harryPotter";
+import {
+  normalizeThemeName,
+  type ThemeName,
+} from "../constants/themeOptions";
 // import GhostCursor from "../components/GhostCursor"; // adjust path
 // import { harryPotterCursorPreset } from "./ghostCursorPresets"; // if you created it
-
-type ThemeName =
-  | "Neo"
-  | "Cowboy Bebop"
-  | "Renaissance"
-  | "Studio Ghibli"
-  | "Harry Potter"
-  | "Pokemon";
 
 const themeMap: Record<ThemeName, Theme> = {
   Neo: neoTheme,
   "Cowboy Bebop": cowboyBebopTheme,
-  Renaissance: neoTheme,
   "Studio Ghibli": neoTheme,
   "Harry Potter": harryPotterTheme,
-  Pokemon: neoTheme,
 };
 
 type ThemeContextType = {
@@ -51,7 +45,7 @@ export const ThemeProviderWrapper: React.FC<React.PropsWithChildren> = ({
 }) => {
   const [themeName, setThemeName] = useState<ThemeName>(() => {
     const stored = localStorage.getItem("themeName") as ThemeName | null;
-    return stored || "Neo";
+    return normalizeThemeName(stored);
   });
 
   useEffect(() => {
@@ -60,9 +54,14 @@ export const ThemeProviderWrapper: React.FC<React.PropsWithChildren> = ({
   }, [themeName]);
 
   const theme = useMemo(() => themeMap[themeName] ?? neoTheme, [themeName]);
+  const updateThemeName = (nextThemeName: ThemeName) => {
+    setThemeName(normalizeThemeName(nextThemeName));
+  };
 
   return (
-    <ThemeControllerContext.Provider value={{ themeName, setThemeName }}>
+    <ThemeControllerContext.Provider
+      value={{ themeName, setThemeName: updateThemeName }}
+    >
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {/* This container gives GhostCursor a parent to fill */}

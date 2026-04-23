@@ -1,5 +1,5 @@
 import { TextField, MenuItem } from "@mui/material";
-import { themeOptions } from "../constants/themeOptions";
+import { themeOptions, type ThemeName } from "../constants/themeOptions";
 import { textFieldSx, menuPaperSx } from "../styles/textFieldNeoThemeStyle";
 import { useThemeController } from "../theme/ThemeProviderWrapper";
 
@@ -7,7 +7,7 @@ export const MuiSelectTheme = () => {
   const { themeName, setThemeName } = useThemeController();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setThemeName(event.target.value as any);
+    setThemeName(event.target.value as ThemeName);
   };
 
   return (
@@ -19,7 +19,7 @@ export const MuiSelectTheme = () => {
       fullWidth
       size="small"
       color="primary"
-      helperText="Change Theme"
+      helperText="Neo is live. Other themes are in progress."
       sx={textFieldSx}
       SelectProps={{
         MenuProps: {
@@ -27,9 +27,9 @@ export const MuiSelectTheme = () => {
         },
       }}
     >
-      {themeOptions.map((option) => (
-        <MenuItem key={option} value={option}>
-          {option}
+      {themeOptions.map(({ value, label, inProgress }) => (
+        <MenuItem key={value} value={value} disabled={inProgress}>
+          {label}
         </MenuItem>
       ))}
     </TextField>
