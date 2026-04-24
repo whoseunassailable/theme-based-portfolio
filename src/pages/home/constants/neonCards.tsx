@@ -1,5 +1,4 @@
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import PaidIcon from "@mui/icons-material/Paid";
 import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
 

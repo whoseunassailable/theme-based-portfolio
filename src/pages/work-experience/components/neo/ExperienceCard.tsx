@@ -2,12 +2,12 @@ import { Box, Typography, Chip, Divider } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
-import labelNames from "../../constants/labelNames";
 
 interface ExperiencedCardProps {
   heading: string;
   role: string;
   summary: string;
+  labelList: string[];
   metricNumber: number;
   metricInfo: string;
   upOrDownIcon: boolean;
@@ -18,6 +18,7 @@ export const ExperienceCard: React.FC<ExperiencedCardProps> = ({
   heading,
   role,
   summary,
+  labelList,
   metricNumber,
   metricInfo,
   upOrDownIcon,
@@ -72,7 +73,7 @@ export const ExperienceCard: React.FC<ExperiencedCardProps> = ({
               rowGap: 1,
             }}
           >
-            {labelNames.map((nameOfLabel) => (
+            {labelList.map((nameOfLabel) => (
               <Chip
                 key={nameOfLabel}
                 label={nameOfLabel}

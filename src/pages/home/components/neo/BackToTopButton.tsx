@@ -25,7 +25,7 @@ export const BackToTopButton = () => {
   }, []);
 
   const handleBackToTop = () => {
-    document.getElementById("home-section")?.scrollIntoView({
+    document.getElementById("main")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
