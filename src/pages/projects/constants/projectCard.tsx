@@ -14,6 +14,7 @@ export type ProjectCard = {
   nameOfProject: string;
   shortSummary: string;
   icon: ReactNode;
+  iconScale?: number;
   detailEnabled: boolean;
   externalUrl?: string;
 };
@@ -26,7 +27,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Readiculous",
     shortSummary:
       "Full-stack book recommendation app; helps libraries stock relevant titles via location/genre analytics.",
-    icon: <AutoStoriesIcon sx={{ width: "12vw", height: "12vw" }} />,
+    icon: <AutoStoriesIcon />,
+    iconScale: 0.9,
     detailEnabled: true,
   },
   {
@@ -36,7 +38,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "UniQuest",
     shortSummary:
       "Admission-chance prediction using ML (e.g., XGBoost/RF) with real-time API for a Flutter frontend.",
-    icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <AccountBalanceIcon />,
+    iconScale: 0.84,
     detailEnabled: true,
   },
   {
@@ -46,7 +49,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Bots on Hire",
     shortSummary:
       "Python/Selenium bot that automates job applications on JobRight; reduces manual application time.",
-    icon: <SmartToyIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <SmartToyIcon />,
+    iconScale: 0.9,
     detailEnabled: true,
   },
   {
@@ -56,7 +60,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Inyange Agent",
     shortSummary:
       "Financial transaction platform: wallet top-ups, PIN/OTP, tokens, and real-time tracking for milk ATM agents.",
-    icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <AccountBalanceIcon />,
+    iconScale: 0.84,
     detailEnabled: true,
     externalUrl: "https://www.fresh-networks.com/",
   },
@@ -67,7 +72,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Inyange Operator",
     shortSummary:
       "ATM operations app: inventory/batch creation, dispatch with barcode + real-time tray tracking; forecasting boost.",
-    icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <AccountBalanceIcon />,
+    iconScale: 0.84,
     detailEnabled: true,
     externalUrl: "https://www.fresh-networks.com/",
   },
@@ -78,7 +84,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Feetback",
     shortSummary:
       "Real-time gait biofeedback app that converts smart-insole pressure signals into adaptive audio feedback.",
-    icon: <HealingIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <HealingIcon />,
+    iconScale: 0.94,
     detailEnabled: true,
   },
   {
@@ -88,7 +95,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Pittsburgh Regional Transit",
     shortSummary:
       "Transit analytics dashboard with route-level feedback analysis, ETL pipelines, and an optional AI assistant.",
-    icon: <DirectionsTransitIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <DirectionsTransitIcon />,
+    iconScale: 0.9,
     detailEnabled: true,
     externalUrl: "https://pittsburg-regional-transit-cfm3.vercel.app/",
   },
@@ -99,7 +107,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "Careculator",
     shortSummary:
       "Healthcare cost-planning platform for comparing clinics and insurance options with recommendation support.",
-    icon: <HealthAndSafetyIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <HealthAndSafetyIcon />,
+    iconScale: 0.88,
     detailEnabled: false,
     externalUrl: "https://coverfind.vercel.app/",
   },
@@ -110,7 +119,8 @@ export const projects: ProjectCard[] = [
     nameOfProject: "FullHeart Mindfulness",
     shortSummary:
       "Flutter + Firebase app shipped to Play/App Store; CI/CD with Codemagic to accelerate reliable releases.",
-    icon: <PhoneIphoneIcon sx={{ width: "5vw", height: "5vw" }} />,
+    icon: <PhoneIphoneIcon />,
+    iconScale: 0.9,
     detailEnabled: false,
     externalUrl:
       "https://play.google.com/store/apps/details?id=com.lv.project_meditation",

@@ -111,6 +111,7 @@ export const DynamicProjectRowContainers = ({
               nameOfProject={p.nameOfProject}
               shortSummary={p.shortSummary}
               icon={p.icon}
+              iconScale={p.iconScale}
               detailEnabled={p.detailEnabled}
               externalUrl={p.externalUrl}
             />

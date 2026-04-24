@@ -12,6 +12,7 @@ interface ProjectContainerProps {
   nameOfProject: string;
   shortSummary: string;
   icon: ReactNode;
+  iconScale?: number;
   detailEnabled: boolean;
   externalUrl?: string;
 }
@@ -23,6 +24,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
   nameOfProject,
   shortSummary,
   icon,
+  iconScale = 1,
   detailEnabled,
   externalUrl,
 }) => {
@@ -67,47 +69,52 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
   return (
     <ElectricBorder
       gridArea={gridArea}
-      height="80vh"
+      height="61vh"
       radius="0.5vh"
       accent={accent}
       glow2={glow2}
       softGlow={softGlow}
       thickness={2}
       style={{
-        width: "100%",
+        width: "90%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        background:
+          "linear-gradient(180deg, rgba(5, 23, 40, 0.72), rgba(4, 18, 34, 0.62))",
       }}
     >
       <Box
         sx={{
-          px: { xs: 2.25, sm: 2.75, md: 3.25, lg: 3.75 },
-          pt: { xs: 3.25, sm: 3.75, md: 4.25, lg: 4.75 },
-          pb: { xs: 2.5, sm: 2.75, md: 3.25, lg: 3.75 },
+          px: { xs: 2.1, sm: 2.4, md: 2.85, lg: 3.15 },
+          pt: { xs: 0.35, sm: 0.45, md: 0.55, lg: 0.7 },
+          pb: { xs: 0.35, sm: 0.45, md: 0.55, lg: 0.7 },
           display: "grid",
-          gridTemplateRows: "auto minmax(112px, auto) 120px minmax(144px, auto) auto",
-          alignItems: "center",
-          justifyItems: "center",
-          rowGap: 2,
+          gridTemplateRows:
+            "auto minmax(52px, auto) minmax(96px, auto) minmax(98px, auto) auto",
+          alignItems: "start",
+          justifyItems: "stretch",
+          rowGap: { xs: 0.55, md: 0.75 },
           gridArea: "container-1",
-          height: "90%",
-          width: "90%",
+          height: "100%",
+          width: "100%",
           borderRadius: "0.5vh",
         }}
       >
         <Typography
-          display="flex"
           sx={{
-            fontSize: { xs: "0.95rem", sm: "1.02rem", md: "1.1rem", lg: "1.2rem" },
+            fontSize: {
+              xs: "0.82rem",
+              sm: "0.88rem",
+              md: "0.94rem",
+              lg: "1rem",
+            },
             fontFamily: "'Orbitron', monospace",
             textTransform: "uppercase",
-            letterSpacing: { xs: "0.12em", md: "0.16em" },
-            color: COLORS_NEO_EXTENDED.accent,
-            fontWeight: 300,
-            alignSelf: "start",
-            textAlign: "center",
-            mt: { xs: 0.25, sm: 0.35, md: 0.5 },
+            letterSpacing: { xs: "0.12em", md: "0.15em" },
+            color: COLORS_NEO_EXTENDED.subheading,
+            fontWeight: 400,
+            textAlign: "left",
           }}
         >
           {projectStack}
@@ -117,10 +124,9 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "center",
-            minHeight: { xs: 76, sm: 88, md: 100 },
+            justifyContent: "flex-start",
+            minHeight: { xs: 52, sm: 58, md: 64 },
             width: "100%",
-            pt: { xs: 0.25, sm: 0.35, md: 0.5 },
           }}
         >
           <Typography
@@ -130,14 +136,13 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
               textOverflow: "ellipsis",
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 2,
-              fontSize: "clamp(1.75rem, 2.2vw, 2.8rem)",
-              fontFamily: "Arial",
-              textTransform: "uppercase",
-              color: COLORS_NEO_EXTENDED.accent,
+              fontSize: "clamp(1.4rem, 1.8vw, 2.2rem)",
+              fontFamily: "'Rajdhani', 'Arial Narrow', Arial, sans-serif",
+              color: COLORS_NEO_EXTENDED.heading,
               fontWeight: 700,
-              textAlign: "center",
-              lineHeight: 1.12,
-              letterSpacing: { xs: "0.03em", md: "0.05em" },
+              textAlign: "left",
+              lineHeight: 1.05,
+              letterSpacing: { xs: "0.01em", md: "0.02em" },
               alignSelf: "flex-start",
               width: "100%",
             }}
@@ -151,37 +156,85 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "120px",
+            minHeight: { xs: 84, md: 92 },
+            borderTop: "1px solid rgba(107, 163, 200, 0.2)",
+            borderBottom: "1px solid rgba(107, 163, 200, 0.2)",
+            py: { xs: 0.45, md: 0.6 },
+            color: COLORS_NEO_EXTENDED.heading,
+            position: "relative",
+            "&:before": {
+              content: '""',
+              position: "absolute",
+              inset: { xs: "8px 14px", md: "10px 18px" },
+              border: "1px solid rgba(107, 163, 200, 0.12)",
+              borderRadius: "10px",
+              background:
+                "radial-gradient(circle at 50% 50%, rgba(45, 226, 230, 0.05), transparent 70%)",
+            },
+            "& .MuiSvgIcon-root": {
+              width: { xs: 52, sm: 58, md: 64 },
+              height: { xs: 52, sm: 58, md: 64 },
+              filter: "drop-shadow(0 0 10px rgba(45, 226, 230, 0.12))",
+            },
           }}
         >
-          {icon}
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: 1,
+              transform: `scale(${iconScale})`,
+              transformOrigin: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {icon}
+          </Box>
         </Box>
 
-        <Typography
-          display="flex"
+        <Box
           sx={{
-            fontFamily: 'Roboto, "Helvetica Neue", Arial, sans-serif',
-            fontWeight: 300,
-            fontSize: { md: 20 },
-            letterSpacing: 0.3,
-            lineHeight: 1.4,
-            color: COLORS_NEO_EXTENDED.heading,
-            textAlign: "center",
-            alignItems: "start",
-            justifyContent: "center",
-            minHeight: { md: "144px" },
+            display: "grid",
+            alignContent: "start",
+            rowGap: { xs: 0.4, md: 0.55 },
+            minHeight: { xs: 98, md: 110 },
+            alignSelf: "start",
           }}
         >
-          {shortSummary}
-        </Typography>
+          <Typography
+            sx={{
+              fontFamily: "'Rajdhani', Arial, sans-serif",
+              fontWeight: 500,
+              fontSize: { xs: "0.95rem", md: "1.02rem" },
+              lineHeight: 1.25,
+              color: COLORS_NEO_EXTENDED.fg,
+              textAlign: "left",
+              alignSelf: "start",
+            }}
+          >
+            {shortSummary}
+          </Typography>
+        </Box>
 
         <Button
           variant="outlined"
           onClick={handleViewProject}
           sx={{
             borderColor: COLORS_NEO_EXTENDED.buttonBorder,
-            letterSpacing: 0.3,
-            alignSelf: "end",
+            color: COLORS_NEO_EXTENDED.link,
+            letterSpacing: "0.08em",
+            justifySelf: "start",
+            alignSelf: "start",
+            px: 1.65,
+            py: 0.65,
+            mb: 0,
+            fontSize: { xs: "0.84rem", md: "0.9rem" },
+            fontFamily: "'Orbitron', monospace",
+            "&:hover": {
+              borderColor: COLORS_NEO_EXTENDED.accent,
+              backgroundColor: "rgba(45, 226, 230, 0.08)",
+            },
           }}
         >
           View Project
