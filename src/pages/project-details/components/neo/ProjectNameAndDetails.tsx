@@ -24,11 +24,14 @@ export const ProjectNameAndDetails = ({
       sx={{
         gridArea: "project-detail-container",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "start",
+        rowGap: 1.1,
+        px: { xs: 1.25, md: 2 },
+        py: { xs: 1.4, md: 1.8 },
       }}
     >
       <Typography sx={titleStyle}>{title}</Typography>
-      <Typography sx={subTitleStyle} pr={"5vw"} pb={"5vw"}>
+      <Typography sx={subTitleStyle}>
         {subtitle}
       </Typography>
       {projectChipIcons && (

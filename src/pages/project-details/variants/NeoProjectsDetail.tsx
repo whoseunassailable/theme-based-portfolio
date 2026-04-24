@@ -6,6 +6,7 @@ import { COLORS_NEO_EXTENDED } from "../../../theme/colors";
 import { projects } from "../../projects/constants/projectCard";
 import { projectDetailSpecific } from "../../projects/constants/stackNames";
 import { RowFour } from "../components/neo/RowFour";
+import { RowFive } from "../components/neo/RowFive";
 import { RowOne } from "../components/neo/RowOne";
 import { RowThree } from "../components/neo/RowThree";
 import { RowTwo } from "../components/neo/RowTwo";
@@ -195,6 +196,7 @@ export const NeoProjectsDetail = () => {
 
             <Box ref={outcomeRef}>
               <SectionTitles title={sectionLabels.OUTCOME} />
+              <RowFive />
             </Box>
           </>
         ) : (

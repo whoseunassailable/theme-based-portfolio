@@ -3,6 +3,7 @@ import { ProjectIcon } from "./ProjectIcon";
 import { ProjectNameAndDetails } from "./ProjectNameAndDetails";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { NeoTypographyForProjectDetailsPage } from "../../styles/NeoTypographyForProjectDetailsPage";
+import { COLORS_NEO_EXTENDED } from "../../../../theme/colors";
 
 export const RowOne = () => {
   return (
@@ -19,7 +20,15 @@ export const RowOne = () => {
       }}
     >
       <ProjectIcon
-        icon={<AutoStoriesIcon sx={{ height: "15vw", width: "15vw" }} />}
+        icon={
+          <AutoStoriesIcon
+            sx={{
+              height: { xs: "5rem", sm: "5.75rem", md: "6.5rem" },
+              width: { xs: "5rem", sm: "5.75rem", md: "6.5rem" },
+              color: COLORS_NEO_EXTENDED.accent,
+            }}
+          />
+        }
       />
       <ProjectNameAndDetails
         titleStyle={NeoTypographyForProjectDetailsPage.title}
