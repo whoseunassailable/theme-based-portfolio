@@ -10,7 +10,7 @@ export type ThemeOption = {
   inProgress?: boolean;
 };
 
-export const ACTIVE_THEME: ThemeName = "Neo";
+export const SELECTABLE_THEMES: ThemeName[] = ["Neo", "Cowboy Bebop"];
 
 export const themeOptions: ThemeOption[] = [
   {
@@ -19,8 +19,7 @@ export const themeOptions: ThemeOption[] = [
   },
   {
     value: "Cowboy Bebop",
-    label: "Cowboy Bebop (In Progress)",
-    inProgress: true,
+    label: "Cowboy Bebop",
   },
   {
     value: "Studio Ghibli",
@@ -35,7 +34,7 @@ export const themeOptions: ThemeOption[] = [
 ];
 
 export const isSelectableTheme = (themeName: ThemeName) =>
-  themeName === ACTIVE_THEME;
+  SELECTABLE_THEMES.includes(themeName);
 
 export const normalizeThemeName = (themeName: ThemeName | null | undefined) =>
-  themeName && isSelectableTheme(themeName) ? themeName : ACTIVE_THEME;
+  themeName && isSelectableTheme(themeName) ? themeName : "Neo";

@@ -14,7 +14,7 @@ export const GetInTouchAttributes: GetInTouchItem[] = [
   {
     label: "Email",
     icon: MailOutlineIcon,
-    href: "mailto:rohan.bhande@exmail.com",
+    href: "mailto:rohanbhandeworks@gmail.com",
   },
   {
     label: "LinkedIn",
