@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Box } from "@mui/material";
 import {
   TimelineItem,
   TimelineOppositeContent,
@@ -25,12 +26,12 @@ export const TimelineEntry: React.FC<TimelineEntryProps> = ({
 }) => {
   const dotSize = 24;
   const lanePosition = index % 2 === 0 ? 16 : 84;
+  const badgeOffset = dotSize + 10;
+  const badgeOnRight = lanePosition >= 50;
 
   return (
     <TimelineItem sx={{ minHeight: 280, alignItems: "stretch" }}>
-      <TimelineOppositeContent sx={{ textAlign: "right" }}>
-        {badge}
-      </TimelineOppositeContent>
+      <TimelineOppositeContent sx={{ textAlign: "right" }} />
 
       <TimelineSeparator
         sx={{
@@ -40,6 +41,22 @@ export const TimelineEntry: React.FC<TimelineEntryProps> = ({
           width: { xs: 84, md: 120 },
         }}
       >
+        <Box
+          sx={{
+            position: "absolute",
+            top: `${markerPosition}%`,
+            left: badgeOnRight
+              ? `calc(${lanePosition}% + ${badgeOffset}px)`
+              : `calc(${lanePosition}% - ${badgeOffset}px)`,
+            transform: badgeOnRight
+              ? "translateY(-50%)"
+              : "translate(-100%, -50%)",
+            zIndex: 2,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {badge}
+        </Box>
         <TimelineDot
           ref={markerRef}
           variant="outlined"

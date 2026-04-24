@@ -66,27 +66,24 @@ export const WorkExperienceTimeline: React.FC = () => {
     };
   }, []);
 
-  const connectorSegments = React.useMemo(() => {
+  const connectorPaths = React.useMemo(() => {
     const dotRadius = 12;
 
     return points.slice(0, -1).map((point, index) => {
       const nextPoint = points[index + 1];
-      const dx = nextPoint.x - point.x;
       const dy = nextPoint.y - point.y;
-      const length = Math.hypot(dx, dy);
-
-      if (!length) {
+      if (!dy) {
         return null;
       }
-
-      const offsetX = (dx / length) * dotRadius;
-      const offsetY = (dy / length) * dotRadius;
+      const verticalDirection = dy > 0 ? 1 : -1;
+      const startY = point.y + dotRadius * verticalDirection;
+      const endY = nextPoint.y - dotRadius * verticalDirection;
+      const controlYOffset = Math.max(Math.abs(dy) * 0.35, 36);
+      const controlY1 = startY + controlYOffset * verticalDirection;
+      const controlY2 = endY - controlYOffset * verticalDirection;
 
       return {
-        x1: point.x + offsetX,
-        y1: point.y + offsetY,
-        x2: nextPoint.x - offsetX,
-        y2: nextPoint.y - offsetY,
+        d: `M ${point.x} ${startY} C ${point.x} ${controlY1}, ${nextPoint.x} ${controlY2}, ${nextPoint.x} ${endY}`,
       };
     });
   }, [points]);
@@ -113,17 +110,16 @@ export const WorkExperienceTimeline: React.FC = () => {
           zIndex: 0,
         }}
       >
-        {connectorSegments.map((segment, index) =>
+        {connectorPaths.map((segment, index) =>
           segment ? (
-            <line
-              key={`${segment.x1}-${segment.y1}-${index}`}
-              x1={segment.x1}
-              y1={segment.y1}
-              x2={segment.x2}
-              y2={segment.y2}
+            <path
+              key={`${segment.d}-${index}`}
+              d={segment.d}
+              fill="none"
               stroke={COLORS_NEO_EXTENDED.accent}
               strokeWidth="2"
               strokeLinecap="round"
+              strokeLinejoin="round"
             />
           ) : null,
         )}

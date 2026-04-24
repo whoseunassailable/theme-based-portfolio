@@ -5,7 +5,7 @@ export const experiences = [
     summary:
       "Built a mobile application for a smart-insole rehabilitation system, implemented session tracking and motion analysis workflows, and coordinated development with clinical research teams to support ACL and osteoarthritis rehabilitation studies.",
     dateLabel: "2026–Present",
-    markerPosition: 0,
+    markerPosition: 48,
     labelList: [
       "Flutter",
       "Mobile App Dev",
@@ -71,7 +71,7 @@ export const experiences = [
     summary:
       "Designed wireframes and prototypes in Figma, built responsive web interfaces, and created UML diagrams and data models to improve software planning, UI clarity, and cross-platform usability.",
     dateLabel: "2021",
-    markerPosition: 100,
+    markerPosition: 58,
     labelList: [
       "HTML",
       "CSS",
