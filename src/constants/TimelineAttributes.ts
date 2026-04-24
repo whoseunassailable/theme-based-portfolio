@@ -1,18 +1,18 @@
 export const TimelineAttributes = [
   {
-    year: "2024 - 2026 ",
-    title: "MS in ITM (Illinois Tech)) ",
+    year: "2022",
+    title: "B.Tech Computer Science (MIT-WPU)",
+  },
+  {
+    year: "2022-2024",
+    title: "Flutter Developer @ Launch Ventures",
   },
   {
     year: "2024",
-    title: "Associate Data Analyst Intern @Excelerate",
+    title: "Data Analyst Intern @ Excelerate",
   },
   {
-    year: "2022 - 2024 ",
-    title: "Software Developer @Launch Ventures",
-  },
-  {
-    year: "2018 - 2022 (MIT-WPU)",
-    title: "B.Tech in Computer Science",
+    year: "2026 (exp.)",
+    title: "Master's in Applied AI & Data Science",
   },
 ];
