@@ -2,7 +2,7 @@
 
 import { Box } from "@mui/material";
 import { ProjectContainer } from "./ProjectContainer";
-import { useMemo, useRef, useEffect } from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { projects } from "../../constants/projectCard";
 
@@ -11,10 +11,11 @@ function useInfiniteAutoScroll(
   speed: number = 40,
   resetKey?: string,
   repeatCount: number = 2,
+  enabled: boolean = true,
 ) {
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || !enabled) return;
 
     const wrapWidth = el.scrollWidth / repeatCount;
     let scrollPos = 0;
@@ -47,7 +48,7 @@ function useInfiniteAutoScroll(
       el.removeEventListener("mouseenter", pause);
       el.removeEventListener("mouseleave", resume);
     };
-  }, [ref, speed, resetKey, repeatCount]);
+  }, [ref, speed, resetKey, repeatCount, enabled]);
 }
 
 export const DynamicProjectRowContainers = ({
@@ -56,6 +57,8 @@ export const DynamicProjectRowContainers = ({
   selectedCategory: string;
 }) => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const filteredProjects = useMemo(() => {
     if (selectedCategory === "All") {
       return projects;
@@ -66,17 +69,43 @@ export const DynamicProjectRowContainers = ({
     );
   }, [selectedCategory]);
 
-  const repeatCount = filteredProjects.length > 0 ? 4 : 0;
+  const repeatCount =
+    filteredProjects.length === 0 ? 0 : filteredProjects.length >= 4 ? 2 : 3;
   const repeatedProjects = useMemo(
     () =>
       Array.from({ length: repeatCount }, () => filteredProjects).flat(),
     [filteredProjects, repeatCount],
   );
 
-  useInfiniteAutoScroll(scrollerRef, 30, selectedCategory, repeatCount);
+  useEffect(() => {
+    const host = sectionRef.current;
+    if (!host) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: "180px 0px",
+        threshold: 0.05,
+      }
+    );
+
+    observer.observe(host);
+    return () => observer.disconnect();
+  }, []);
+
+  useInfiniteAutoScroll(
+    scrollerRef,
+    30,
+    selectedCategory,
+    repeatCount,
+    isVisible
+  );
 
   return (
     <Box
+      ref={sectionRef}
       sx={{
         marginY: 10,
         display: "grid",

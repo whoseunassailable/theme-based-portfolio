@@ -13,10 +13,27 @@ type ProjectDetailsContextType = {
   currentProject: DetailProject;
   detailProjects: DetailProject[];
   selectProject: (projectId: string) => void;
+  selectPreviousProject: () => void;
   selectNextProject: () => void;
 };
 
-const detailProjects = projectKnowledge;
+const projectTimelineOrder = [
+  "feetback",
+  "koko-fresh-operator",
+  "koko-fresh-agent",
+  "pittsburgh-regional-transit",
+  "careculator",
+  "readiculous",
+  "uniquest",
+] as const;
+
+const detailProjects = projectTimelineOrder
+  .map((projectId) =>
+    projectKnowledge.find((project) => project.id === projectId)
+  )
+  .filter((project): project is (typeof projectKnowledge)[number] =>
+    Boolean(project)
+  );
 
 const ProjectDetailsContext = createContext<ProjectDetailsContextType | null>(
   null
@@ -47,9 +64,24 @@ export const ProjectDetailsProvider = ({ children }: PropsWithChildren) => {
     setSelectedProjectId(detailProjects[nextIndex].id);
   };
 
+  const selectPreviousProject = () => {
+    const currentIndex = detailProjects.findIndex(
+      (project) => project.id === currentProject.id
+    );
+    const previousIndex =
+      (currentIndex - 1 + detailProjects.length) % detailProjects.length;
+    setSelectedProjectId(detailProjects[previousIndex].id);
+  };
+
   return (
     <ProjectDetailsContext.Provider
-      value={{ currentProject, detailProjects, selectProject, selectNextProject }}
+      value={{
+        currentProject,
+        detailProjects,
+        selectProject,
+        selectPreviousProject,
+        selectNextProject,
+      }}
     >
       {children}
     </ProjectDetailsContext.Provider>

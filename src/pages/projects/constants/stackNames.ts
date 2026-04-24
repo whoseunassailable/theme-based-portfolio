@@ -7,6 +7,7 @@ export const stackNames = [
 ];
 
 export const projectDetailSpecific = [
+  "Previous Project <---",
   "PROBLEM",
   "APPROACH",
   "ARCHITECTURE",

@@ -3,6 +3,16 @@ export type Metric = {
   value: string;
 };
 
+export type CaseStudyStep = {
+  title: string;
+  detail: string;
+};
+
+export type CaseStudyBlock = {
+  title: string;
+  detail: string;
+};
+
 export type WorkExperienceKnowledge = {
   id: string;
   company: string;
@@ -25,6 +35,8 @@ export type ProjectKnowledge = {
   architecture: string;
   outcome: string;
   metrics: Metric[];
+  flowSteps: CaseStudyStep[];
+  architectureBlocks: CaseStudyBlock[];
 };
 
 export const workExperienceKnowledge: WorkExperienceKnowledge[] = [
@@ -107,6 +119,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
       { label: "Shelf space waste", value: "-25%" },
       { label: "Relevant inventory", value: "+15%" },
     ],
+    flowSteps: [
+      {
+        title: "Reader Intake",
+        detail: "Readers create accounts, log books, and build preference signals through genre-linked activity.",
+      },
+      {
+        title: "Trend Aggregation",
+        detail: "Community reading patterns are grouped by library context to reveal what local readers actually want.",
+      },
+      {
+        title: "ML Recommendation",
+        detail: "Hybrid recommendation services turn those signals into user suggestions and stocking candidates.",
+      },
+      {
+        title: "Librarian Action",
+        detail: "Librarians review, approve, order, and stock titles based on tracked recommendation status.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Flutter Client",
+        detail: "Role-based reader and librarian flows built with Riverpod, go_router, Dio, and Retrofit.",
+      },
+      {
+        title: "Operational API",
+        detail: "Node.js and MySQL services handle users, books, libraries, reads, and recommendation lifecycle data.",
+      },
+      {
+        title: "ML Service",
+        detail: "Python and Flask scoring combines XGBoost, TF-IDF similarity, and SVD over large book-rating datasets.",
+      },
+    ],
   },
   {
     id: "uniquest",
@@ -132,6 +176,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
         value: "Programs, rankings, funding, admissions, applications",
       },
     ],
+    flowSteps: [
+      {
+        title: "Profile Intake",
+        detail: "Students enter academic background, exam scores, goals, and application preferences.",
+      },
+      {
+        title: "Program Matching",
+        detail: "The app links that profile to universities, rankings, funding, and admission requirement records.",
+      },
+      {
+        title: "Fit Evaluation",
+        detail: "Admission-fit logic compares student data against score thresholds and program constraints.",
+      },
+      {
+        title: "Decision Support",
+        detail: "Students browse shortlisted schools, save options, and compare programs in one workflow.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Flutter Frontend",
+        detail: "Riverpod-driven mobile UI with routed screens, localization, and student-facing forms.",
+      },
+      {
+        title: "Node.js API",
+        detail: "Backend endpoints serve universities, funding, rankings, admissions, and user-specific workflows.",
+      },
+      {
+        title: "MySQL Schema",
+        detail: "Relational data model covers students, universities, programs, applications, wishlists, and rankings.",
+      },
+    ],
   },
   {
     id: "bots-on-hire",
@@ -154,6 +230,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
       { label: "Automation scope", value: "Login to submit flow" },
       { label: "State tracking", value: "Applied jobs JSON + debug screenshots" },
     ],
+    flowSteps: [
+      {
+        title: "Credential Load",
+        detail: "Environment-backed credentials and configuration are loaded before a run starts.",
+      },
+      {
+        title: "Portal Navigation",
+        detail: "The bot logs in, traverses listings, and routes by application type or eligibility flow.",
+      },
+      {
+        title: "Form Automation",
+        detail: "Reusable automation routines fill profile details, attach documents, and handle submission paths.",
+      },
+      {
+        title: "State Capture",
+        detail: "Applied jobs, logs, and screenshots are recorded so failures can be debugged and reruns stay clean.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Python Runner",
+        detail: "Main automation entrypoint orchestrates runs and coordinates service modules.",
+      },
+      {
+        title: "Portal Modules",
+        detail: "JobRight and related flows are isolated into login, navigation, and application-specific packages.",
+      },
+      {
+        title: "Tracking Layer",
+        detail: "JSON state files, logs, screenshots, and env-based config make the workflow repeatable and debuggable.",
+      },
+    ],
   },
   {
     id: "koko-fresh-agent",
@@ -175,6 +283,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
     metrics: [
       { label: "Transaction analysis improvement", value: "+18%" },
       { label: "Core controls", value: "Wallet top-up + OTP/PIN + tokens" },
+    ],
+    flowSteps: [
+      {
+        title: "Agent Authentication",
+        detail: "Agents sign in and load role-specific account and wallet context before serving customers.",
+      },
+      {
+        title: "Customer Handling",
+        detail: "Search, create, and update customer records from a single field-operations interface.",
+      },
+      {
+        title: "Transaction Execution",
+        detail: "Top-ups, token actions, and sales flows run through OTP, PIN, and verification checkpoints.",
+      },
+      {
+        title: "Operational Visibility",
+        detail: "Agents track balances, token state, and transaction progress without switching tools.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Flutter App",
+        detail: "Feature modules for auth, home, token, customer, account, and top-up flows drive the field UI.",
+      },
+      {
+        title: "State + API Layer",
+        detail: "BLoC, dependency injection, Dio, and Retrofit coordinate transactional data and backend services.",
+      },
+      {
+        title: "Device Integrations",
+        detail: "QR, NFC, Firebase, and shared widgets support secure agent workflows in real operating conditions.",
+      },
     ],
   },
   {
@@ -199,6 +339,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
       { label: "Forecasting accuracy", value: "+30%" },
       { label: "Tray identification efficiency", value: "2x" },
     ],
+    flowSteps: [
+      {
+        title: "Machine Oversight",
+        detail: "Operators monitor ATM state, inventory context, and dispatch readiness from a central console.",
+      },
+      {
+        title: "Batch Planning",
+        detail: "Inventory batches are created, grouped, and prepared for machine delivery workflows.",
+      },
+      {
+        title: "Dispatch Validation",
+        detail: "Tray, barcode, and capture steps verify that physical inventory is mapped to the right machine flow.",
+      },
+      {
+        title: "Demand Feedback",
+        detail: "Operator data feeds demand planning and restocking decisions for better forecasting accuracy.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Operator Console",
+        detail: "Flutter screens organized around ATM, batch, dispatch, auth, and home modules.",
+      },
+      {
+        title: "Workflow Services",
+        detail: "BLoC, Dio, and Retrofit power dispatch state, machine updates, and operator-side logistics actions.",
+      },
+      {
+        title: "Capture + Messaging",
+        detail: "Barcode, camera, NFC, MQTT, and remote config connect physical dispatch workflows to cloud state.",
+      },
+    ],
   },
   {
     id: "feetback",
@@ -220,6 +392,38 @@ export const projectKnowledge: ProjectKnowledge[] = [
     metrics: [
       { label: "Calibration duration", value: "180 seconds" },
       { label: "Feedback model", value: "Step-based adaptive audio cues" },
+    ],
+    flowSteps: [
+      {
+        title: "Sensor Connection",
+        detail: "The app pairs with Moticon insoles and starts receiving force and pressure streams.",
+      },
+      {
+        title: "Baseline Calibration",
+        detail: "A guided session establishes thresholds and reference pressure behavior for the user.",
+      },
+      {
+        title: "Gait Analysis",
+        detail: "Center-of-pressure and load patterns are evaluated in real time to detect gait quality.",
+      },
+      {
+        title: "Adaptive Audio",
+        detail: "Feedback tones change step by step and session data is stored for post-session review.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Flutter Session UI",
+        detail: "Calibration, session, playback, and progress screens drive rehabilitation use during live training.",
+      },
+      {
+        title: "Sensor Services",
+        detail: "BLE and UDP services plus protobuf models translate raw smart-insole streams into usable state.",
+      },
+      {
+        title: "Feedback Engine",
+        detail: "Controllers for pressure analysis, session management, and audio playback create the live biofeedback loop.",
+      },
     ],
   },
   {
@@ -244,15 +448,97 @@ export const projectKnowledge: ProjectKnowledge[] = [
       { label: "Rider comments analyzed", value: "10,000+" },
       { label: "Routes covered", value: "98" },
     ],
+    flowSteps: [
+      {
+        title: "Survey Ingestion",
+        detail: "General and route-specific rider feedback sources are cleaned and normalized into analysis-ready datasets.",
+      },
+      {
+        title: "Route Modeling",
+        detail: "SQLite builders connect demographics, comments, redesign feedback, and recommendation evidence by route.",
+      },
+      {
+        title: "Dashboard Delivery",
+        detail: "A static dashboard surfaces maps, charts, comments, and recommendation logic for route-level exploration.",
+      },
+      {
+        title: "Local AI Assistant",
+        detail: "A FastAPI plus Ollama service optionally layers route Q&A on top of the dashboard’s evidence base.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "ETL + Notebooks",
+        detail: "Python notebooks and scripts clean survey exports, join route variants, and rebuild analysis assets.",
+      },
+      {
+        title: "SQLite Data Layer",
+        detail: "Multiple route-focused databases store consolidated, specific-route, combined, and meta-feedback views.",
+      },
+      {
+        title: "Dashboard + Assistant",
+        detail: "A static docs-based dashboard is paired with an optional FastAPI and Ollama local assistant backend.",
+      },
+    ],
+  },
+  {
+    id: "careculator",
+    name: "Careculator",
+    category: "HealthTech / Decision Support",
+    sourceStatus: "repo-verified",
+    repoPath:
+      "/Users/whoseunassailable/Documents/projects/college_projects/coverfind",
+    oneLiner:
+      "Healthcare search and decision-support app that ranks nearby clinics using condition, cost, distance, and outcome signals.",
+    problem:
+      "Patients comparing care options often have to bounce across provider directories, insurance tools, and incomplete cost estimates, making it difficult to choose the right clinic with confidence.",
+    approach:
+      "Guide users through a search wizard based on condition, location, and optional insurance inputs, then rank clinics using explainable tradeoffs between cost, recovery, outcome quality, visit count, and treatment burden.",
+    architecture:
+      "The system combines a React and TypeScript frontend, an Express API, a read-only SQLite database built from HRSA and CMS data, and Python data-pipeline scripts that prepare and migrate the healthcare datasets used at runtime.",
+    outcome:
+      "Turned fragmented healthcare search into a single comparison workflow where users can discover clinics, inspect recommendation reasoning, compare options side by side, and make more informed care decisions.",
+    metrics: [
+      { label: "Clinics indexed", value: "9,323" },
+      { label: "Insurance plans", value: "7,349" },
+      { label: "SQLite runtime DB", value: "264 MB" },
+    ],
+    flowSteps: [
+      {
+        title: "Search Intake",
+        detail: "Users enter a condition and ZIP code, then optionally narrow by insurer and plan type.",
+      },
+      {
+        title: "Clinic Filtering",
+        detail: "The backend filters clinics by condition, specialty, state, and optional geography before ranking.",
+      },
+      {
+        title: "Dynamic Ranking",
+        detail: "Cost and recovery-oriented scores are combined using a priority slider so tradeoffs remain explainable.",
+      },
+      {
+        title: "Decision Compare",
+        detail: "Users inspect recommendation tags, compare clinics side by side, and review cost and outcome signals.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "React Frontend",
+        detail: "Vite-based SPA with search wizard, results pages, comparison views, and summary flows.",
+      },
+      {
+        title: "Express API",
+        detail: "Route-controller-service-model split handles clinic search, insurance metadata, ZIP lookup, and compare endpoints.",
+      },
+      {
+        title: "SQLite + Data Pipeline",
+        detail: "HRSA and CMS data are transformed by Python scripts into a runtime SQLite database used by the API.",
+      },
+    ],
   },
 ];
 
 export const unresolvedProjectReferences = [
-  {
-    name: "Careculator",
-    reason:
-      "Mentioned in resume text, but no matching local project directory was found under /Users/whoseunassailable/Documents/projects during this pass.",
-  },
   {
     name: "FullHeart Mindfulness / Coventry Meditation",
     reason:

@@ -3,7 +3,6 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import HealingIcon from "@mui/icons-material/Healing";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 
@@ -21,36 +20,14 @@ export type ProjectCard = {
 
 export const projects: ProjectCard[] = [
   {
-    id: "readiculous",
-    projectStack: "Data Science",
-    categories: ["Frontend", "Backend", "Data Science"],
-    nameOfProject: "Readiculous",
+    id: "feetback",
+    projectStack: "HealthTech",
+    categories: ["Mobile Development"],
+    nameOfProject: "Feetback",
     shortSummary:
-      "Full-stack book recommendation app; helps libraries stock relevant titles via location/genre analytics.",
-    icon: <AutoStoriesIcon />,
-    iconScale: 0.9,
-    detailEnabled: true,
-  },
-  {
-    id: "uniquest",
-    projectStack: "Data Science",
-    categories: ["Backend", "Data Science", "Mobile Development"],
-    nameOfProject: "UniQuest",
-    shortSummary:
-      "Admission-chance prediction using ML (e.g., XGBoost/RF) with real-time API for a Flutter frontend.",
-    icon: <AccountBalanceIcon />,
-    iconScale: 0.84,
-    detailEnabled: true,
-  },
-  {
-    id: "bots-on-hire",
-    projectStack: "Automation",
-    categories: ["Backend"],
-    nameOfProject: "Bots on Hire",
-    shortSummary:
-      "Python/Selenium bot that automates job applications on JobRight; reduces manual application time.",
-    icon: <SmartToyIcon />,
-    iconScale: 0.9,
+      "Real-time gait biofeedback app that converts smart-insole pressure signals into adaptive audio feedback.",
+    icon: <HealingIcon />,
+    iconScale: 0.94,
     detailEnabled: true,
   },
   {
@@ -78,15 +55,17 @@ export const projects: ProjectCard[] = [
     externalUrl: "https://www.fresh-networks.com/",
   },
   {
-    id: "feetback",
-    projectStack: "HealthTech",
+    id: "fullheart-mindfulness",
+    projectStack: "Mobile",
     categories: ["Mobile Development"],
-    nameOfProject: "Feetback",
+    nameOfProject: "FullHeart Mindfulness",
     shortSummary:
-      "Real-time gait biofeedback app that converts smart-insole pressure signals into adaptive audio feedback.",
-    icon: <HealingIcon />,
-    iconScale: 0.94,
-    detailEnabled: true,
+      "Flutter + Firebase app shipped to Play/App Store; CI/CD with Codemagic to accelerate reliable releases.",
+    icon: <PhoneIphoneIcon />,
+    iconScale: 0.9,
+    detailEnabled: false,
+    externalUrl:
+      "https://play.google.com/store/apps/details?id=com.lv.project_meditation",
   },
   {
     id: "pittsburgh-regional-transit",
@@ -109,20 +88,29 @@ export const projects: ProjectCard[] = [
       "Healthcare cost-planning platform for comparing clinics and insurance options with recommendation support.",
     icon: <HealthAndSafetyIcon />,
     iconScale: 0.88,
-    detailEnabled: false,
+    detailEnabled: true,
     externalUrl: "https://coverfind.vercel.app/",
   },
   {
-    id: "fullheart-mindfulness",
-    projectStack: "Mobile",
-    categories: ["Mobile Development"],
-    nameOfProject: "FullHeart Mindfulness",
+    id: "readiculous",
+    projectStack: "Data Science",
+    categories: ["Frontend", "Backend", "Data Science"],
+    nameOfProject: "Readiculous",
     shortSummary:
-      "Flutter + Firebase app shipped to Play/App Store; CI/CD with Codemagic to accelerate reliable releases.",
-    icon: <PhoneIphoneIcon />,
+      "Full-stack book recommendation app; helps libraries stock relevant titles via location/genre analytics.",
+    icon: <AutoStoriesIcon />,
     iconScale: 0.9,
-    detailEnabled: false,
-    externalUrl:
-      "https://play.google.com/store/apps/details?id=com.lv.project_meditation",
+    detailEnabled: true,
+  },
+  {
+    id: "uniquest",
+    projectStack: "Data Science",
+    categories: ["Backend", "Data Science", "Mobile Development"],
+    nameOfProject: "UniQuest",
+    shortSummary:
+      "Admission-chance prediction using ML (e.g., XGBoost/RF) with real-time API for a Flutter frontend.",
+    icon: <AccountBalanceIcon />,
+    iconScale: 0.84,
+    detailEnabled: true,
   },
 ];

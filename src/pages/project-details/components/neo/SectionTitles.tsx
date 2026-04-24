@@ -17,7 +17,7 @@ export const SectionTitles = ({
       sx={{
         position: "relative",
         height: 56, // the gap between the two lines
-        my: 4, // vertical spacing around the block
+        my: 0,
         "::before": {
           content: '""',
           position: "absolute",
@@ -45,7 +45,7 @@ export const SectionTitles = ({
           top: "50%",
           transform: "translateY(-50%)",
           left: leftOffset, // “a bit left”
-          px: 2, // keeps text from touching lines
+          px: 2,
         }}
       >
         {title.toUpperCase()}

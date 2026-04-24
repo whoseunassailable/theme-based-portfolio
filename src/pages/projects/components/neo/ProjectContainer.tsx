@@ -161,16 +161,6 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
             borderBottom: "1px solid rgba(107, 163, 200, 0.2)",
             py: { xs: 0.45, md: 0.6 },
             color: COLORS_NEO_EXTENDED.heading,
-            position: "relative",
-            "&:before": {
-              content: '""',
-              position: "absolute",
-              inset: { xs: "8px 14px", md: "10px 18px" },
-              border: "1px solid rgba(107, 163, 200, 0.12)",
-              borderRadius: "10px",
-              background:
-                "radial-gradient(circle at 50% 50%, rgba(45, 226, 230, 0.05), transparent 70%)",
-            },
             "& .MuiSvgIcon-root": {
               width: { xs: 52, sm: 58, md: 64 },
               height: { xs: 52, sm: 58, md: 64 },
@@ -180,8 +170,6 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
         >
           <Box
             sx={{
-              position: "relative",
-              zIndex: 1,
               transform: `scale(${iconScale})`,
               transformOrigin: "center",
               display: "flex",

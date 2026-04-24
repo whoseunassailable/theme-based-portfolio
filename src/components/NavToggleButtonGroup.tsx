@@ -17,14 +17,17 @@ export const NavToggleButtonGroup = ({
   value,
 }: NavToggleButtonGroupProps) => {
   const [activeStack, setActiveStack] = useState<string | null>(null);
-  const selectedValue = value ?? activeStack;
+  const isControlled = value !== undefined;
+  const selectedValue = isControlled ? value : activeStack;
 
   return (
     <ToggleButtonGroup
       exclusive
       value={selectedValue}
       onChange={(_, v) => {
-        setActiveStack(v);
+        if (!isControlled) {
+          setActiveStack(v);
+        }
         if (v) onSelect?.(v);
       }}
       sx={{

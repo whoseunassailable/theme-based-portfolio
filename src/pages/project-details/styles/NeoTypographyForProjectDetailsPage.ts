@@ -64,7 +64,7 @@ export class NeoTypographyForProjectDetailsPage {
     fontFamily: '"IBM Plex Mono","Roboto Mono",monospace',
     fontSize: "clamp(0.88rem, 1.1vw, 0.98rem)",
     fontWeight: 400,
-    textAlign: "justify",
+    textAlign: "left",
     lineHeight: 1.55,
     color: COLORS_NEO_EXTENDED.neutral,
   };
@@ -97,10 +97,10 @@ export class NeoTypographyForProjectDetailsPage {
   // KPI VALUE (↓ 25% ↑ 15%)
   static readonly kpiValue: SxProps<Theme> = {
     fontFamily: '"IBM Plex Mono","Roboto Mono",monospace',
-    fontSize: "clamp(1.6rem, 4.5vw, 2.25rem)",
+    fontSize: "clamp(1.15rem, 2.6vw, 1.7rem)",
     fontWeight: 700,
-    letterSpacing: "0.04em",
+    letterSpacing: "0.03em",
     color: NeoTypographyForProjectDetailsPage.NEO_PRIMARY,
-    lineHeight: 1,
+    lineHeight: 1.05,
   };
 }

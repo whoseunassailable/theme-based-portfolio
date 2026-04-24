@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useState,
   useId,
   useLayoutEffect,
   useRef,
@@ -44,6 +45,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   const svgRef = useRef<SVGSVGElement | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const strokeRef = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
 
   const ACCENT = accent ?? color;
   const GLOW2 = glow2 ?? ACCENT;
@@ -93,7 +95,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     [...dyAnims, ...dxAnims].forEach((a) => a.setAttribute("dur", `${dur}s`));
 
     const disp = svg.querySelector("feDisplacementMap");
-    if (disp) disp.setAttribute("scale", String(30 * (chaos || 1)));
+    if (disp) disp.setAttribute("scale", String(16 * (chaos || 1)));
 
     const filterEl = svg.querySelector<SVGFilterElement>(
       `#${CSS.escape(filterId)}`
@@ -117,14 +119,33 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   };
 
   useEffect(() => {
+    if (!isInView) return;
     updateAnim();
-  }, [speed, chaos]);
+  }, [speed, chaos, isInView]);
   useLayoutEffect(() => {
-    if (!rootRef.current) return;
+    if (!rootRef.current || !isInView) return;
     const ro = new ResizeObserver(() => updateAnim());
     ro.observe(rootRef.current);
     updateAnim();
     return () => ro.disconnect();
+  }, [isInView]);
+
+  useEffect(() => {
+    const host = rootRef.current;
+    if (!host) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        rootMargin: "160px 0px",
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(host);
+    return () => observer.disconnect();
   }, []);
 
   const inheritRadius: React.CSSProperties = {
@@ -143,22 +164,22 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     borderWidth: thickness,
     borderStyle: "solid",
     borderColor: `rgba(82,39,255,0.6)`,
-    filter: `blur(${0.5 + thickness * 0.25}px)`,
-    opacity: 0.5,
+    filter: `blur(${0.45 + thickness * 0.22}px)`,
+    opacity: 0.42,
   };
   const glow2Style: React.CSSProperties = {
     ...inheritRadius,
     borderWidth: thickness,
     borderStyle: "solid",
     borderColor: color,
-    filter: `blur(${2 + thickness * 0.5}px)`,
-    opacity: 0.5,
+    filter: `blur(${1.6 + thickness * 0.36}px)`,
+    opacity: 0.42,
   };
   const bgGlowStyle: React.CSSProperties = {
     ...inheritRadius,
-    transform: "scale(1.08)",
-    filter: "blur(32px)",
-    opacity: 0.3,
+    transform: "scale(1.06)",
+    filter: "blur(24px)",
+    opacity: 0.24,
     zIndex: -1,
     background: `linear-gradient(-30deg, rgba(82,39,255,0.8), transparent, ${color})`,
   };
@@ -193,103 +214,105 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
         }
       `}</style>
 
-      <svg
-        ref={svgRef}
-        className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"
-        aria-hidden
-        focusable="false"
-      >
-        <defs>
-          <filter
-            id={filterId}
-            colorInterpolationFilters="sRGB"
-            x="-20%"
-            y="-20%"
-            width="140%"
-            height="140%"
-          >
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
-              result="noise1"
-              seed="1"
-            />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-              <animate
-                attributeName="dy"
-                values="700; 0"
-                dur="6s"
-                repeatCount="indefinite"
-                calcMode="linear"
+      {isInView ? (
+        <svg
+          ref={svgRef}
+          className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"
+          aria-hidden
+          focusable="false"
+        >
+          <defs>
+            <filter
+              id={filterId}
+              colorInterpolationFilters="sRGB"
+              x="-20%"
+              y="-20%"
+              width="140%"
+              height="140%"
+            >
+              <feTurbulence
+                type="turbulence"
+                baseFrequency="0.02"
+                numOctaves="7"
+                result="noise1"
+                seed="1"
               />
-            </feOffset>
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
-              result="noise2"
-              seed="1"
-            />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-              <animate
-                attributeName="dy"
-                values="0; -700"
-                dur="6s"
-                repeatCount="indefinite"
-                calcMode="linear"
+              <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+                <animate
+                  attributeName="dy"
+                  values="700; 0"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  calcMode="linear"
+                />
+              </feOffset>
+              <feTurbulence
+                type="turbulence"
+                baseFrequency="0.02"
+                numOctaves="7"
+                result="noise2"
+                seed="1"
               />
-            </feOffset>
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
-              result="noise1"
-              seed="2"
-            />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
-              <animate
-                attributeName="dx"
-                values="490; 0"
-                dur="6s"
-                repeatCount="indefinite"
-                calcMode="linear"
+              <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+                <animate
+                  attributeName="dy"
+                  values="0; -700"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  calcMode="linear"
+                />
+              </feOffset>
+              <feTurbulence
+                type="turbulence"
+                baseFrequency="0.02"
+                numOctaves="7"
+                result="noise1"
+                seed="2"
               />
-            </feOffset>
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
-              result="noise2"
-              seed="2"
-            />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
-              <animate
-                attributeName="dx"
-                values="0; -490"
-                dur="6s"
-                repeatCount="indefinite"
-                calcMode="linear"
+              <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+                <animate
+                  attributeName="dx"
+                  values="490; 0"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  calcMode="linear"
+                />
+              </feOffset>
+              <feTurbulence
+                type="turbulence"
+                baseFrequency="0.02"
+                numOctaves="7"
+                result="noise2"
+                seed="2"
               />
-            </feOffset>
-            <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-            <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-            <feBlend
-              in="part1"
-              in2="part2"
-              mode="color-dodge"
-              result="combinedNoise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="combinedNoise"
-              scale="30"
-              xChannelSelector="R"
-              yChannelSelector="B"
-            />
-          </filter>
-        </defs>
-      </svg>
+              <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+                <animate
+                  attributeName="dx"
+                  values="0; -490"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  calcMode="linear"
+                />
+              </feOffset>
+              <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+              <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+              <feBlend
+                in="part1"
+                in2="part2"
+                mode="color-dodge"
+                result="combinedNoise"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="combinedNoise"
+                scale="16"
+                xChannelSelector="R"
+                yChannelSelector="B"
+              />
+            </filter>
+          </defs>
+        </svg>
+      ) : null}
 
       {/* electric border only */}
       <div
@@ -299,11 +322,19 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
         <div
           ref={strokeRef}
           className="absolute inset-0 box-border"
-          style={strokeStyle}
+          style={{
+            ...strokeStyle,
+            borderColor: isInView ? strokeStyle.borderColor : `${ACCENT}99`,
+            filter: isInView ? strokeStyle.filter : "none",
+          }}
         />
-        <div className="absolute inset-0 box-border" style={glow1Style} />
-        <div className="absolute inset-0 box-border" style={glow2Style} />
-        <div className="absolute inset-0" style={bgGlowStyle} />
+        {isInView ? (
+          <>
+            <div className="absolute inset-0 box-border" style={glow1Style} />
+            <div className="absolute inset-0 box-border" style={glow2Style} />
+            <div className="absolute inset-0" style={bgGlowStyle} />
+          </>
+        ) : null}
       </div>
 
       <div className="relative" style={inheritRadius}>
