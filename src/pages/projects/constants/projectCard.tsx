@@ -10,6 +10,7 @@ import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 export type ProjectCard = {
   id: string;
   projectStack: string;
+  categories: string[];
   nameOfProject: string;
   shortSummary: string;
   icon: ReactNode;
@@ -21,6 +22,7 @@ export const projects: ProjectCard[] = [
   {
     id: "readiculous",
     projectStack: "Data Science",
+    categories: ["Frontend", "Backend", "Data Science"],
     nameOfProject: "Readiculous",
     shortSummary:
       "Full-stack book recommendation app; helps libraries stock relevant titles via location/genre analytics.",
@@ -30,6 +32,7 @@ export const projects: ProjectCard[] = [
   {
     id: "uniquest",
     projectStack: "Data Science",
+    categories: ["Backend", "Data Science", "Mobile Development"],
     nameOfProject: "UniQuest",
     shortSummary:
       "Admission-chance prediction using ML (e.g., XGBoost/RF) with real-time API for a Flutter frontend.",
@@ -39,6 +42,7 @@ export const projects: ProjectCard[] = [
   {
     id: "bots-on-hire",
     projectStack: "Automation",
+    categories: ["Backend"],
     nameOfProject: "Bots on Hire",
     shortSummary:
       "Python/Selenium bot that automates job applications on JobRight; reduces manual application time.",
@@ -48,6 +52,7 @@ export const projects: ProjectCard[] = [
   {
     id: "koko-fresh-agent",
     projectStack: "FinTech",
+    categories: ["Mobile Development"],
     nameOfProject: "Koko Fresh Agent / Inyange Agent",
     shortSummary:
       "Financial transaction platform: wallet top-ups, PIN/OTP, tokens, and real-time tracking for milk ATM agents.",
@@ -58,6 +63,7 @@ export const projects: ProjectCard[] = [
   {
     id: "koko-fresh-operator",
     projectStack: "Ops",
+    categories: ["Mobile Development"],
     nameOfProject: "Koko Fresh Operator / Inyange Operator",
     shortSummary:
       "ATM operations app: inventory/batch creation, dispatch with barcode + real-time tray tracking; forecasting boost.",
@@ -68,6 +74,7 @@ export const projects: ProjectCard[] = [
   {
     id: "feetback",
     projectStack: "HealthTech",
+    categories: ["Mobile Development"],
     nameOfProject: "Feetback",
     shortSummary:
       "Real-time gait biofeedback app that converts smart-insole pressure signals into adaptive audio feedback.",
@@ -77,6 +84,7 @@ export const projects: ProjectCard[] = [
   {
     id: "pittsburgh-regional-transit",
     projectStack: "Data Science",
+    categories: ["Frontend", "Backend", "Data Science"],
     nameOfProject: "Pittsburgh Regional Transit",
     shortSummary:
       "Transit analytics dashboard with route-level feedback analysis, ETL pipelines, and an optional AI assistant.",
@@ -87,6 +95,7 @@ export const projects: ProjectCard[] = [
   {
     id: "careculator",
     projectStack: "HealthTech",
+    categories: ["Frontend"],
     nameOfProject: "Careculator",
     shortSummary:
       "Healthcare cost-planning platform for comparing clinics and insurance options with recommendation support.",
@@ -97,6 +106,7 @@ export const projects: ProjectCard[] = [
   {
     id: "fullheart-mindfulness",
     projectStack: "Mobile",
+    categories: ["Mobile Development"],
     nameOfProject: "FullHeart Mindfulness",
     shortSummary:
       "Flutter + Firebase app shipped to Play/App Store; CI/CD with Codemagic to accelerate reliable releases.",

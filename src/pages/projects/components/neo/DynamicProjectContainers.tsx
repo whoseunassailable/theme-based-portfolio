@@ -8,15 +8,22 @@ import { projects } from "../../constants/projectCard";
 
 function useInfiniteAutoScroll(
   ref: React.RefObject<HTMLDivElement | null>,
-  speed: number = 40 // smaller = slower
+  speed: number = 40,
+  resetKey?: string,
+  repeatCount: number = 2,
 ) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const wrapWidth = el.scrollWidth / 2;
+    const wrapWidth = el.scrollWidth / repeatCount;
     let scrollPos = 0;
     let running = true;
+    el.scrollLeft = 0;
+
+    if (wrapWidth <= 0 || el.scrollWidth <= el.clientWidth) {
+      return;
+    }
 
     const tick = (_time: number, deltaTime: number, _frame: number) => {
       if (!running) return;
@@ -40,14 +47,33 @@ function useInfiniteAutoScroll(
       el.removeEventListener("mouseenter", pause);
       el.removeEventListener("mouseleave", resume);
     };
-  }, [ref, speed]);
+  }, [ref, speed, resetKey, repeatCount]);
 }
 
-export const DynamicProjectRowContainers = () => {
+export const DynamicProjectRowContainers = ({
+  selectedCategory,
+}: {
+  selectedCategory: string;
+}) => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const repeatedProjects = useMemo(() => [...projects, ...projects], []);
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "All") {
+      return projects;
+    }
 
-  useInfiniteAutoScroll(scrollerRef, 30); // ↓ lower = slower, e.g. 20 or 10
+    return projects.filter((project) =>
+      project.categories.includes(selectedCategory),
+    );
+  }, [selectedCategory]);
+
+  const repeatCount = filteredProjects.length > 0 ? 4 : 0;
+  const repeatedProjects = useMemo(
+    () =>
+      Array.from({ length: repeatCount }, () => filteredProjects).flat(),
+    [filteredProjects, repeatCount],
+  );
+
+  useInfiniteAutoScroll(scrollerRef, 30, selectedCategory, repeatCount);
 
   return (
     <Box

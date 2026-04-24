@@ -50,8 +50,15 @@ export const NavToggleButtonGroup = ({
             ...STACK_TYPOGRAPHY.emphasis,
           },
           "&.Mui-selected": {
-            backgroundColor: "transparent",
+            background:
+              "linear-gradient(180deg, rgba(45, 226, 230, 0.2), rgba(45, 226, 230, 0.08))",
+            boxShadow:
+              "inset 0 0 18px rgba(45, 226, 230, 0.18), 0 0 14px rgba(45, 226, 230, 0.12)",
             ...STACK_TYPOGRAPHY.active,
+          },
+          "&.Mui-selected:hover": {
+            background:
+              "linear-gradient(180deg, rgba(45, 226, 230, 0.24), rgba(45, 226, 230, 0.1))",
           },
         },
       }}
