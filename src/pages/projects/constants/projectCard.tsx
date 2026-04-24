@@ -53,7 +53,7 @@ export const projects: ProjectCard[] = [
     id: "koko-fresh-agent",
     projectStack: "FinTech",
     categories: ["Mobile Development"],
-    nameOfProject: "Koko Fresh Agent / Inyange Agent",
+    nameOfProject: "Inyange Agent",
     shortSummary:
       "Financial transaction platform: wallet top-ups, PIN/OTP, tokens, and real-time tracking for milk ATM agents.",
     icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
@@ -64,7 +64,7 @@ export const projects: ProjectCard[] = [
     id: "koko-fresh-operator",
     projectStack: "Ops",
     categories: ["Mobile Development"],
-    nameOfProject: "Koko Fresh Operator / Inyange Operator",
+    nameOfProject: "Inyange Operator",
     shortSummary:
       "ATM operations app: inventory/batch creation, dispatch with barcode + real-time tray tracking; forecasting boost.",
     icon: <AccountBalanceIcon sx={{ width: "5vw", height: "5vw" }} />,
