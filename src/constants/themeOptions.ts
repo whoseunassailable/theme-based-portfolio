@@ -10,7 +10,11 @@ export type ThemeOption = {
   inProgress?: boolean;
 };
 
-export const SELECTABLE_THEMES: ThemeName[] = ["Neo", "Cowboy Bebop"];
+export const SELECTABLE_THEMES: ThemeName[] = [
+  "Neo",
+  "Cowboy Bebop",
+  "Harry Potter",
+];
 
 export const themeOptions: ThemeOption[] = [
   {
@@ -28,8 +32,7 @@ export const themeOptions: ThemeOption[] = [
   },
   {
     value: "Harry Potter",
-    label: "Harry Potter (In Progress)",
-    inProgress: true,
+    label: "Harry Potter",
   },
 ];
 

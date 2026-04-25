@@ -6,6 +6,7 @@ import { BebopProjects } from "../../projects/variants/BebopProjects";
 import { CowboyProjectsDetail } from "../../project-details/variants/CowboyProjectsDetail";
 import { CowboyBebopContactMe } from "../../contact-me/CowboyBebopContactMe";
 import { CowboyBebopAboutMe } from "../../about-me/variants/CowboyBebopAboutMe";
+import { CowboyBebopFloatingControls } from "../components/cowboy-bebop/CowboyBebopFloatingControls";
 
 export const CowboyBebopHome = () => {
   const bebopSectionShellSx = {
@@ -44,6 +45,7 @@ export const CowboyBebopHome = () => {
       <Box id="bebop-contact-section" sx={bebopSectionShellSx}>
         <CowboyBebopContactMe />
       </Box>
+      <CowboyBebopFloatingControls />
     </Container>
   );
 };
