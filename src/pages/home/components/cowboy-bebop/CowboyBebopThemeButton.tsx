@@ -28,7 +28,7 @@ export const CowboyBebopThemeButton = () => {
         endIcon={<ArrowDropDownIcon />}
         sx={{
           minWidth: 188,
-          borderRadius: 0,
+          borderRadius: "16px",
           border: "1px solid rgba(219, 86, 62, 0.95)",
           color: "#f4e6c9",
           background:
@@ -60,7 +60,7 @@ export const CowboyBebopThemeButton = () => {
         PaperProps={{
           sx: {
             mt: 1,
-            borderRadius: 0,
+            borderRadius: "14px",
             border: "1px solid rgba(219, 86, 62, 0.9)",
             background:
               "linear-gradient(180deg, rgba(26, 12, 11, 0.98), rgba(15, 8, 8, 1))",

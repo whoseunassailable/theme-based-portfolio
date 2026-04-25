@@ -1,10 +1,13 @@
 import { Box } from "@mui/material";
+import { useState } from "react";
 import { BebopProjectsHeading } from "../components/cowboy-bebop/BebopProjectsHeading";
 import { BebopProjectsSubHeading } from "../components/cowboy-bebop/BebopProjectsSubHeading";
 import { BebopProjectsStackNavBar } from "../components/cowboy-bebop/BebopProjectsStackNavBar";
 import { BebopProjectsContainer } from "../components/cowboy-bebop/BebopProjectsContainer";
 
 export const BebopProjects = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   return (
     <Box
       mt={"10vh"}
@@ -16,8 +19,15 @@ export const BebopProjects = () => {
     >
       <BebopProjectsHeading gridName={"bebop-projects-heading"} />
       <BebopProjectsSubHeading gridName={"bebop-projects-sub-heading"} />
-      <BebopProjectsStackNavBar gridName={"bebop-projects-stack-nav-bar"} />
-      <BebopProjectsContainer gridName={"bebop-projects-container"} />
+      <BebopProjectsStackNavBar
+        gridName={"bebop-projects-stack-nav-bar"}
+        selectedCategory={selectedCategory}
+        onSelect={setSelectedCategory}
+      />
+      <BebopProjectsContainer
+        gridName={"bebop-projects-container"}
+        selectedCategory={selectedCategory}
+      />
     </Box>
   );
 };

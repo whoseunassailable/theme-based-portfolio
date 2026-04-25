@@ -19,11 +19,14 @@ type ProjectDetailsContextType = {
 
 const projectTimelineOrder = [
   "feetback",
-  "koko-fresh-operator",
-  "koko-fresh-agent",
   "pittsburgh-regional-transit",
   "careculator",
   "readiculous",
+  "fresh-agent",
+  "inyange-agent",
+  "fresh-operator",
+  "inyange-operator",
+  "bots-on-hire",
   "uniquest",
 ] as const;
 

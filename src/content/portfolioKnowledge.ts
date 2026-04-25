@@ -264,8 +264,8 @@ export const projectKnowledge: ProjectKnowledge[] = [
     ],
   },
   {
-    id: "koko-fresh-agent",
-    name: "Koko Fresh Agent / Inyange Agent",
+    id: "fresh-agent",
+    name: "Fresh Agent",
     category: "FinTech / Operations",
     sourceStatus: "repo-verified",
     repoPath:
@@ -279,7 +279,7 @@ export const projectKnowledge: ProjectKnowledge[] = [
     architecture:
       "The app is structured as a Flutter codebase with feature modules for authentication, account, customer, token, home, and top-up, using BLoC, dependency injection, Retrofit and Dio API services, QR and NFC tooling, Firebase services, and shared widgets for transactional workflows.",
     outcome:
-      "Improved operational efficiency for ATM agents by consolidating financial workflows into one platform and making the same system adaptable for Inyange milk delivery operations with minimal changes.",
+      "Improved operational efficiency for Fresh ATM agents by consolidating customer, wallet, token, and verification workflows into one secure field application.",
     metrics: [
       { label: "Transaction analysis improvement", value: "+18%" },
       { label: "Core controls", value: "Wallet top-up + OTP/PIN + tokens" },
@@ -318,8 +318,62 @@ export const projectKnowledge: ProjectKnowledge[] = [
     ],
   },
   {
-    id: "koko-fresh-operator",
-    name: "Koko Fresh Operator / Inyange Operator",
+    id: "inyange-agent",
+    name: "Inyange Agent",
+    category: "FinTech / Operations",
+    sourceStatus: "repo-verified",
+    repoPath:
+      "/Users/whoseunassailable/Documents/projects/company_projects/fresh-agent",
+    oneLiner:
+      "Inyange milk distribution agent app cloned from the Fresh transaction platform and adapted for localized customer and wallet workflows.",
+    problem:
+      "Inyange field agents still need secure, reliable transaction tooling for customer handling, balance checks, wallet top-ups, and token-driven sales without fragmented manual steps.",
+    approach:
+      "Adapt the Fresh agent transaction flow into an Inyange-specific deployment by preserving authentication, customer, wallet, verification, and token workflows while tailoring the operational context to a new product line.",
+    architecture:
+      "The deployed application follows the same Flutter, BLoC, dependency injection, Dio, Retrofit, QR, NFC, and Firebase architecture as the Fresh agent platform, but is configured and branded for Inyange operations.",
+    outcome:
+      "Delivered a reusable clone of the Fresh agent system for Inyange operations, reducing rebuild effort while preserving secure field transaction workflows.",
+    metrics: [
+      { label: "Reuse model", value: "Fresh platform clone" },
+      { label: "Core controls", value: "Wallet top-up + OTP/PIN + tokens" },
+    ],
+    flowSteps: [
+      {
+        title: "Agent Authentication",
+        detail: "Agents sign in and load role-specific account and wallet context before serving customers.",
+      },
+      {
+        title: "Customer Handling",
+        detail: "Search, create, and update customer records from a single field-operations interface.",
+      },
+      {
+        title: "Transaction Execution",
+        detail: "Top-ups, token actions, and sales flows run through OTP, PIN, and verification checkpoints.",
+      },
+      {
+        title: "Operational Visibility",
+        detail: "Agents track balances, token state, and transaction progress without switching tools.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Flutter App",
+        detail: "Feature modules for auth, home, token, customer, account, and top-up flows drive the field UI.",
+      },
+      {
+        title: "State + API Layer",
+        detail: "BLoC, dependency injection, Dio, and Retrofit coordinate transactional data and backend services.",
+      },
+      {
+        title: "Clone Deployment",
+        detail: "The same platform architecture is re-skinned and configured for Inyange agent operations.",
+      },
+    ],
+  },
+  {
+    id: "fresh-operator",
+    name: "Fresh Operator",
     category: "Operations / Supply Chain",
     sourceStatus: "repo-verified",
     repoPath:
@@ -333,7 +387,7 @@ export const projectKnowledge: ProjectKnowledge[] = [
     architecture:
       "The system is a Flutter application organized around ATM, auth, batch, dispatch, and home feature modules, with BLoC state management, Dio and Retrofit networking, barcode scanning, camera capture, NFC, MQTT, remote config, and cloud-connected asset workflows.",
     outcome:
-      "Provided an end-to-end operational control layer for milk ATM logistics, improving demand planning, visibility into dispatches, and tray verification accuracy.",
+      "Provided an end-to-end operational control layer for Fresh milk ATM logistics, improving demand planning, visibility into dispatches, and tray verification accuracy.",
     metrics: [
       { label: "ATMs managed", value: "10+" },
       { label: "Forecasting accuracy", value: "+30%" },
@@ -369,6 +423,61 @@ export const projectKnowledge: ProjectKnowledge[] = [
       {
         title: "Capture + Messaging",
         detail: "Barcode, camera, NFC, MQTT, and remote config connect physical dispatch workflows to cloud state.",
+      },
+    ],
+  },
+  {
+    id: "inyange-operator",
+    name: "Inyange Operator",
+    category: "Operations / Supply Chain",
+    sourceStatus: "repo-verified",
+    repoPath:
+      "/Users/whoseunassailable/Documents/projects/company_projects/fresh-operator",
+    oneLiner:
+      "Inyange operations console cloned from the Fresh operator platform for inventory, dispatch, and tray-level logistics control.",
+    problem:
+      "Inyange field logistics still require centralized oversight for machine inventory, dispatch readiness, tray validation, and operator visibility without building a separate operations stack from scratch.",
+    approach:
+      "Reuse the Fresh operator workflows for ATM oversight, batch planning, dispatch verification, and forecasting support, then adapt the product context for Inyange operations.",
+    architecture:
+      "The deployment keeps the same Flutter feature-module architecture, BLoC state management, Dio and Retrofit networking, barcode and camera capture, NFC, MQTT, and remote-config-backed workflows used in the Fresh operator platform.",
+    outcome:
+      "Extended the Fresh operator platform into a second operational deployment for Inyange, preserving logistics control capabilities while reducing redevelopment effort.",
+    metrics: [
+      { label: "Reuse model", value: "Fresh platform clone" },
+      { label: "Forecasting accuracy", value: "+30%" },
+      { label: "Tray identification efficiency", value: "2x" },
+    ],
+    flowSteps: [
+      {
+        title: "Machine Oversight",
+        detail: "Operators monitor ATM state, inventory context, and dispatch readiness from a central console.",
+      },
+      {
+        title: "Batch Planning",
+        detail: "Inventory batches are created, grouped, and prepared for machine delivery workflows.",
+      },
+      {
+        title: "Dispatch Validation",
+        detail: "Tray, barcode, and capture steps verify that physical inventory is mapped to the right machine flow.",
+      },
+      {
+        title: "Demand Feedback",
+        detail: "Operator data feeds demand planning and restocking decisions for better forecasting accuracy.",
+      },
+    ],
+    architectureBlocks: [
+      {
+        title: "Operator Console",
+        detail: "Flutter screens organized around ATM, batch, dispatch, auth, and home modules.",
+      },
+      {
+        title: "Workflow Services",
+        detail: "BLoC, Dio, and Retrofit power dispatch state, machine updates, and operator-side logistics actions.",
+      },
+      {
+        title: "Clone Deployment",
+        detail: "The same operator platform is configured and branded for Inyange operational workflows.",
       },
     ],
   },

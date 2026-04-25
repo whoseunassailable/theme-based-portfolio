@@ -1,15 +1,23 @@
 import { Typography } from "@mui/material";
+import { useProjectDetails } from "../../../../context/ProjectDetailsContext";
 import { bebopProjectsDetailSectionBody } from "../../../../styles/bebop-typography";
 
 export const CowboyProjectsDetailInvestigationSummary = () => {
+  const { currentProject } = useProjectDetails();
+
   return (
     <Typography
       width={"60vw"}
       mb={"2vh"}
-      sx={{ ...bebopProjectsDetailSectionBody, placeSelf: "center" }}
+      sx={{
+        ...bebopProjectsDetailSectionBody,
+        placeSelf: "center",
+        fontSize: "2.45vh",
+        lineHeight: 1.55,
+        wordSpacing: "0.12em",
+      }}
     >
-      Python features implemented such as press forming, cutting, coating steel,
-      resistance welding, and assembly into car body parts.
+      {currentProject.problem} {currentProject.approach}
     </Typography>
   );
 };

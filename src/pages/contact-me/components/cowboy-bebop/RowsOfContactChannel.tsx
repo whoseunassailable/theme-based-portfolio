@@ -1,32 +1,25 @@
 // RowsOfContactChannel.tsx
 import { Box } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import EmailIcon from "@mui/icons-material/Email";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
 import { cowboyBebopContactMeChannelsRow } from "../../../../styles/bebop-typography";
 import { CowboyBebopContactChannelItem } from "./CowboyBebopContactChannelItem";
+import { GetInTouchAttributes } from "../../constants/GetInTouchAttributes";
 
 export const RowsOfContactChannel = () => {
   return (
     <Box sx={cowboyBebopContactMeChannelsRow}>
-      <CowboyBebopContactChannelItem
-        icon={<GitHubIcon sx={{ fontSize: "2.5vw", color: "#6CF1F0" }} />}
-        label="DOCKING PORT"
-        number="01"
-      />
+      {GetInTouchAttributes.map((item, index) => {
+        const Icon = item.icon;
 
-      <CowboyBebopContactChannelItem
-        icon={<EmailIcon sx={{ fontSize: "2.5vw", color: "#6CF1F0" }} />}
-        label="DOCKING PORT"
-        number="02"
-      />
-
-      <CowboyBebopContactChannelItem
-        icon={<LinkedInIcon sx={{ fontSize: "2.5vw", color: "#6CF1F0" }} />}
-        label="PRIVATE CHANNEL"
-        number="03"
-      />
+        return (
+          <CowboyBebopContactChannelItem
+            key={item.label}
+            icon={<Icon sx={{ fontSize: "2.5vw", color: "#6CF1F0" }} />}
+            label={item.label.toUpperCase()}
+            number={String(index + 1).padStart(2, "0")}
+            href={item.href}
+          />
+        );
+      })}
     </Box>
   );
 };

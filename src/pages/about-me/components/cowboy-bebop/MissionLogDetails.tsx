@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { TimelineAttributes } from "../../../../constants/TimelineAttributes";
 import {
   cowboyBebopAboutMeMissionEntry,
   cowboyBebopAboutMeCrewReferencesTitle,
@@ -19,18 +20,22 @@ export const MissionLogDetails = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          gap: "1.25vw",
         }}
       >
-        <Typography sx={cowboyBebopAboutMeMissionEntry}>
-          2024 Data Analyst Associate Intern
-        </Typography>
-        <Typography sx={cowboyBebopAboutMeMissionEntry}>
-          2022 Software Developer
-        </Typography>
-        <Typography sx={cowboyBebopAboutMeMissionEntry}>
-          2021 Full Stack Developer Intern
-        </Typography>
+        {TimelineAttributes.map((item) => (
+          <Typography
+            key={`${item.year}-${item.title}`}
+            sx={{
+              ...cowboyBebopAboutMeMissionEntry,
+              maxWidth: "32ch",
+            }}
+          >
+            {item.year}
+            <br />
+            {item.title}
+          </Typography>
+        ))}
       </Box>
       <Box p={"2vw"} border={`1px solid #C2B096`} gridArea={"column-2"}>
         <Typography sx={cowboyBebopAboutMeCrewReferencesTitle}>

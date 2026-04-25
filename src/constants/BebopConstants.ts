@@ -2,6 +2,16 @@ export class BebopConstants {
   static MISSIONS = [
     {
       caseId: "2071-WX-001",
+      mission: "Mobile App Developer",
+      organization: "IIT - Pritzker Institute | Rush University Medical Center",
+      duration: "Feb 2026 - Present",
+      status: "Mission Active",
+      operationNotes: [
+        "Building a mobile application for a smart-insole rehabilitation system with session tracking, motion analysis, and cross-functional coordination across engineering and clinical teams.",
+      ],
+    },
+    {
+      caseId: "2071-WX-002",
       mission: "Data Analyst Associate Intern",
       organization: "Excelerate (Remote, USA | Dubai)",
       duration: "Jun 2024 – Jul 2024",
@@ -11,7 +21,7 @@ export class BebopConstants {
       ],
     },
     {
-      caseId: "2071-WX-002",
+      caseId: "2071-WX-003",
       mission: "Software Craftsperson – Flutter Developer",
       organization: "Launch Ventures (Remote)",
       duration: "Jun 2022 – May 2024",
@@ -22,7 +32,7 @@ export class BebopConstants {
       ],
     },
     {
-      caseId: "2071-WX-003",
+      caseId: "2071-WX-004",
       mission: "Full Stack Developer Intern",
       organization: "MIT-FOSS (Remote)",
       duration: "Jul 2021 – Oct 2021",

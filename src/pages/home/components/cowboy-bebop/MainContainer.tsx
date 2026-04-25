@@ -97,7 +97,7 @@ export const MainContainer = () => {
             startIcon={<Send />}
             onClick={handleTogglePlayback}
             sx={{
-              borderRadius: 0,
+              borderRadius: "16px",
               borderColor: "rgba(219, 86, 62, 0.92)",
               color: "#f4e6c9",
               fontFamily: '"IBM Plex Mono","Roboto Mono",monospace',
