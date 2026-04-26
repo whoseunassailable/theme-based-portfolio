@@ -13,6 +13,7 @@ export type ThemeOption = {
 export const SELECTABLE_THEMES: ThemeName[] = [
   "Neo",
   "Cowboy Bebop",
+  "Studio Ghibli",
   "Harry Potter",
 ];
 
@@ -27,12 +28,13 @@ export const themeOptions: ThemeOption[] = [
   },
   {
     value: "Studio Ghibli",
-    label: "Studio Ghibli (In Progress)",
+    label: "Studio Ghibli",
     inProgress: true,
   },
   {
     value: "Harry Potter",
     label: "Harry Potter",
+    inProgress: true,
   },
 ];
 

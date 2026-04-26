@@ -3,6 +3,7 @@ import { useState } from "react";
 import { EntryPage } from "../components/harry-potter/EntryPage";
 import { SpellsPage } from "../components/harry-potter/SpellsPage";
 import { NavBarHarryPotter } from "../components/harry-potter/NavBarHarryPotter";
+import { HarryPotterFloatingThemeButton } from "../components/harry-potter/HarryPotterFloatingThemeButton";
 import { HarryPotterWorkExperience } from "../../work-experience/variants/HarryPotterWorkExperience";
 import { PotterProjects } from "../../projects/variants/PotterProjects";
 import { HarryPotterProjectsDetail } from "../../project-details/variants/HarryPotterProjectsDetail";
@@ -48,6 +49,7 @@ export const HarryPotterHome = () => {
 
   return (
     <Box component="main" id="main" sx={{ backgroundColor: "#000" }}>
+      <HarryPotterFloatingThemeButton />
       <NavBarHarryPotter />
       <Box id="potter-work-section" sx={sectionShellSx}>
         <HarryPotterWorkExperience />

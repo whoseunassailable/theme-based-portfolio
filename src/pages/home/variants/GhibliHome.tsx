@@ -5,15 +5,13 @@ import { GhibliProjects } from "../../projects/variants/GhibliProjects";
 import { GhibliProjectDetails } from "../../project-details/variants/GhibliProjectDetails";
 import { GhibliAboutMe } from "../../about-me/variants/GhibliAboutMe";
 import { GhibliContactMe } from "../../contact-me/variants/GhibliContactMe";
-import { MuiSelectTheme } from "../../../components/MuiSelectTheme";
+import { GhibliThemeButton } from "../components/studio-ghibli/GhibliThemeButton";
 
 export const GhibliHome = () => {
   return (
-    <Box>
+    <Box sx={{ position: "relative" }}>
+      <GhibliThemeButton />
       <GhibliHomeBg />
-      <Box sx={{ gridArea: "theme", display: "flex" }}>
-        <MuiSelectTheme />
-      </Box>
       <GhibliWorkExperience></GhibliWorkExperience>
       <GhibliProjects></GhibliProjects>
       <GhibliProjectDetails></GhibliProjectDetails>
