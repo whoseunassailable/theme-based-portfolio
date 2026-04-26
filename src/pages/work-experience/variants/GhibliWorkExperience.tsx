@@ -21,8 +21,7 @@ export const GhibliWorkExperience = () => {
     >
       <Box
         sx={{
-          width: "100%",
-          maxWidth: 1440,
+          width: "100vw",
           minHeight: "100vh",
           position: "relative",
           backgroundImage: `url(${ghibliWork})`,

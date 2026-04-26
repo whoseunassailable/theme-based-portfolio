@@ -22,8 +22,7 @@ export const GhibliProjects = () => {
     >
       <Box
         sx={{
-          width: "100%",
-          maxWidth: 1440,
+          width: "100vw",
           aspectRatio: "12 / 9",
           position: "relative",
           backgroundImage: `url(${ghibliProjectsTheme})`,

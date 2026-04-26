@@ -34,8 +34,7 @@ export const GhibliHomeBg = () => {
     >
       <Box
         sx={{
-          width: "100%",
-          maxWidth: 1440,
+          width: "100vw",
           aspectRatio: "12 / 9",
           backgroundImage: `url(${ghibliHome})`,
           backgroundSize: "100% 100%",
