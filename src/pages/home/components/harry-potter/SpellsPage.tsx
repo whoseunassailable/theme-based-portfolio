@@ -1,11 +1,227 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
+import { useEffect, useMemo, useRef, useState } from "react";
 import spellsImage from "../../../../assets/spells-page.png";
 import {
   potterSpellsPageHint,
+  potterSpellsPagePrimaryButton,
+  potterSpellsPageSecondaryButton,
   potterSpellsPageTitle,
 } from "../../../../styles/potter-typography";
 
-export const SpellsPage = () => {
+declare global {
+  interface Window {
+    SpeechRecognition?: new () => SpeechRecognition;
+    webkitSpeechRecognition?: new () => SpeechRecognition;
+  }
+}
+
+interface SpeechRecognitionEvent extends Event {
+  results: SpeechRecognitionResultList;
+}
+
+interface SpeechRecognitionErrorEvent extends Event {
+  error: string;
+}
+
+interface SpeechRecognition extends EventTarget {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  onresult: ((event: SpeechRecognitionEvent) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEvent) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+}
+
+interface SpellsPageProps {
+  onUnlock: () => void;
+  onBack: () => void;
+  showExplicitHint: boolean;
+}
+
+export const SpellsPage = ({
+  onUnlock,
+  onBack,
+  showExplicitHint,
+}: SpellsPageProps) => {
+  const recoverableErrors = new Set(["no-speech", "aborted"]);
+  const [isListening, setIsListening] = useState(false);
+  const [typedSpell, setTypedSpell] = useState("");
+  const [statusText, setStatusText] = useState(
+    showExplicitHint
+      ? "Say “Lumos” aloud to light the corridor."
+      : "Speak the spell that brings light to the darkest places."
+  );
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const heardSpellRef = useRef(false);
+  const shouldKeepListeningRef = useRef(false);
+  const pendingRestartRef = useRef(false);
+  const retryCountRef = useRef(0);
+  const stopTimeoutRef = useRef<number | null>(null);
+  const listeningDeadlineRef = useRef<number | null>(null);
+
+  const isSupported = useMemo(
+    () => Boolean(window.SpeechRecognition || window.webkitSpeechRecognition),
+    []
+  );
+
+  useEffect(() => {
+    if (!isSupported) return;
+
+    const RecognitionCtor =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!RecognitionCtor) return;
+
+    const recognition = new RecognitionCtor();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const transcript = Array.from(event.results)
+        .map((result) => result[0]?.transcript ?? "")
+        .join(" ")
+        .trim()
+        .toLowerCase();
+
+      if (transcript.includes("lumos")) {
+        heardSpellRef.current = true;
+        shouldKeepListeningRef.current = false;
+        setStatusText("Spell recognized. The corridor is lighting up...");
+        setIsListening(false);
+        if (stopTimeoutRef.current) {
+          window.clearTimeout(stopTimeoutRef.current);
+          stopTimeoutRef.current = null;
+        }
+        recognition.stop();
+        window.setTimeout(onUnlock, 500);
+        return;
+      }
+    };
+
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      if (
+        (recoverableErrors.has(event.error) || event.error === "network") &&
+        shouldKeepListeningRef.current &&
+        retryCountRef.current < 6
+      ) {
+        pendingRestartRef.current = true;
+        setStatusText(
+          event.error === "no-speech"
+            ? "The corridor needs a clearer spell. Try again..."
+            : "Hold steady. The magic is trying to catch your voice..."
+        );
+        return;
+      }
+
+      shouldKeepListeningRef.current = false;
+      pendingRestartRef.current = false;
+      setStatusText(`The spell misfired (${event.error}). Try again or type it below.`);
+      setIsListening(false);
+      if (stopTimeoutRef.current) {
+        window.clearTimeout(stopTimeoutRef.current);
+        stopTimeoutRef.current = null;
+      }
+    };
+
+    recognition.onend = () => {
+      const stillWithinWindow =
+        typeof listeningDeadlineRef.current === "number" &&
+        Date.now() < listeningDeadlineRef.current;
+
+      if (
+        (pendingRestartRef.current ||
+          (shouldKeepListeningRef.current &&
+            !heardSpellRef.current &&
+            stillWithinWindow)) &&
+        retryCountRef.current < 6
+      ) {
+        pendingRestartRef.current = false;
+        retryCountRef.current += 1;
+        window.setTimeout(() => {
+          try {
+            setIsListening(true);
+            recognition.start();
+          } catch {
+            setStatusText("The spell slipped away. Try once more.");
+            setIsListening(false);
+            shouldKeepListeningRef.current = false;
+          }
+        }, 180);
+        return;
+      }
+
+      if (shouldKeepListeningRef.current && !heardSpellRef.current) {
+        setStatusText("The castle heard nothing. Try the spell once more.");
+      }
+
+      shouldKeepListeningRef.current = false;
+      setIsListening(false);
+      if (stopTimeoutRef.current) {
+        window.clearTimeout(stopTimeoutRef.current);
+        stopTimeoutRef.current = null;
+      }
+      listeningDeadlineRef.current = null;
+    };
+
+    recognitionRef.current = recognition;
+
+    return () => {
+      shouldKeepListeningRef.current = false;
+      pendingRestartRef.current = false;
+      if (stopTimeoutRef.current) {
+        window.clearTimeout(stopTimeoutRef.current);
+        stopTimeoutRef.current = null;
+      }
+      listeningDeadlineRef.current = null;
+      recognition.stop();
+      recognitionRef.current = null;
+    };
+  }, [isSupported, onUnlock]);
+
+  const startListening = () => {
+    if (!recognitionRef.current) return;
+    if (shouldKeepListeningRef.current) return;
+
+    heardSpellRef.current = false;
+    shouldKeepListeningRef.current = true;
+    pendingRestartRef.current = false;
+    retryCountRef.current = 0;
+    listeningDeadlineRef.current = Date.now() + 7000;
+    setStatusText(
+      showExplicitHint ? "Listening for Lumos..." : "Listening for the light spell..."
+    );
+    setIsListening(true);
+    if (stopTimeoutRef.current) {
+      window.clearTimeout(stopTimeoutRef.current);
+    }
+    stopTimeoutRef.current = window.setTimeout(() => {
+      if (!heardSpellRef.current && recognitionRef.current) {
+        shouldKeepListeningRef.current = false;
+        recognitionRef.current.stop();
+        setStatusText("The spell faded out. Try again and speak a little longer.");
+      }
+    }, 7000);
+    try {
+      recognitionRef.current.start();
+    } catch {
+      setStatusText("The spell wouldn't start. Wait a moment or type it below.");
+      setIsListening(false);
+      shouldKeepListeningRef.current = false;
+    }
+  };
+
+  const handleTypedUnlock = () => {
+    if (typedSpell.trim().toLowerCase().includes("lumos")) {
+      setStatusText("Spell recognized. The corridor is lighting up...");
+      window.setTimeout(onUnlock, 350);
+      return;
+    }
+
+    setStatusText("That wasn't the right spell. Try again.");
+  };
+
   return (
     <Box
       display={"flex"}
@@ -21,220 +237,112 @@ export const SpellsPage = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        "::before": {
+          content: '""',
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle at center, rgba(255, 239, 175, 0.12), rgba(0,0,0,0.88) 56%)",
+        },
       }}
     >
-      <Typography sx={potterSpellsPageTitle}>
-        Very well. Prove it. <br /> Speak the unlocking <br /> charm out loud!
-      </Typography>
-      <Typography sx={potterSpellsPageHint}>
-        Hint: It opens the locked doors...
-      </Typography>
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 1.2,
+          px: { xs: 3, md: 6 },
+        }}
+      >
+        <Typography sx={potterSpellsPageTitle}>
+          Very well. Prove it. <br /> Speak the spell <br /> that brings light.
+        </Typography>
+        <Typography sx={potterSpellsPageHint}>
+          {showExplicitHint
+            ? "Hint: cast Lumos."
+            : "Those who know the spell won't need the hint."}
+        </Typography>
+        <Typography
+          sx={{
+            color: "#f6e5b2",
+            textAlign: "center",
+            fontFamily: "'Cormorant Garamond', 'Times New Roman', serif",
+            fontSize: { xs: "1.05rem", md: "1.35rem" },
+            lineHeight: 1.45,
+            mb: 1,
+          }}
+        >
+          {statusText}
+        </Typography>
+        <Button
+          onClick={startListening}
+          disabled={!isSupported || isListening}
+          sx={potterSpellsPagePrimaryButton}
+        >
+          {isListening ? "Listening..." : "Cast The Spell"}
+        </Button>
+        <Box
+          sx={{
+            width: "min(460px, 88vw)",
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: 1.2,
+            alignItems: "stretch",
+            mt: 1,
+          }}
+        >
+          <TextField
+            value={typedSpell}
+            onChange={(event) => setTypedSpell(event.target.value)}
+            placeholder={showExplicitHint ? "Type Lumos" : "Type the spell"}
+            fullWidth
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                color: "#f6e5b2",
+                backgroundColor: "rgba(8, 5, 3, 0.6)",
+                borderRadius: "14px",
+                "& fieldset": {
+                  borderColor: "rgba(244, 221, 176, 0.68)",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#f4ddb0",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#f4ddb0",
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "rgba(246, 229, 178, 0.72)",
+                opacity: 1,
+              },
+            }}
+          />
+          <Button onClick={handleTypedUnlock} sx={potterSpellsPageSecondaryButton}>
+            Unlock
+          </Button>
+        </Box>
+        <Button onClick={onBack} sx={potterSpellsPageSecondaryButton}>
+          Back
+        </Button>
+        {!isSupported && (
+          <Typography
+            sx={{
+              color: "#f6e5b2",
+              textAlign: "center",
+              fontFamily: "'Cormorant Garamond', 'Times New Roman', serif",
+              fontSize: { xs: "0.95rem", md: "1.15rem" },
+              mt: 1,
+            }}
+          >
+            Voice spells are unavailable in this browser.
+          </Typography>
+        )}
+      </Box>
     </Box>
   );
 };
-
-// Gotcha—let’s do the “robot plan” version, not full code 👍
-
-// I’ll assume: **React + TypeScript + Material UI + some router (React Router / Next.js / etc.)**
-
-// ---
-
-// ## Big Picture
-
-// You need 3 things:
-
-// 1. **A voice listener** that hears the word *“alohomora”*
-// 2. **A command handler** that maps that word → “go to next page”
-// 3. **A UI trigger** (e.g., a MUI button) that starts listening
-
-// ---
-
-// ## Step-by-step “robo” plan
-
-// ### 1. Decide what “next page” means in your app
-
-// * If you use **React Router**: “next page” = `navigate("/some-route")`
-// * If you use **Next.js**: “next page” = `router.push("/some-route")`
-// * If you use a **wizard-like portfolio**: “next page” = increment `currentStep` state
-
-// 🧠 **Robot note:** Before coding voice stuff, write a normal function:
-
-// ```ts
-// function goToNextPage() {
-//   // your routing or step logic
-// }
-// ```
-
-// Everything else just calls this function.
-
-// ---
-
-// ### 2. Create a **speech recognition service** (Web Speech API wrapper)
-
-// * In TypeScript, define a small wrapper around `window.SpeechRecognition || window.webkitSpeechRecognition`
-// * Responsibilities of this wrapper:
-
-//   * Initialize recognition instance
-//   * Start listening
-//   * Stop listening
-//   * Emit recognized text to a callback
-
-// 🧠 **Robot steps for service:**
-
-// 1. Check if browser supports SpeechRecognition
-// 2. If not, set a flag like `isSupported = false`
-// 3. If yes:
-
-//    * Create `recognition` instance
-//    * Set options (language = `"en-US"`, maybe `continuous = true`)
-//    * Attach `onresult` handler:
-
-//      * Extract `transcript`
-//      * Normalize (trim, lowercase)
-//      * Call `onText(transcript)` callback
-
-// You can implement this as:
-
-// * A **plain class** (`VoiceRecognitionService`)
-// * Or just a **function** that creates and returns the instance + handlers
-
-// ---
-
-// ### 3. Wrap that service in a **React hook**: `useVoiceCommand`
-
-// Hook contract (conceptual):
-
-// ```ts
-// type VoiceCommandOptions = {
-//   onCommand: (command: string) => void;       // called with recognized text
-// };
-
-// function useVoiceCommand(options: VoiceCommandOptions) {
-//   // returns:
-//   // - startListening(): void
-//   // - stopListening(): void
-//   // - listening: boolean
-//   // - supported: boolean
-// }
-// ```
-
-// 🧠 **Robot steps inside the hook:**
-
-// 1. On first render:
-
-//    * Detect SpeechRecognition support
-//    * If supported, create recognition instance and save it in `useRef`
-//    * Configure `onresult` event:
-
-//      * Get transcript
-//      * Pass to `options.onCommand(transcript)`
-// 2. Track a `listening` state with `useState(false)`
-// 3. `startListening`:
-
-//    * If supported and not already listening:
-
-//      * call `recognition.start()`
-//      * set `listening = true`
-// 4. `stopListening`:
-
-//    * call `recognition.stop()`
-//    * set `listening = false`
-// 5. On component unmount:
-
-//    * stop recognition
-//    * clean up listeners
-
-// ---
-
-// ### 4. Interpret the transcript as **spells/commands**
-
-// In the component that uses the hook:
-
-// 1. Implement `handleVoiceCommand(transcript: string)`:
-
-//    * Normalize transcript (lowercase, trim)
-
-//    * Check if transcript contains magic word:
-
-//      ```ts
-//      if (transcript.includes("alohomora")) {
-//        goToNextPage();
-//      }
-//      ```
-
-//    * You can also map multiple spells to multiple actions later:
-
-//      ```ts
-//      const commandMap = [
-//        { word: "alohomora", action: goToNextPage },
-//        { word: "lumos", action: turnOnDarkMode },
-//        // etc.
-//      ];
-//      ```
-
-// 2. Pass `handleVoiceCommand` into `useVoiceCommand({ onCommand: handleVoiceCommand })`
-
-// ---
-
-// ### 5. Connect to a **Material UI button**
-
-// In your page/component:
-
-// 1. Use the hook:
-
-//    ```ts
-//    const { startListening, stopListening, listening, supported } =
-//      useVoiceCommand({ onCommand: handleVoiceCommand });
-//    ```
-
-// 2. Create a MUI `<Button>`:
-
-//    * `onClick` → `startListening`
-//    * Label changes based on `listening`:
-
-//      * If not listening: “Cast Alohomora 🔊”
-//      * If listening: “Listening… 🎧”
-
-// 3. Optionally show a warning if not supported:
-
-//    * e.g., MUI `<Alert severity="warning">Voice commands not supported…</Alert>`
-
-// 🧠 **Robot logic:**
-
-// * IF `!supported` → show a fallback message, disable button
-// * ELSE:
-
-//   * Button enabled
-//   * When clicked, call `startListening()`
-//   * When done (or after a spell is recognized) you can auto-call `stopListening()`
-
-// ---
-
-// ### 6. Tie it all together
-
-// **Control flow, from user perspective:**
-
-// 1. User clicks **“Cast Alohomora”** button
-// 2. Button’s `onClick` → `startListening()`
-// 3. Browser asks for mic permission (first time only)
-// 4. User says: **“alohomora”**
-// 5. SpeechRecognition fires `onresult` → transcript `"alohomora"`
-// 6. Hook calls `onCommand("alohomora")`
-// 7. `handleVoiceCommand` sees `"alohomora"` → calls `goToNextPage()`
-// 8. Router/step logic navigates to next portfolio section
-
-// ---
-
-// ### 7. Optional extras you can think about
-
-// * **Timeout**: stop listening after X seconds if nothing is heard
-// * **Feedback**: use MUI Snackbar to show “Spell recognized: Alohomora!”
-// * **Accessibility**: also offer a normal “Next” button for non-voice users
-// * **Config**: store the magic word in a constant or config file
-
-// ---
-
-// If you want, next step we can:
-
-// * Turn this robot plan into a concrete `useVoiceCommand` hook skeleton in TS
-// * Or design the spell → action mapping system to be more extensible (for more spells).

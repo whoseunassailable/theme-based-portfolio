@@ -1,17 +1,7 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import backgroundWorkExperience from "../../../assets/work-without-text.png";
-import {
-  potterWorkExperienceBulletItem,
-  potterWorkExperienceCompanyTitle,
-  potterWorkExperienceDateText,
-  potterWorkExperienceRoleSubtitle,
-  potterWorkExperienceTitle,
-} from "../../../styles/potter-typography";
+import { Box } from "@mui/material";
+import harryWorkDesign from "../../../assets/harry_work_design.png";
 
-import { HarryPotterConstants } from "../../../constants/HarryPotterConstants";
-
-export const HarryPotterWorkExperience: React.FC = () => {
+export const HarryPotterWorkExperience = () => {
   return (
     <Box
       sx={{
@@ -21,96 +11,26 @@ export const HarryPotterWorkExperience: React.FC = () => {
         backgroundColor: "#000",
       }}
     >
-      {/* Fixed “poster” scene */}
       <Box
         sx={{
-          width: "100%",
-          maxWidth: 1440,
-          aspectRatio: "12 / 9",
-          position: "relative",
-          backgroundImage: `url(${backgroundWorkExperience})`,
-          backgroundSize: "100% 100%",
-          backgroundRepeat: "no-repeat",
+          width: "min(100vw, 1448px)",
+          aspectRatio: "1448 / 1086",
           overflow: "hidden",
         }}
       >
-        {/* Title */}
-        <Typography
-          sx={{
-            ...potterWorkExperienceTitle,
-            position: "absolute",
-            top: "6%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            textAlign: "center",
-          }}
-        >
-          Work Experience
-        </Typography>
-
-        {/* 3 scroll columns */}
         <Box
+          component="img"
+          src={harryWorkDesign}
+          alt="Harry Potter work experience design"
           sx={{
-            position: "absolute",
-            left: "50%",
-            top: "57%",
-            transform: "translateX(-50%)",
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)", // always 3 columns
-            width: "85%",
+            width: "100%",
+            height: "100%",
+            display: "block",
+            objectFit: "cover",
+            userSelect: "none",
+            WebkitUserDrag: "none",
           }}
-        >
-          {HarryPotterConstants.WORK_EXPERIENCE.map((exp) => (
-            <Box key={exp.id} sx={{ px: 3 }}>
-              <Typography
-                sx={{
-                  ...potterWorkExperienceCompanyTitle,
-                  textAlign: "center",
-                }}
-              >
-                {exp.company}
-              </Typography>
-
-              <Typography
-                sx={{
-                  ...potterWorkExperienceRoleSubtitle,
-                  fontSize: "1.5vw",
-                  mt: 1,
-                  textAlign: "center",
-                }}
-              >
-                {exp.role}
-              </Typography>
-
-              <Typography
-                sx={{
-                  ...potterWorkExperienceDateText,
-                  fontSize: "14px",
-                  mt: 1,
-                  textAlign: "center",
-                }}
-              >
-                {exp.dates}
-              </Typography>
-
-              <Typography
-                sx={{
-                  ...potterWorkExperienceBulletItem,
-                  fontSize: "14px",
-                  mt: 2,
-                  p: exp.id == 3 ? "2vw" : 0,
-                }}
-              >
-                {exp.bullets.map((line, index) => (
-                  <React.Fragment key={index}>
-                    {"\u2022"} {line}
-                    {index !== exp.bullets.length - 1 && <br />}
-                  </React.Fragment>
-                ))}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
+        />
       </Box>
     </Box>
   );

@@ -1,6 +1,16 @@
 export class HarryPotterConstants {
   static WORK_EXPERIENCE = [
     {
+      id: 0,
+      company: "Rush University Medical Center",
+      role: "App Developer",
+      dates: "Feb 2026 - Present",
+      bullets: [
+        "Building a smart-insole rehabilitation app with session analysis and motion-tracking workflows.",
+        "Coordinating engineering and clinical research needs for biofeedback-driven patient experiences.",
+      ],
+    },
+    {
       id: 1,
       company: "Excelerate",
       role: "Data Analyst Associate Intern",

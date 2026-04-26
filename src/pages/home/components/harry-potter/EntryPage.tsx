@@ -7,7 +7,15 @@ import {
 } from "../../../../styles/potter-typography";
 import mainEntryPage from "../../../../assets/main-entry-page-background.png";
 
-export const EntryPage = () => {
+interface EntryPageProps {
+  onWizardSelect: () => void;
+  onMuggleSelect: () => void;
+}
+
+export const EntryPage = ({
+  onWizardSelect,
+  onMuggleSelect,
+}: EntryPageProps) => {
   return (
     <Box
       display={"flex"}
@@ -33,8 +41,12 @@ export const EntryPage = () => {
         how much do you know about the <br />
         Wizarding World of Harry Potter?
       </Typography>
-      <Button sx={potterHomePrimaryButton}>I'm a True Wizard</Button>
-      <Button sx={potterHomeSecondaryButton}>Not much, I'm a Muggle</Button>
+      <Button sx={potterHomePrimaryButton} onClick={onWizardSelect}>
+        I&apos;m a True Wizard
+      </Button>
+      <Button sx={potterHomeSecondaryButton} onClick={onMuggleSelect}>
+        Not much, I&apos;m a Muggle
+      </Button>
     </Box>
   );
 };
