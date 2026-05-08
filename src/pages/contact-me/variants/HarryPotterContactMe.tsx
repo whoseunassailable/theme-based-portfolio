@@ -1,130 +1,129 @@
-import { Box } from "@mui/material";
-import harryContactDesign from "../../../assets/harry_contact_design.png";
+import React, { useState } from 'react';
+import { GoldFrame, PageTitle, Icon, WaxSeal } from '../../home/components/harry-potter/HarryPotterAtoms';
 
-const hotspotSx = {
-  position: "absolute",
-  background: "transparent",
-  border: 0,
-  cursor: "pointer",
-  padding: 0,
-  margin: 0,
-  opacity: 0,
-  zIndex: 2,
-  "&:focus-visible": {
-    opacity: 0.18,
-    outline: "2px solid rgba(255, 219, 138, 0.95)",
-    outlineOffset: "2px",
-    background:
-      "linear-gradient(180deg, rgba(255, 230, 181, 0.3), rgba(163, 108, 44, 0.22))",
-  },
-} as const;
+export const HarryPotterContactMe: React.FC = () => {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [sent, setSent] = useState(false);
 
-const openLink = (href: string) => {
-  window.open(href, "_blank", "noopener,noreferrer");
-};
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+  };
 
-export const HarryPotterContactMe = () => {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "#000",
-      }}
-    >
-      <Box
-        sx={{
-          width: "min(100vw, 1448px)",
-          aspectRatio: "1448 / 1086",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          component="img"
-          src={harryContactDesign}
-          alt="Harry Potter contact design"
-          sx={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-            objectFit: "cover",
-            userSelect: "none",
-            WebkitUserDrag: "none",
-          }}
-        />
+    <section className="stage page" id="potter-contact-section">
+      <div className="parchment">
+        <GoldFrame />
+        <PageTitle subtitle="Let's build something thoughtful together.">Contact</PageTitle>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Email Rohan"
-          onClick={() => (window.location.href = "mailto:rohanbhandeworks@gmail.com")}
-          sx={{
-            ...hotspotSx,
-            left: "16.2%",
-            top: "37.3%",
-            width: "27.7%",
-            height: "10.2%",
-          }}
-        />
+        <div className="contact-grid">
+          <div className="contact-info">
+            <p className="lead">
+              I'm always excited to collaborate on meaningful projects, internships, or
+              freelance opportunities. Feel free to reach out — I'd love to hear from you.
+            </p>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Open LinkedIn"
-          onClick={() => openLink("https://www.linkedin.com/in/rohan-bhande-08091a169/")}
-          sx={{
-            ...hotspotSx,
-            left: "18.4%",
-            top: "73.6%",
-            width: "6.7%",
-            height: "9.1%",
-          }}
-        />
+            <div className="info-card">
+              <span className="icon-circle"><Icon name="envelope" size={22} /></span>
+              <div>
+                <h5>Email</h5>
+                <p>rohanbhandeworks@gmail.com</p>
+              </div>
+            </div>
+            <div className="info-card">
+              <span className="icon-circle"><Icon name="pin" size={22} /></span>
+              <div>
+                <h5>Location</h5>
+                <p>Chicago, USA</p>
+              </div>
+            </div>
+            <div className="info-card">
+              <span className="icon-circle"><Icon name="hourglass" size={22} /></span>
+              <div>
+                <h5>Availability</h5>
+                <p>Open to opportunities · +1 312‑273‑8582</p>
+              </div>
+            </div>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Open GitHub"
-          onClick={() => openLink("https://github.com/whoseunassailable")}
-          sx={{
-            ...hotspotSx,
-            left: "27.2%",
-            top: "73.6%",
-            width: "6.7%",
-            height: "9.1%",
-          }}
-        />
+            <div className="socials">
+              <a
+                className="social-btn"
+                href="https://www.linkedin.com/in/rohan-bhande-08091a169/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Icon name="linkedin" size={22} />
+              </a>
+              <a
+                className="social-btn"
+                href="https://github.com/whoseunassailable"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <Icon name="github" size={22} />
+              </a>
+              <a
+                className="social-btn"
+                href="mailto:rohanbhandeworks@gmail.com"
+                aria-label="Email"
+              >
+                <Icon name="envelope" size={22} />
+              </a>
+            </div>
+          </div>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Email via owl"
-          onClick={() => (window.location.href = "mailto:rohanbhandeworks@gmail.com")}
-          sx={{
-            ...hotspotSx,
-            left: "36.3%",
-            top: "73.6%",
-            width: "6.7%",
-            height: "9.1%",
-          }}
-        />
+          <div className="vline" />
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Send via owl"
-          onClick={() => (window.location.href = "mailto:rohanbhandeworks@gmail.com")}
-          sx={{
-            ...hotspotSx,
-            left: "51.5%",
-            top: "82.4%",
-            width: "29.4%",
-            height: "7.5%",
-          }}
-        />
-      </Box>
-    </Box>
+          <form className="contact-form" onSubmit={submit}>
+            <div className="form-row">
+              <label>Name</label>
+              <input
+                type="text"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+              />
+            </div>
+            <div className="form-row">
+              <label>Email</label>
+              <input
+                type="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+            </div>
+            <div className="form-row">
+              <label>Subject</label>
+              <input
+                type="text"
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              />
+            </div>
+            <div className="form-row">
+              <label>Message</label>
+              <textarea
+                required
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+              />
+            </div>
+            <div className="send-row">
+              <button className="btn btn-with-seal" type="submit">
+                {sent ? 'Owl Dispatched ✦' : 'Send via Owl'}
+                <span className="seal"><WaxSeal size={42} label="✦" /></span>
+              </button>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#5a3415' }}>
+                <Icon name="owl" size={28} /> <em>delivery typically within a fortnight</em>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };

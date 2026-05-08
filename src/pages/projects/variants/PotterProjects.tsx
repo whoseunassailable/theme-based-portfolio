@@ -1,145 +1,144 @@
-import { Box } from "@mui/material";
-import harryProjectsDesign from "../../../assets/harry_projects_design.png";
-import { useProjectDetails } from "../../../context/ProjectDetailsContext";
+import React, { useState, useMemo, useEffect } from 'react';
+import { GoldFrame, PageTitle, Icon, WaxSeal } from '../../home/components/harry-potter/HarryPotterAtoms';
+import { HarryPotterConstants } from '../../../constants/HarryPotterConstants';
+import type { HarryPotterProject } from '../../../constants/HarryPotterConstants';
 
-const hotspotSx = {
-  position: "absolute",
-  background: "transparent",
-  border: 0,
-  cursor: "pointer",
-  padding: 0,
-  margin: 0,
-  opacity: 0,
-  zIndex: 2,
-  "&:focus-visible": {
-    opacity: 0.18,
-    outline: "2px solid rgba(255, 219, 138, 0.95)",
-    outlineOffset: "2px",
-    background:
-      "linear-gradient(180deg, rgba(255, 230, 181, 0.3), rgba(163, 108, 44, 0.22))",
-  },
-} as const;
-
-const displayedProjectIds = [
-  "readiculous",
-  "feetback",
-  "fresh-agent",
-  "pittsburgh-regional-transit",
-  "bots-on-hire",
-  "uniquest",
+const TABS = [
+  { id: 'all',    label: 'All Spells',       icon: '✦' },
+  { id: 'mobile', label: 'Mobile Charms',    icon: '⚡' },
+  { id: 'data',   label: 'Data Divinations', icon: '◯' },
+  { id: 'web',    label: 'Web Enchantments', icon: '❋' },
 ] as const;
 
-const cardHotspots = [
-  { left: "16.1%", top: "27.6%" },
-  { left: "39.1%", top: "27.6%" },
-  { left: "62.2%", top: "27.6%" },
-  { left: "16.1%", top: "56.3%" },
-  { left: "39.1%", top: "56.3%" },
-  { left: "62.2%", top: "56.3%" },
-] as const;
+type FilterId = typeof TABS[number]['id'];
 
-export const PotterProjects = () => {
-  const { selectProject } = useProjectDetails();
+/* ===================== Project Modal ===================== */
+interface ProjectModalProps {
+  project: HarryPotterProject;
+  onClose: () => void;
+}
 
-  const openProjectDetail = (projectId: string) => {
-    selectProject(projectId);
-    document
-      .getElementById("potter-project-details-section")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "#000",
-      }}
-    >
-      <Box
-        sx={{
-          width: "min(100vw, 1448px)",
-          aspectRatio: "1448 / 1086",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          component="img"
-          src={harryProjectsDesign}
-          alt="Harry Potter projects design"
-          sx={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-            objectFit: "cover",
-            userSelect: "none",
-            WebkitUserDrag: "none",
-          }}
-        />
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="parchment modal" onClick={(e) => e.stopPropagation()}>
+        <GoldFrame />
+        <button className="modal-close" onClick={onClose} aria-label="Close">×</button>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Flutter Charms"
-          sx={{
-            ...hotspotSx,
-            top: "16.7%",
-            left: "32.8%",
-            width: "16.5%",
-            height: "5.6%",
-          }}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 12 }}>
+          <div className="project-icon" style={{ width: 64, height: 64, margin: 0 }}>
+            <Icon name={project.icon} size={32} />
+          </div>
+          <div>
+            <h2>{project.title}</h2>
+            <p className="subtitle">{project.role}</p>
+            <p className="meta-line">{project.period}</p>
+          </div>
+        </div>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Data Divinations"
-          sx={{
-            ...hotspotSx,
-            top: "16.7%",
-            left: "50.3%",
-            width: "17.5%",
-            height: "5.6%",
-          }}
-        />
+        <p style={{ fontSize: 18, color: '#3a2510', margin: '10px 0 6px' }}>
+          {project.summary}
+        </p>
 
-        {cardHotspots.map((hotspot, index) => (
-          <Box
-            key={`${displayedProjectIds[index]}-card`}
-            component="button"
-            type="button"
-            aria-label={`Open ${displayedProjectIds[index]} case file`}
-            onClick={() => openProjectDetail(displayedProjectIds[index])}
-            sx={{
-              ...hotspotSx,
-              left: hotspot.left,
-              top: hotspot.top,
-              width: "20.4%",
-              height: "22.7%",
-            }}
-          />
-        ))}
+        <h4>The Incantation</h4>
+        <ul className="bullets">
+          {project.bullets.map((b, i) => <li key={i}>{b}</li>)}
+        </ul>
 
-        <Box
-          component="button"
-          type="button"
-          aria-label="Open the full grimoire"
-          onClick={() =>
-            document
-              .getElementById("potter-project-details-section")
-              ?.scrollIntoView({ behavior: "smooth", block: "start" })
-          }
-          sx={{
-            ...hotspotSx,
-            left: "34.8%",
-            top: "89.9%",
-            width: "32.1%",
-            height: "7.5%",
-          }}
-        />
-      </Box>
-    </Box>
+        <h4>Tools of the Trade</h4>
+        <div className="tech-row">
+          {project.tech.map((t) => <span className="chip" key={t}>{t}</span>)}
+        </div>
+
+        <div className="modal-footer">
+          <button className="btn" onClick={onClose}>
+            Close Tome
+            <span className="seal"><WaxSeal size={42} label="✦" /></span>
+          </button>
+          <a
+            className="link-pill"
+            href="https://github.com/whoseunassailable"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="github" size={16} /> Source
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ===================== Projects Section ===================== */
+export const PotterProjects: React.FC = () => {
+  const projects = HarryPotterConstants.PROJECTS;
+  const [filter, setFilter] = useState<FilterId>('all');
+  const [openId, setOpenId] = useState<string | null>(null);
+
+  const visible = useMemo(
+    () => filter === 'all' ? projects : projects.filter((p) => p.category === filter),
+    [filter, projects]
+  );
+
+  const openProject = projects.find((p) => p.id === openId) ?? null;
+
+  return (
+    <section className="stage page" id="potter-projects-section">
+      <div className="parchment">
+        <GoldFrame />
+        <PageTitle subtitle="A collection of spells I've cast in code — from Flutter charms to data divinations.">
+          Grimoire of Projects
+        </PageTitle>
+
+        <div className="tabs">
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              className={`tab ${filter === t.id ? 'active' : ''}`}
+              onClick={() => setFilter(t.id)}
+            >
+              <span className="glyph">{t.icon}</span> {t.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="projects-grid">
+          {visible.map((p) => (
+            <div
+              className="project-card"
+              key={p.id}
+              onClick={() => setOpenId(p.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') setOpenId(p.id); }}
+            >
+              <div className="project-icon">
+                <Icon name={p.icon} size={32} />
+              </div>
+              <h4>{p.title}</h4>
+              <p className="summary">{p.summary}</p>
+              <div className="tech-row">
+                {p.tech.slice(0, 3).map((t) => <span className="chip" key={t}>{t}</span>)}
+              </div>
+              <div className="project-cta">View Spell ✦</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {openProject && (
+        <ProjectModal project={openProject} onClose={() => setOpenId(null)} />
+      )}
+    </section>
   );
 };

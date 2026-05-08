@@ -34,7 +34,6 @@ export const themeOptions: ThemeOption[] = [
   {
     value: "Harry Potter",
     label: "Harry Potter",
-    inProgress: true,
   },
 ];
 

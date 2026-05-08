@@ -1,37 +1,39 @@
-import { Box } from "@mui/material";
-import harryWorkDesign from "../../../assets/harry_work_design.png";
+import React from 'react';
+import { GoldFrame, PageTitle, Icon } from '../../home/components/harry-potter/HarryPotterAtoms';
+import { HarryPotterConstants } from '../../../constants/HarryPotterConstants';
 
-export const HarryPotterWorkExperience = () => {
+export const HarryPotterWorkExperience: React.FC = () => {
+  const experience = HarryPotterConstants.WORK_EXPERIENCE;
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "#000",
-      }}
-    >
-      <Box
-        sx={{
-          width: "min(100vw, 1448px)",
-          aspectRatio: "1448 / 1086",
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          component="img"
-          src={harryWorkDesign}
-          alt="Harry Potter work experience design"
-          sx={{
-            width: "100%",
-            height: "100%",
-            display: "block",
-            objectFit: "cover",
-            userSelect: "none",
-            WebkitUserDrag: "none",
-          }}
-        />
-      </Box>
-    </Box>
+    <section className="stage page" id="potter-work-section">
+      <div className="parchment">
+        <GoldFrame />
+        <PageTitle subtitle="Places where I turned spells into software.">
+          Work Experience
+        </PageTitle>
+
+        <div className="exp-grid">
+          {experience.map((e) => (
+            <div className="exp-scroll" key={e.company}>
+              <div className="exp-medallion">
+                <Icon name={e.medallion} size={40} />
+              </div>
+              <h3>{e.company}</h3>
+              <p className="role">{e.role}</p>
+              <p className="date">{e.dates} · {e.where}</p>
+              <hr />
+              <ul className="exp-bullets">
+                {e.bullets.map((b, i) => <li key={i}>{b}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="exp-foot">
+          ✦ &nbsp; From prototypes to production — always learning, always building. &nbsp; ✦
+        </div>
+      </div>
+    </section>
   );
 };
